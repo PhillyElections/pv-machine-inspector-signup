@@ -31,6 +31,10 @@ class Pv_Machine_Inspector_Signup_Deactivator {
 	 */
 	public static function deactivate() {
 
+		require_once WP_PLUGIN_DIR . plugin_basename( __FILE__ ) . '/db/setup.php';
+
+		Pv_Machine_Inspector_Signup_Db::delete();
+
 	}
 
 }

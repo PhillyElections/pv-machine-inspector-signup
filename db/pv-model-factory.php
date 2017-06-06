@@ -10,17 +10,15 @@
  * @author     matthew murphy <matthew.e.murphy@phila.gov>
  */
 
-require_once WP_PLUGIN_DIR . 'pv-elections-core-ui/db/pv-model.php';
+require_once plugin_dir_path( __FILE__ ) . 'pv-model.php';
 
 if ( class_exists( 'Pv_Model' )) {
 	d( 'class exists Pv_Model' );
 	class Pv_Model_Factory extends Pv_Model {
-		public function __construct($table) {
+		public function __construct($table, $fields) {
 			self::$tablename = $table;
+			self::$fields = $fields;
 		}
 
 	}	
-} else {
-	d( WP_PLUGIN_DIR . 'pv-elections-core-ui/db/pv-model.php' );
-	die('no shared model available');
-}
+} 

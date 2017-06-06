@@ -12,14 +12,6 @@
  * @subpackage Pv_Machine_Inspector_Signup/admin/partials
  */
 
-<<<<<<< HEAD
-=======
-// Grab Post, do stuff.
-$get = (object)$_GET;
-$post = (object)$_POST;
-d($post, $get);
-
->>>>>>> parent of 83b3162... eeenh, let's use request
 // * Grab option values if already set
 $options = get_option($this->plugin_name);
    

@@ -70,9 +70,6 @@ class Pv_Machine_Inspector_Signup_Admin {
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
 
-		if ( isset( $_REQUEST['action'] ) || in_array( $_REQUEST['action'], $this->actions ) ) {
-			$this->process_request( );
-		}
 	}
 
 	/**
@@ -149,45 +146,16 @@ class Pv_Machine_Inspector_Signup_Admin {
         include_once( 'partials/pv-machine-inspector-signup-admin-display.php' );
     }
 
-    /**
-     * Render the settings page for this plugin.
-     *
-     * @since    1.0.0
-     */
-    private function process_request( )
-    {
-        switch ( $_REQUEST['action'] ) {
-		    case 'save-new':
-		        $run = 'action_save_new';
-		    break;
-		    case 'save-settings':
-		        $run = 'action_save_settings';
-		    break;
-		    case 'update':
-		        $run = 'action_update';
-		    break;
-		    default: // list
-		        $run = false;
-		    break;
-		}
-
-		if ( !$run ) {
-			$models = $this->get_models('pv_mi_signups');
-		}
-
-		return $this->$run($models['pv_mi_signups']);
-    }
-
-	private function action_save_new( $model ) {
-
+	private function pvmi_add( ) {
+		dd('pvmi_add');
 	}
 
-	private function action_save_setting( $model ) {
-
+	private function pvmi_config( ) {
+		dd('pvmi_config');
 	}
 
-	private function update( $model ) {
-
+	private function pvmi_update( ) {
+		dd('pvmi_update');
 	}
 
 	public function get_models( $tablename ) {
