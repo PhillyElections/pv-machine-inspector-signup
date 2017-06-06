@@ -31,6 +31,9 @@ class Pv_Machine_Inspector_Signup_Activator {
 	 */
 	public static function activate() {
 
-	}
+		require_once WP_PLUGIN_DIR . plugin_basename( __FILE__ ) . '/db/setup.php';
 
+		Pv_Machine_Inspector_Signup_Db::create();
+
+	}
 }
