@@ -69,7 +69,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
-
+d($_REQUEST);
 		if ( isset( $_REQUEST['action'] ) || in_array( $_REQUEST['action'], $this->actions ) ) {
 			$this->process_request( );
 		}
