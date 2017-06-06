@@ -159,7 +159,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 	}
 
 	public function get_models( $tablename ) {
-		require_once WP_PLUGIN_DIR . plugin_basename( __FILE__ ) . '/db/pv-model-factory.php';
+		require_once dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/db/pv-model-factory.php';
 
 	}
 }
