@@ -70,7 +70,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
 
-		if ( $_REQUEST['action'] || in_array( $_REQUEST['action'], $this->actions ) ) {
+		if ( isset( $_REQUEST['action'] ) || in_array( $_REQUEST['action'], $this->actions ) ) {
 			$this->process_request( );
 		}
 	}
@@ -192,6 +192,6 @@ class Pv_Machine_Inspector_Signup_Admin {
 
 	public function get_models( $tablename ) {
 		require_once WP_PLUGIN_DIR . plugin_basename( __FILE__ ) . '/db/pv-model-factory.php';
-		
+
 	}
 }
