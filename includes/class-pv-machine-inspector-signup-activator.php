@@ -31,7 +31,7 @@ class Pv_Machine_Inspector_Signup_Activator {
 	 */
 	public static function activate() {
 
-		require_once dirname( dirname( plugin_basename( __FILE__ ) ) ) . '/db/setup.php';
+		require_once dirname( dirname( __FILE__ ) ) . '/db/setup.php';
 
 		Pv_Machine_Inspector_Signup_Db::create();
 
