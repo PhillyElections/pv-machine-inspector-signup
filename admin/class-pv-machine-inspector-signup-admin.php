@@ -110,36 +110,36 @@ class Pv_Machine_Inspector_Signup_Admin {
 	}
 
 
-    /**
-     * Register the administration menu for this plugin into the WordPress Dashboard menu.
-     *
-     * @since    1.0.0
-     */
-    public function add_plugin_admin_child_menu()
-    {
+	/**
+	 * Register the administration menu for this plugin into the WordPress Dashboard menu.
+	 *
+	 * @since    1.0.0
+	 */
+	public function add_plugin_admin_child_menu()
+	{
 
-        /*
-         * Add a settings page for this plugin to the Settings menu.
-         *
-         * NOTE:  Alternative menu locations are available via WordPress administration menu functions.
-         *
-         *        Administration Menus: http://codex.wordpress.org/Administration_Menus
-         *
-         */
-        add_menu_page(__('Phillyvotes', $this->plugin_name),'Phillyvotes','manage_options','phillyvotes', array($this, 'display_candidates_admin_page'));
-        add_submenu_page('phillyvotes',__('Machine Inspector Signup', $this->plugin_name), 'Machine Inspectors', 'manage_options', $this->plugin_name, array($this, 'display_plugin_manage_display_page')
-        );
-    }
+		/*
+		 * Add a settings page for this plugin to the Settings menu.
+		 *
+		 * NOTE:  Alternative menu locations are available via WordPress administration menu functions.
+		 *
+		 *        Administration Menus: http://codex.wordpress.org/Administration_Menus
+		 *
+		 */
+		add_menu_page(__('Phillyvotes', $this->plugin_name),'Phillyvotes','manage_options','phillyvotes', array($this, 'display_candidates_admin_page'));
+		add_submenu_page('phillyvotes',__('Machine Inspector Signup', $this->plugin_name), 'Machine Inspectors', 'manage_options', $this->plugin_name, array($this, 'display_plugin_manage_display_page')
+		);
+	}
 
-    /**
-     * Render the settings page for this plugin.
-     *
-     * @since    1.0.0
-     */
-    public function display_plugin_manage_display_page()
-    {
-        include_once('partials/pv-machine-inspector-signup-admin-display.php');
-    }
+	/**
+	 * Render the settings page for this plugin.
+	 *
+	 * @since    1.0.0
+	 */
+	public function display_plugin_manage_display_page()
+	{
+		include_once('partials/pv-machine-inspector-signup-admin-display.php');
+	}
 
 
 	static public function add( ) {
