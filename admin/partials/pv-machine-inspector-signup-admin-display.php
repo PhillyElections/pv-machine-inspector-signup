@@ -11,7 +11,9 @@
  * @package    Pv_Machine_Inspector_Signup
  * @subpackage Pv_Machine_Inspector_Signup/admin/partials
  */
-$request = ( object ) $_REQUEST;
+
+$action = isset($_REQUEST['action']) ? $_REQUEST['action'] : '';
+
 // * Grab option values if already set
 $options = get_option($this->plugin_name);
    
@@ -35,9 +37,9 @@ do_settings_sections($this->plugin_name);
     <h2><?php echo esc_html(get_admin_page_title()); ?></h2>
 
     <h2 class="nav-tab-wrapper">
-        <a href="#pvmi-list" class="nav-tab <?php echo ($request->action === 'edit') ? '' : 'nav-tab-active'; ?>"><?php _e('List', $this->plugin_name);?></a>
+        <a href="#pvmi-list" class="nav-tab <?php echo ($action === 'edit') ? '' : 'nav-tab-active'; ?>"><?php _e('List', $this->plugin_name);?></a>
         <a href="#pvmi-add" class="nav-tab"><?php _e('Add', $this->plugin_name);?></a>
-        <?php if ($request->action === 'edit') : ?>
+        <?php if ($action === 'edit') : ?>
         <a href="#pvmi-edit" class="nav-tab nav-tab-active"><?php _e('Edit', $this->plugin_name);?></a>
         <?php endif; ?>
         <a href="#pvmi-config" class="nav-tab"><?php _e('Config', $this->plugin_name);?></a>
@@ -47,7 +49,7 @@ do_settings_sections($this->plugin_name);
     // Include tabs partials
     require_once('pv-machine-inspector-signup-admin-list.php');
     require_once('pv-machine-inspector-signup-admin-add.php');
-    if ($request->action === 'edit') {
+    if ($action === 'edit') {
         require_once('pv-machine-inspector-signup-admin-edit.php');
     }
     require_once('pv-machine-inspector-signup-admin-config.php');
