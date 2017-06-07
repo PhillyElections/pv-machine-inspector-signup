@@ -142,7 +142,7 @@ class Pv_Machine_Inspector_Signup_Admin {
     }
 
 
-	public function add( ) {
+	static public function add( ) {
 		self::get_models( 'pv_mi_signups' );
 		ddd('ADD');
 	}
@@ -155,7 +155,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 		ddd('UPDATE');
 	}
 
-	public function get_models( $tablename ) {
+	static public function get_models( $tablename ) {
 		d('get_models', $tablename, dirname( dirname( __FILE__ ) ) . '/db/pv-model-factory.php');
 //		require_once dirname( dirname( __FILE__ ) ) . '/db/pv-model-factory.php';
 
