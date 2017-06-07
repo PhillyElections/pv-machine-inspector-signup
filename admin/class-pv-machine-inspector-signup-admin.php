@@ -56,7 +56,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 	 * @access   private
 	 * @var      mixed
 	 */
-	private $models = '';
+	private $models;
 
 	/**
 	 * Initialize the class and set its properties.
@@ -147,15 +147,15 @@ class Pv_Machine_Inspector_Signup_Admin {
     }
 
 	private function add( ) {
-		dd('pvmi_admin_add');
+		dd('ADD');
 	}
 
 	private function config( ) {
-		dd('pvmi_add_config');
+		dd('CONFIG');
 	}
 
 	private function update( ) {
-		dd('pvmi_add_update');
+		dd('UPDATE');
 	}
 
 	public function get_models( $tablename ) {

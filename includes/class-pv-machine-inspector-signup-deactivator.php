@@ -31,7 +31,7 @@ class Pv_Machine_Inspector_Signup_Deactivator {
 	 */
 	public static function deactivate() {
 
-		require_once dirname( dirname( __FILE__ ) ) . '/db/setup.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'db/setup.php';
 
 		Pv_Machine_Inspector_Signup_Db::delete();
 
