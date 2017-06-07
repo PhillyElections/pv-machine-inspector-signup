@@ -141,16 +141,16 @@ class Pv_Machine_Inspector_Signup_Admin {
     }
 
 
-	private function add( ) {
-		dd('ADD');
+	public function add( ) {
+		d('ADD');
 	}
 
-	private function config( ) {
-		dd('CONFIG');
+	public function config( ) {
+		d('CONFIG');
 	}
 
-	private function update( ) {
-		dd('UPDATE');
+	public function update( ) {
+		d('UPDATE');
 	}
 
 	public function get_models( $tablename ) {
