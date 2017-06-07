@@ -144,15 +144,15 @@ class Pv_Machine_Inspector_Signup_Admin {
 
 	public function add( ) {
 		$this->get_models( 'pv_mi_signups' );
-		dd('ADD');
+		ddd('ADD');
 	}
 
 	public function config( ) {
-		dd('CONFIG');
+		ddd('CONFIG');
 	}
 
 	public function update( ) {
-		dd('UPDATE');
+		ddd('UPDATE');
 	}
 
 	public function get_models( $tablename ) {
