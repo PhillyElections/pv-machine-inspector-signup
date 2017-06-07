@@ -118,12 +118,14 @@ class Pv_Machine_Inspector_Signup_Admin {
 
 	}
 
+
     /**
      * Register the administration menu for this plugin into the WordPress Dashboard menu.
      *
      * @since    1.0.0
      */
-    public function add_plugin_admin_child_menu( ) {
+    public function add_plugin_admin_child_menu()
+    {
 
         /*
          * Add a settings page for this plugin to the Settings menu.
@@ -133,8 +135,8 @@ class Pv_Machine_Inspector_Signup_Admin {
          *        Administration Menus: http://codex.wordpress.org/Administration_Menus
          *
          */
-        $plugin_screen_hook_suffix = add_submenu_page( 'phillyvotes',__( 'Machine Inspector Signup', $this->plugin_name ), 'Machine Inspectors', 'manage_options', $this->config->plugin_name, array( $this, 'display_plugin_manage_display_page' )
-       );
+        $plugin_screen_hook_suffix = add_submenu_page('phillyvotes',__('Machine Inspector Signup', $this->plugin_name), 'Machine Inspectors', 'manage_options', $this->config->plugin_name, array($this, 'display_plugin_manage_display_page')
+        );
     }
 
     /**
@@ -142,9 +144,11 @@ class Pv_Machine_Inspector_Signup_Admin {
      *
      * @since    1.0.0
      */
-    public function display_plugin_manage_display_page( ) {
-        include_once( 'partials/pv-machine-inspector-signup-admin-display.php' );
+    public function display_plugin_manage_display_page()
+    {
+        include_once('partials/pv-machine-inspector-signup-admin-display.php');
     }
+
 
 	private function add( ) {
 		dd('ADD');
