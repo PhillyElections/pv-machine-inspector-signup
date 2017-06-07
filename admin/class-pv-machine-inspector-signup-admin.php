@@ -144,7 +144,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 
 	static public function add( ) {
 		//$this->get_models( 'pv_mi_signups' );
-		ddd('ADD', $this, dirname( dirname( __FILE__ ) ) . '/db/pv-model-factory.php');
+		ddd('ADD', $this, $this->get_models( 'pv_mi_signups' ), dirname( dirname( __FILE__ ) ) . '/db/pv-model-factory.php');
 	}
 
 	public function config( ) {
@@ -155,7 +155,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 		ddd('UPDATE');
 	}
 
-	static public function get_models( $tablename ) {
+	public function get_models( $tablename ) {
 		return $tablename;
 		//d('get_models', $tablename, dirname( dirname( __FILE__ ) ) . '/db/pv-model-factory.php');
 //		require_once dirname( dirname( __FILE__ ) ) . '/db/pv-model-factory.php';
