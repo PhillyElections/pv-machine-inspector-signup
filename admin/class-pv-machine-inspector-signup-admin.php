@@ -143,6 +143,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 
 
 	public function add( ) {
+		$this->get_models( 'pv_mi_signups' );
 		dd('ADD');
 	}
 
@@ -155,6 +156,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 	}
 
 	public function get_models( $tablename ) {
+		d('get_models', $tablename);
 		require_once dirname( dirname( __FILE__ ) ) . '/db/pv-model-factory.php';
 
 	}
