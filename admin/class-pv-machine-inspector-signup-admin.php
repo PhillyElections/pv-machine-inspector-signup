@@ -47,15 +47,6 @@ class Pv_Machine_Inspector_Signup_Admin {
 	 * @access   private
 	 * @var      mixed
 	 */
-	private $actions = array( 'save-config', 'save-new', 'update' );
-
-	/**
-	 * The admin form actions of this plugin.
-	 *
-	 * @since    1.0.0
-	 * @access   private
-	 * @var      mixed
-	 */
 	private $models;
 
 	/**
@@ -135,7 +126,7 @@ class Pv_Machine_Inspector_Signup_Admin {
          *        Administration Menus: http://codex.wordpress.org/Administration_Menus
          *
          */
-        $plugin_screen_hook_suffix = add_submenu_page('phillyvotes',__('Machine Inspector Signup', $this->plugin_name), 'Machine Inspectors', 'manage_options', $this->config->plugin_name, array($this, 'display_plugin_manage_display_page')
+        $plugin_screen_hook_suffix = add_submenu_page('phillyvotes',__('Machine Inspector Signup', $this->plugin_name), 'Machine Inspectors', 'manage_options', $this->plugin_name, array($this, 'display_plugin_manage_display_page')
         );
     }
 
