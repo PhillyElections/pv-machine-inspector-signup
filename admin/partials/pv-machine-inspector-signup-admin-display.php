@@ -11,7 +11,7 @@
  * @package    Pv_Machine_Inspector_Signup
  * @subpackage Pv_Machine_Inspector_Signup/admin/partials
  */
-
+$request = ( object ) $_REQUEST;
 // * Grab option values if already set
 $options = get_option($this->plugin_name);
    
