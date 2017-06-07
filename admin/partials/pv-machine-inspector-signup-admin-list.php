@@ -20,28 +20,28 @@
         <thead>
             <tr>
                 <th>
-                    <?php _e( 'id', $this->plugin_name );?>
+                    <?php _e( 'Id', $this->plugin_name );?>
                 </th>
                 <th>
-                    <?php _e( 'division', $this->plugin_name );?>
+                    <?php _e( 'Division', $this->plugin_name );?>
                 </th>
                 <th>
-                    <?php _e( 'name', $this->plugin_name );?>
+                    <?php _e( 'Name', $this->plugin_name );?>
                 </th>
                 <th>
-                    <?php _e( 'phone', $this->plugin_name );?>
+                    <?php _e( 'Phone', $this->plugin_name );?>
                 </th>
                 <th>
-                    <?php _e( 'email', $this->plugin_name );?>
+                    <?php _e( 'Email', $this->plugin_name );?>
                 </th>
                 <th>
-                    <?php _e( 'street_address', $this->plugin_name );?>
+                    <?php _e( 'Street Address', $this->plugin_name );?>
                 </th>
                 <th>
-                    <?php _e( 'postcode', $this->plugin_name );?>
+                    <?php _e( 'Zip', $this->plugin_name );?>
                 </th>
                 <th>
-                    <?php _e( 'date', $this->plugin_name );?>
+                    <?php _e( 'Date', $this->plugin_name );?>
                 </th>
             </tr>
         </thead>
