@@ -157,7 +157,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 
 	public function get_models( $tablename ) {
 		d('get_models', $tablename, dirname( dirname( __FILE__ ) ) . '/db/pv-model-factory.php');
-		require_once dirname( dirname( __FILE__ ) ) . '/db/pv-model-factory.php';
+//		require_once dirname( dirname( __FILE__ ) ) . '/db/pv-model-factory.php';
 
 	}
 }
