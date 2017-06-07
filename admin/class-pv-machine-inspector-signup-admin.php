@@ -143,8 +143,8 @@ class Pv_Machine_Inspector_Signup_Admin {
 
 
 	static public function add( ) {
-		self::get_models( 'pv_mi_signups' );
-		ddd('ADD');
+		//$this->get_models( 'pv_mi_signups' );
+		ddd('ADD', $tablename, dirname( dirname( __FILE__ ) ) . '/db/pv-model-factory.php');
 	}
 
 	public function config( ) {
