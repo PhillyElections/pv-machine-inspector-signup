@@ -146,16 +146,16 @@ class Pv_Machine_Inspector_Signup_Admin {
         include_once( 'partials/pv-machine-inspector-signup-admin-display.php' );
     }
 
-	private function pvmi_add( ) {
-		dd('pvmi_add');
+	private function add( ) {
+		dd('pvmi_admin_add');
 	}
 
-	private function pvmi_config( ) {
-		dd('pvmi_config');
+	private function config( ) {
+		dd('pvmi_add_config');
 	}
 
-	private function pvmi_update( ) {
-		dd('pvmi_update');
+	private function update( ) {
+		dd('pvmi_add_update');
 	}
 
 	public function get_models( $tablename ) {

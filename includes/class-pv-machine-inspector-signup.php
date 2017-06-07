@@ -153,7 +153,10 @@ class Pv_Machine_Inspector_Signup {
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
-		$this->loader->add_action( 'admin_update_signup', $plugin_admin, 'update_signup' );
+
+		$this->loader->add_action( 'admin_post_pvmi_admin_add', $plugin_admin, 'pvmi_add' );
+		$this->loader->add_action( 'admin_post_pvmi_admin_config', $plugin_admin, 'pvmi_config' );
+		$this->loader->add_action( 'admin_post_pvmi_admin_update', $plugin_admin, 'pvmi_update' );
 
 	}
 
@@ -170,6 +173,7 @@ class Pv_Machine_Inspector_Signup {
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
+		$this->loader->add_action( 'wp_add_signup', $plugin_admin, 'add_signup' );
 
 	}
 

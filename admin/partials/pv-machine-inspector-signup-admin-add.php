@@ -57,7 +57,7 @@
 			</tbody>
 		</table>
 		<p class="submit">
-			<input name="action" value="pvmi_add" type="hidden">
+			<input name="action" value="pvmi_admin_add" type="hidden">
 			<?php submit_button(__('Add', $this->plugin_name), 'primary', 'submit', true); ?>
 		</p>
 	</form>
