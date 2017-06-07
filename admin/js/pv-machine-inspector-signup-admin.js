@@ -1,4 +1,4 @@
-(function($) {
+(function($, w) {
     'use strict';
 
     $(function() {
@@ -14,7 +14,8 @@
             $hash;
 
         // Tabs on load
-        if (window.location.hash) {
+        if (w.location.hash) {
+            console.log('window.location.hash block', w.location.hash);
             $hash = window.location.hash;
             $tabBoxes.addClass('hidden');
             $currentTab = $($hash).toggleClass('hidden');
@@ -24,6 +25,7 @@
 
         // Tabs on click
         $navTabWrapper.on('click', 'a', function(e) {
+            console.log('click event block', $tabContent, e, this);
             e.preventDefault();
             $tabContent = $(this).attr('href');
             $navTab.removeClass('nav-tab-active');
@@ -39,4 +41,4 @@
 
     });
 
-})(jQuery);
+})(jQuery, window);
