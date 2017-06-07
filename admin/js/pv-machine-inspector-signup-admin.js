@@ -15,7 +15,7 @@
 
         // Tabs on load
         if (w.location.hash) {
-            $hash = window.location.hash;
+            $hash = w.location.hash;
             $tabBoxes.addClass('hidden');
             $currentTab = $($hash).toggleClass('hidden');
             $navTab.removeClass('nav-tab-active');
