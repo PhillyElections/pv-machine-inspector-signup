@@ -5,34 +5,32 @@
 
         // tabs
         var $tabBoxes = $('.pvmi-metaboxes'),
-        	$navTabWrapper = $('.nav-tab-wrapper'),
-        	$navTab = $('.nav-tab'),
-            $tabLinkActive,
-            $currentTab,
-            $currentTabLink,
-            $tabContent,
-            $hash;
+               $tabLinkActive,
+               $currentTab,
+               $currentTabLink,
+               $tabContent,
+               $hash,
 
         // Tabs on load
-        if (w.location.hash) {
-            $hash = w.location.hash;
+        if(window.location.hash){
+            $hash = window.location.hash;
             $tabBoxes.addClass('hidden');
             $currentTab = $($hash).toggleClass('hidden');
-            $navTab.removeClass('nav-tab-active');
-            $('.nav-tab[href=' + $hash + ']').addClass('nav-tab-active');
+            $('.nav-tab').removeClass('nav-tab-active');
+            $('.nav-tab[href='+$hash+']').addClass('nav-tab-active');
         }
-
-        // Tabs on click
-        $navTabWrapper.on('click', 'a', function(e) {
+        //Tabs on click
+        $('.nav-tab-wrapper').on('click', 'a', function(e){
             e.preventDefault();
             $tabContent = $(this).attr('href');
-            $navTab.removeClass('nav-tab-active');
+            $('.nav-tab').removeClass('nav-tab-active');
             $tabBoxes.addClass('hidden');
             $currentTab = $($tabContent).toggleClass('hidden');
             $(this).addClass('nav-tab-active');
-            if (history.pushState) {
+             if(history.pushState) {
                 history.pushState(null, null, $tabContent);
-            } else {
+            }
+            else {
                 location.hash = $tabContent;
             }
         })
