@@ -21,7 +21,7 @@
             $navTab.removeClass('nav-tab-active');
             $('.nav-tab[href='+$hash+']').addClass('nav-tab-active');
         }
-        
+
         //Tabs on click
         $navTabWrapper.on('click', 'a', function(e){
             var $this = $(this);
@@ -38,7 +38,7 @@
                 location.hash = $tabContent;
             }
         })
-
+        
     });
 
 })(jQuery, window);
