@@ -9,10 +9,10 @@
                $currentTab,
                $currentTabLink,
                $tabContent,
-               $hash,
+               $hash;
 
         // Tabs on load
-        if(w.location.hash){
+        if((w.location.hash).length){
             $hash = w.location.hash;
             $tabBoxes.addClass('hidden');
             $currentTab = $($hash).toggleClass('hidden');
