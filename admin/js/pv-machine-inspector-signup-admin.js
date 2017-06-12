@@ -22,7 +22,7 @@
             $('.nav-tab[href='+$hash+']').addClass('nav-tab-active');
         }
         //Tabs on click
-        $naTabWrapper.on('click', 'a', function(e){
+        $navTabWrapper.on('click', 'a', function(e){
             var $this = $(this);
             e.preventDefault();
             $tabContent = $this.attr('href');
