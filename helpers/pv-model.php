@@ -52,8 +52,8 @@ class Pv_Model {
         d($wpdb);
         $this->db = &$wpdb;
 
-        $this->pagination['start'] = isset($_REQUEST('start')) ? (int) $_REQUEST('start') : 0 ;
-        $this->pagination['end'] = isset($_REQUEST('end')) ? (int) $_REQUEST('end') : 20 ;
+        $this->pagination['start'] = isset($_REQUEST['start']) ? (int) $_REQUEST['start'] : 0 ;
+        $this->pagination['end'] = isset($_REQUEST['end']) ? (int) $_REQUEST['end'] : 20 ;
     }
 
     private function _table() {
