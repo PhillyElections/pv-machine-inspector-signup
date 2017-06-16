@@ -49,7 +49,7 @@ class Pv_Model {
 
     public function __construct() {
         global $wpdb;
-        d($wpdb);
+
         $this->db = &$wpdb;
 
         $this->pagination['start'] = isset($_REQUEST['start']) ? (int) $_REQUEST['start'] : 0 ;
@@ -112,4 +112,7 @@ class Pv_Model {
         return strtotime( $date . ' GMT' );
     }
 
+    public function show_db() {
+        d($this->db);
+    }
 }
