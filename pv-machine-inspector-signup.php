@@ -54,8 +54,8 @@ register_deactivation_hook( __FILE__, 'deactivate_pv_machine_inspector_signup' )
 /**
  * include our 'decorations'
  */
-require_once plugin_dir_path( __FILE__, 'helpers/pv-model-signups.php');
-$pv_model_signups = new Pv_Model_Signups();
+require_once plugin_dir_path( __FILE__) . 'helpers/pv-model-signups.php';
+
 
 /**
  * The core plugin class that is used to define internationalization,
@@ -72,10 +72,11 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-pv-machine-inspector-signu
  *
  * @since    1.0.0
  */
-function run_pv_machine_inspector_signup() {
+function run_pv_machine_inspector_signup($models) {
 
-	$plugin = new Pv_Machine_Inspector_Signup();
+	$model = new Pv_Model_Signups();
+	$plugin = new Pv_Machine_Inspector_Signup(array( $model->$models);
 	$plugin->run();
 
 }
-run_pv_machine_inspector_signup();
+run_pv_machine_inspector_signup(  );
