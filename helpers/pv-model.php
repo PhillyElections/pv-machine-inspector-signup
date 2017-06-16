@@ -18,7 +18,7 @@ class Pv_Model {
      * @access   private
      * @var      string    The PK of this plugin.
      */
-    private $primary_key = 'id';
+    protected $primary_key = 'id';
 
     /**
      * The tablename
@@ -27,7 +27,7 @@ class Pv_Model {
      * @access   private
      * @var      string    The name of the instanced table
      */
-    private $tablename;
+    protected $tablename;
 
     /**
      * The database object
@@ -36,7 +36,7 @@ class Pv_Model {
      * @access   private
      * @var      mixed     The WBDB object.
      */
-    private $db;
+    protected $db;
 
     /**
      * The pagination array
@@ -45,7 +45,7 @@ class Pv_Model {
      * @access   private
      * @var      mixed     start / stop
      */
-    private $pagination;
+    protected $pagination;
 
     public function __construct() {
         global $wpdb;
