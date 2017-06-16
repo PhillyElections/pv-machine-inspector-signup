@@ -48,12 +48,11 @@ d($this, $model->get_paged());
         </thead>
         <tbody>
         <?php
-            $items = array();
-            array_push($items, (object) array('id'=>'1','division'=>'1201','first_name'=>'Some','middle_name'=>'','last_name'=>'Guy','phone'=>'3332221111','email'=>'some@guy.com', 'address1'=>'100 some st', 'address2'=>'', 'postcode'=>'11111', 'created'=>'2017-04-30 12:00:00'));
-            $n=count($items);
+            $rows = $model->get_paged();
+            $n=count($rows);
             $k = 0;
-        for ($i = 0; $i < $n; $i++) {
-            $row      = $items[0];
+        foreach ($rows as $row) {
+            $i++;
             $link     = "";
             $fullname = $row->first_name . " " . ($row->middle_name ? $row->middle_name . " " : "") . $row->last_name;
             $matches  = '';
