@@ -17,7 +17,7 @@ if ( class_exists( 'Pv_Model' )) {
 	class Pv_Model_Signups extends Pv_Model {
 		public function __construct( ) {
 			parent::__construct();
-			$this->tablename = 'pv_mi_signups'
+			$this->tablename = 'pv_mi_signups';
 
 			$this->fields = array(
 				'id' =>'',
