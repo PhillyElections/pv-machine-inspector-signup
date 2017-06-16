@@ -53,7 +53,7 @@ d($this, $model->get_paged());
             $k = 0;
         foreach ($rows as $row) {
             $i++;
-            $link     = admin_url( $this->plugin_name, "action=edit&item=" . $row->id );
+            $link     = admin_url( "page=" . $this->plugin_name . "&action=edit&item=" . $row->id );
             $fullname = $row->first_name . " " . ($row->middle_name ? $row->middle_name . " " : "") . $row->last_name;
             $matches  = '';
             preg_match('/^(\d{3})(\d{3})(\d{4})$/', $row->phone, $matches);
