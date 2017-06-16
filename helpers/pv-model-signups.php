@@ -13,7 +13,6 @@
 require_once plugin_dir_path( dirname( __FILE__ ) ) . 'helpers/pv-model.php';
 
 if ( class_exists( 'Pv_Model' )) {
-	d( 'class exists Pv_Model' );
 	class Pv_Model_Signups extends Pv_Model {
 		public function __construct( ) {
 			parent::__construct();
