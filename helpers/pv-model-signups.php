@@ -1,6 +1,6 @@
 <?php
 /**
- * Shared abstract DB Model
+ * Specific DB model
  *
  * @link       philadelphiavotes.com
  * @since      1.0.0
