@@ -11,7 +11,8 @@
  * @package    Pv_Machine_Inspector_Signup
  * @subpackage Pv_Machine_Inspector_Signup/admin/partials
  */
-d($this);
+$pvmi_model = $this->models['pv_mi_signups'];
+d($this, $pvmi_model);
 ?>
 
 <!-- This file should primarily consist of HTML with a little bit of PHP. -->
