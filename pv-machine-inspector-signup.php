@@ -75,7 +75,7 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-pv-machine-inspector-signu
 function run_pv_machine_inspector_signup($models) {
 
 	$model = new Pv_Model_Signups();
-	$plugin = new Pv_Machine_Inspector_Signup(array( $model->$models);
+	$plugin = new Pv_Machine_Inspector_Signup(array( $model->get_tablename()=>$model));
 	$plugin->run();
 
 }
