@@ -10,7 +10,7 @@
  * @author     matthew murphy <matthew.e.murphy@phila.gov>
  */
 
-require_once 'pv-model.php';
+require_once plugin_dir_path( dirname( __FILE__ ) ) . 'helpers/pv-model.php';
 
 if ( class_exists( 'Pv_Model' )) {
 	d( 'class exists Pv_Model' );
