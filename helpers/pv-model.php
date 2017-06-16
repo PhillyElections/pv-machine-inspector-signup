@@ -65,18 +65,26 @@ class Pv_Model {
         return $this->db->prepare( $sql, $value );
     }
 
-    private function _fetch_rows( ) {
+    private function _fetch_all_sql( ) {
         $sql = sprintf( 'SELECT * FROM %s ', $this->_table());
         return $this->db->prepare( $sql );
     }
 
-    private function _fetch_paged_rows( ) {
+    private function _fetch_paged_sql( ) {
         $sql = sprintf( 'SELECT * FROM %s LIMIT %%s = %%s', $this->_table());
         return $this->db->prepare( $sql, $this->start, $this->$end );
     }
 
     public function get_row( $value ) {
         return $this->db->get_row( $this->_fetch_sql( $value ) );
+    }
+
+    public function get_all( ) {
+        return $this->db->get_results( $this->_fetch_all_sql( ) );
+    }
+
+    public function get_paged( ) {
+        return $this->db->get_results( $this->_fetch_paged_sql( ) );
     }
 
     public function get_tablename( ) {
