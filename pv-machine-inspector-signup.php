@@ -52,6 +52,12 @@ register_activation_hook( __FILE__, 'activate_pv_machine_inspector_signup' );
 register_deactivation_hook( __FILE__, 'deactivate_pv_machine_inspector_signup' );
 
 /**
+ * include our 'decorations'
+ */
+require_once plugin_dir_path( __FILE__, 'helpers/pv-model-signups.php');
+$pv_model_signups = new Pv_Model_Signups();
+
+/**
  * The core plugin class that is used to define internationalization,
  * admin-specific hooks, and public-facing site hooks.
  */
