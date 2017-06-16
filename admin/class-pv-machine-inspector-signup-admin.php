@@ -127,9 +127,11 @@ class Pv_Machine_Inspector_Signup_Admin {
 		 *
 		 */
 		if ( isset($GLOBALS['admin_page_hooks']['phillyvotes']) ) {
+			// parent exists.  write just a child menu.
 			add_submenu_page( 'phillyvotes',__('Machine Inspector Signup', $this->plugin_name), 'Machine Inspectors', 'manage_options', $this->plugin_name, array($this, 'display_plugin_manage_display_page')
 			);
 		} else {
+			// woops.  no parent.  wire parent and child to display page
 			add_menu_page( __('Machine Inspectors', $this->plugin_name),'Phillyvotes','manage_options','phillyvotes', array($this, 'display_plugin_manage_display_page') );
 			add_submenu_page( 'phillyvotes', __('Machine Inspector Signup', $this->plugin_name), 'Machine Inspectors', 'manage_options', $this->plugin_name, array($this, 'display_plugin_manage_display_page')
 			);
