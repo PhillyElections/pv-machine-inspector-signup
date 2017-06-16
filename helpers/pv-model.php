@@ -71,7 +71,7 @@ class Pv_Model {
     }
 
     private function _fetch_paged_sql( ) {
-        $sql = sprintf( 'SELECT * FROM %s LIMIT %%s = %%s', $this->_table());
+        $sql = sprintf( 'SELECT * FROM %s LIMIT %%s, %%s', $this->_table());
         return $this->db->prepare( $sql, $this->start, $this->$end );
     }
 
