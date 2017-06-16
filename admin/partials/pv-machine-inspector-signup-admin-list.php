@@ -12,7 +12,7 @@
  * @subpackage Pv_Machine_Inspector_Signup/admin/partials
  */
 $model = $this->models['pv_mi_signups'];
-d($this, $model);
+d($this, $model->get_paged());
 ?>
 
 <!-- This file should primarily consist of HTML with a little bit of PHP. -->
