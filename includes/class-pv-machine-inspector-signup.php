@@ -158,7 +158,7 @@ class Pv_Machine_Inspector_Signup {
 	 */
 	private function define_admin_hooks() {
 
-		$plugin_admin = new Pv_Machine_Inspector_Signup_Admin( $this->get_plugin_name(), $this->get_version(), $this->get_models() );
+		$plugin_admin = new Pv_Machine_Inspector_Signup_Admin( $this->get_plugin_name(), $this->get_version(), $this->models );
 
 		// bind in our parent menu item
   		$this->loader->add_action( 'admin_menu', $plugin_admin, 'add_plugin_admin_child_menu' );
@@ -184,7 +184,7 @@ class Pv_Machine_Inspector_Signup {
 	private function define_public_hooks() {
 
 		$plugin_public = new Pv_Machine_Inspector_Signup_Public( $this->get_plugin_name(), $this->get_version(), $this->models  );
-		$plugin_admin = new Pv_Machine_Inspector_Signup_Admin( $this->get_plugin_name(), $this->get_version(), $this->get_models()  );
+		$plugin_admin = new Pv_Machine_Inspector_Signup_Admin( $this->get_plugin_name(), $this->get_version(), $this->models );
 
 		// script and style loads
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
