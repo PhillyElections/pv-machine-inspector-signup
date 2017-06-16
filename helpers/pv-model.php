@@ -79,6 +79,10 @@ class Pv_Model {
         return $this->db->get_row( $this->_fetch_sql( $value ) );
     }
 
+    public function get_tablename( ) {
+        return $this->tablename;
+    }
+
     public function insert( $data ) {
         $this->db->insert( $this->_table(), $data );
     }
