@@ -51,10 +51,6 @@ function deactivate_pv_machine_inspector_signup() {
 register_activation_hook( __FILE__, 'activate_pv_machine_inspector_signup' );
 register_deactivation_hook( __FILE__, 'deactivate_pv_machine_inspector_signup' );
 
-/**
- * include our 'decorations'
- */
-require_once plugin_dir_path( __FILE__) . 'helpers/pv-model-signups.php';
 
 
 /**
@@ -72,9 +68,14 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-pv-machine-inspector-signu
  *
  * @since    1.0.0
  */
-function run_pv_machine_inspector_signup($models) {
+function run_pv_machine_inspector_signup( ) {
+	/**
+	 * include our 'decorations'
+	 */
+	require_once plugin_dir_path( __FILE__) . 'helpers/pv-model-signups.php';
 
 	$model = new Pv_Model_Signups();
+
 	$plugin = new Pv_Machine_Inspector_Signup(array( $model->get_tablename()=>$model));
 	$plugin->run();
 
