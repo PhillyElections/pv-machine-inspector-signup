@@ -126,7 +126,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 		 *        Administration Menus: http://codex.wordpress.org/Administration_Menus
 		 *
 		 */
-		if (has_nav_menu('phillyvotes')) {
+		if ($GLOBALS['admin_page_hooks']['phillyvotes']) {
 
 		} else {
 			add_menu_page(__('Phillyvotes', $this->plugin_name),'Phillyvotes','manage_options','phillyvotes', array($this, 'display_plugin_manage_display_page' );
