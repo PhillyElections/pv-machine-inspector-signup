@@ -76,7 +76,7 @@ function run_pv_machine_inspector_signup( ) {
 
 	$model = new Pv_Model_Signups();
 
-	$plugin = new Pv_Machine_Inspector_Signup(array( $model->get_tablename()=>$model));
+	$plugin = new Pv_Machine_Inspector_Signup(array( $model->get_tablename()=>&$model));
 	$plugin->run();
 
 }
