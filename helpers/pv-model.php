@@ -53,7 +53,7 @@ class Pv_Model {
         $this->db = &$wpdb;
 
         $this->pagination = (object) array( 'start'=> (isset($_REQUEST['start']) ? (int) $_REQUEST['start'] : 0 ),
-             'end'=> (isset($_REQUEST['end']) ? (int) $_REQUEST['end'] : 0 )
+             'end'=> (isset($_REQUEST['end']) ? (int) $_REQUEST['end'] : 20 )
         );
     }
 
@@ -72,6 +72,7 @@ class Pv_Model {
     }
 
     private function _fetch_paged_sql( ) {
+        d($this->pagination)
         $sql = sprintf( 'SELECT * FROM %s LIMIT %%s, %%s', $this->_table());
         return $this->db->prepare( $sql, $this->pagination->start, $this->pagination->end );
     }
@@ -124,4 +125,4 @@ class Pv_Model {
     public function show_db() {
         d($this->db);
     }
-}
+};
