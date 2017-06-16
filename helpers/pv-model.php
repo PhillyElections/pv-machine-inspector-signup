@@ -73,7 +73,7 @@ class Pv_Model {
 
     private function _fetch_paged_sql( ) {
 
-        $sql = sprintf( 'SELECT * FROM %s LIMIT %s, %s ', $this->_table(), $this->pagination->start, $this->pagination->end );
+        $sql = sprintf( 'SELECT * FROM %s LIMIT %d, %d ', $this->_table(), $this->pagination->start, $this->pagination->end );
         return $sql;
     }
 
