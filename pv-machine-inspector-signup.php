@@ -75,8 +75,9 @@ function run_pv_machine_inspector_signup( ) {
 	require_once plugin_dir_path( __FILE__) . 'helpers/pv-model-signups.php';
 
 	$model = new Pv_Model_Signups();
+	$tablename = $model->get_tablename();
 
-	$plugin = new Pv_Machine_Inspector_Signup(array( $model->get_tablename()=>&$model));
+	$plugin = new Pv_Machine_Inspector_Signup(array( $tablename=>&$model));
 	$plugin->run();
 
 }
