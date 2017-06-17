@@ -37,20 +37,20 @@ do_settings_sections($this->plugin_name);
     <h2><?php echo esc_html(get_admin_page_title()); ?></h2>
 
     <h2 class="nav-tab-wrapper">
-        <a href="#pvmi-list" class="nav-tab <?php echo ($action === 'edit') ? '' : 'nav-tab-active'; ?>"><?php _e('List', $this->plugin_name);?></a>
         <?php if ($action === 'edit') : ?>
         <a href="#pvmi-edit" class="nav-tab nav-tab-active"><?php _e('Edit', $this->plugin_name);?></a>
         <?php endif; ?>
+        <a href="#pvmi-list" class="nav-tab <?php echo ($action === 'edit') ? '' : 'nav-tab-active'; ?>"><?php _e('List', $this->plugin_name);?></a>
         <a href="#pvmi-add" class="nav-tab"><?php _e('Add', $this->plugin_name);?></a>
         <a href="#pvmi-config" class="nav-tab"><?php _e('Config', $this->plugin_name);?></a>
     </h2>
 
     <?php
     // Include tabs partials
-    require_once('pv-machine-inspector-signup-admin-list.php');
     if ($action === 'edit') {
         require_once('pv-machine-inspector-signup-admin-edit.php');
     }
+    require_once('pv-machine-inspector-signup-admin-list.php');
     require_once('pv-machine-inspector-signup-admin-add.php');
     require_once('pv-machine-inspector-signup-admin-config.php');
     ?>
