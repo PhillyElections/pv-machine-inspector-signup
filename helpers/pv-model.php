@@ -62,18 +62,18 @@ class Pv_Model {
     }
 
     private function _fetch_row( $value ) {
-        $sql = sprintf( 'SELECT * FROM %s WHERE %s = %%s', $this->_table(), $this->primary_key );
+        $sql = sprintf( ' SELECT * FROM %s WHERE %s = %%s ', $this->_table(), $this->primary_key );
         return $this->db->prepare( $sql, $value );
     }
 
     private function _fetch_all_sql( ) {
-        $sql = sprintf( 'SELECT * FROM %s ', $this->_table());
+        $sql = sprintf( ' SELECT * FROM %s ', $this->_table());
         return $this->db->prepare( $sql );
     }
 
     private function _fetch_paged_sql( ) {
-        $sql = sprintf( 'SELECT * FROM %s LIMIT %d, %d ', $this->_table(), $this->pagination->start, $this->pagination->end );
-        return $sql;
+        $sql = sprintf( ' SELECT * FROM %s LIMIT %%d, %%d ', $this->_table() );
+        return $this->db->prepare( $sql, $this->pagination->start, $this->pagination->end );
     }
 
     public function get_row( $value ) {
