@@ -101,7 +101,7 @@ class Pv_Model {
     }
 
     public function delete( $value ) {
-        $sql = sprintf( 'DELETE FROM %s WHERE %s = %%s', $this->_table(), $this->primary_key );
+        $sql = sprintf( ' DELETE FROM %s WHERE %s = %%s ', $this->_table(), $this->primary_key );
         return $this->db->query( $this->db->prepare( $sql, $value ) );
     }
 

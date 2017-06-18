@@ -58,32 +58,32 @@ d($this, $model->get_paged(), $action);
             $matches  = '';
             preg_match('/^(\d{3})(\d{3})(\d{4})$/', $row->phone, $matches);
         ?>
-        <tr>
-        <td>
-            <?=$row->id;?>
-        </td>
-        <td>
-            <?=$row->division;?>
-        </td>
-        <td>
-            <a href="<?=$link;?>"><?=$fullname;?></a>
-        </td>
-        <td>
-            <?=count($matches) ? sprintf("(%d) %d-%d", $matches[1], $matches[2], $matches[3]) : '';?>
-        </td>
-        <td>
-            <?=$row->email;?>
-        </td>
-        <td>
-            <?=$row->address1 . ($row->address2 ? ' ' . $row->address2 : '');?>
-        </td>
-        <td>
-            <?=$row->postcode;?>
-        </td>
-        <td>
-            <?=$row->created;?>
-        </td>
-        </tr>
+            <tr>
+                <td>
+                    <?=$row->id;?>
+                </td>
+                <td>
+                    <?=$row->division;?>
+                </td>
+                <td>
+                    <a href="<?=$link;?>"><?=$fullname;?></a>
+                </td>
+                <td>
+                    <?=count($matches) ? sprintf("(%d) %d-%d", $matches[1], $matches[2], $matches[3]) : '';?>
+                </td>
+                <td>
+                    <?=$row->email;?>
+                </td>
+                <td>
+                    <?=$row->address1 . ($row->address2 ? ' ' . $row->address2 : '');?>
+                </td>
+                <td>
+                    <?=$row->postcode;?>
+                </td>
+                <td>
+                    <?=$row->created;?>
+                </td>
+            </tr>
         <?php
         }
         ?>
