@@ -12,7 +12,7 @@
  * @subpackage Pv_Machine_Inspector_Signup/admin/partials
  */
 
-$row = $this->read();
+$row = $this->read( );
 ?>
 <div id="pvmi-edit" class="wrap metabox-holder columns-2 pvmi-metaboxes">
 	<h2><?php esc_attr_e( 'Edit a Machine Inspector Signup', $this->plugin_name ); ?></h2>
