@@ -30,8 +30,6 @@ do_settings_sections( $this->plugin_name );
 
 
 ?>
-
-<!-- This file should primarily consist of HTML with a little bit of PHP. -->
 <div class="wrap">
 
     <h2><?php echo esc_html( get_admin_page_title( ) ); ?></h2>
