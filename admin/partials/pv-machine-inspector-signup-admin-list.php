@@ -13,8 +13,6 @@
  */
 
 ?>
-
-<!-- This file should primarily consist of HTML with a little bit of PHP. -->
 <div id="pvmi-list" class="wrap metabox-holder columns-8 pvmi-metaboxes <?php echo ( $action === 'edit' ) ? 'hidden' : ''; ?>">
     <table>
         <thead>
