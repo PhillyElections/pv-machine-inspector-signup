@@ -21,6 +21,15 @@ class Pv_Model {
     protected $primary_key = 'id';
 
     /**
+     * fields stub.
+     *
+     * @since    1.0.0
+     * @access   private
+     * @var      mixed
+     */
+    protected $fields = array('id', 'created', 'modified');
+
+    /**
      * The tablename
      *
      * @since    1.0.0
@@ -209,4 +218,15 @@ class Pv_Model {
     public function date_to_time( $date ) {
         return strtotime( $date . ' GMT' );
     }
-};
+
+    public function filter ( ) {
+        $data = $_REQUEST;
+
+        foreach ($data as $key->$value) {
+            if ( in_array($key, $this->fields) ) {
+                $filtered[$key] = $value;
+            }
+        }
+        return $filtered;
+    }
+}

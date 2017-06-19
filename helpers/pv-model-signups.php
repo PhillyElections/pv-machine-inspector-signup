@@ -19,22 +19,27 @@ if ( class_exists( 'Pv_Model' )) {
 			$this->tablename = 'pv_mi_signups';
 
 			$this->fields = array(
-				'id' =>'',
-				'division' =>'',
-				'first_name' =>'',
-				'middle_name' =>'',
-				'last_name' =>'',
-				'address1' =>'',
-				'address2' =>'',
-				'city' =>'',
-				'region' =>'',
-				'postcode' =>'',
-				'email' =>'',
-				'phone' =>'',
-				'published' =>'',
-				'created' =>'',
-				'updated' =>'',
+				'id',
+				'division',
+				'first_name',
+				'middle_name',
+				'last_name',
+				'address1',
+				'address2',
+				'city',
+				'region',
+				'postcode',
+				'email',
+				'phone',
+				'published',
+				'created',
+				'updated',
 			);
+		}
+
+		public function update( ) {
+
+			parent::update( $this->fields );
 		}
 	}	
 } 
