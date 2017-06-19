@@ -1,6 +1,6 @@
 <?php
 /**
- * Shared abstract DB Model
+ * Shared root Model
  *
  * @link       philadelphiavotes.com
  * @since      1.0.0
@@ -47,37 +47,38 @@ class Pv_Model {
      */
     protected $pagination;
 
-    public function __construct() {
+    public function __construct( ) {
         global $wpdb;
 
-        $this->db = &$wpdb;
+        $this->get_db = &$wpdb;
 
-        $this->pagination = (object) array( 'start'=> (isset($_REQUEST['start']) ? (int) $_REQUEST['start'] : 0 ),
-             'end'=> (isset($_REQUEST['end']) ? (int) $_REQUEST['end'] : 20 )
+        $this->pagination = ( object ) array( 
+            'start'=> ( isset( $_REQUEST['start'] ) ? ( int ) $_REQUEST['start'] : 0 ),
+            'end'=> ( isset( $_REQUEST['end'] ) ? ( int ) $_REQUEST['end'] : 20 ),
         );
     }
 
-    private function _table() {
+    private function _table( ) {
         return $this->db->prefix . $this->tablename;
     }
 
-    private function _fetch_row( $value ) {
-        $sql = sprintf( ' SELECT * FROM %s WHERE %s = %%s ', $this->_table(), $this->primary_key );
+    private function _fetch_row_sql( $value ) {
+        $sql = sprintf( ' SELECT * FROM `%s` WHERE `%s` = %%s ', $this->_table( ), $this->primary_key );
         return $this->db->prepare( $sql, $value );
     }
 
     private function _fetch_all_sql( ) {
-        $sql = sprintf( ' SELECT * FROM %s ', $this->_table());
+        $sql = sprintf( ' SELECT * FROM `%s` ', $this->_table( ) );
         return $this->db->prepare( $sql );
     }
 
     private function _fetch_paged_sql( ) {
-        $sql = sprintf( ' SELECT * FROM %s LIMIT %%d, %%d ', $this->_table() );
+        $sql = sprintf( ' SELECT * FROM `%s` LIMIT %%d, %%d ', $this->_table( ) );
         return $this->db->prepare( $sql, $this->pagination->start, $this->pagination->end );
     }
 
     public function get_row( $value ) {
-        return $this->db->get_row( $this->_fetch_sql( $value ) );
+        return $this->db->get_row( $this->_fetch_row_sql( $value ) );
     }
 
     public function get_all( ) {
@@ -93,19 +94,19 @@ class Pv_Model {
     }
 
     public function insert( $data ) {
-        $this->db->insert( $this->_table(), $data );
+        $this->db->insert( $this->_table( ), $data );
     }
 
     public function update( $data, $where ) {
-        $this->db->update( $this->_table(), $data, $where );
+        $this->db->update( $this->_table( ), $data, $where );
     }
 
     public function delete( $value ) {
-        $sql = sprintf( ' DELETE FROM %s WHERE %s = %%s ', $this->_table(), $this->primary_key );
+        $sql = sprintf( ' DELETE FROM `%s` WHERE `%s` = %%s ', $this->_table( ), $this->primary_key );
         return $this->db->query( $this->db->prepare( $sql, $value ) );
     }
 
-    public function insert_id() {
+    public function insert_id( ) {
         return $this->db->insert_id;
     }
 
@@ -113,15 +114,11 @@ class Pv_Model {
         return gmdate( 'Y-m-d H:i:s', $time );
     }
 
-    public function now() {
-        return $this->time_to_date( time() );
+    public function now( ) {
+        return $this->time_to_date( time( ) );
     }
 
     public function date_to_time( $date ) {
         return strtotime( $date . ' GMT' );
-    }
-
-    public function show_db() {
-        d($this->db);
     }
 };
