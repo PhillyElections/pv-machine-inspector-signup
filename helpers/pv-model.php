@@ -50,7 +50,7 @@ class Pv_Model {
     public function __construct( ) {
         global $wpdb;
 
-        $this->get_db = &$wpdb;
+        $this->db = &$wpdb;
 
         $this->pagination = ( object ) array( 
             'start'=> ( isset( $_REQUEST['start'] ) ? ( int ) $_REQUEST['start'] : 0 ),

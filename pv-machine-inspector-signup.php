@@ -34,16 +34,16 @@ if ( ! defined( 'WPINC' ) ) {
  * The code that runs during plugin activation.
  * This action is documented in includes/class-pv-machine-inspector-signup-activator.php
  */
-function activate_pv_machine_inspector_signup() {
+function activate_pv_machine_inspector_signup( ) {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-pv-machine-inspector-signup-activator.php';
-	Pv_Machine_Inspector_Signup_Activator::activate();
+	Pv_Machine_Inspector_Signup_Activator::activate( );
 }
 
 /**
  * The code that runs during plugin deactivation.
  * This action is documented in includes/class-pv-machine-inspector-signup-deactivator.php
  */
-function deactivate_pv_machine_inspector_signup() {
+function deactivate_pv_machine_inspector_signup( ) {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-pv-machine-inspector-signup-deactivator.php';
 	Pv_Machine_Inspector_Signup_Deactivator::deactivate();
 }
@@ -72,13 +72,13 @@ function run_pv_machine_inspector_signup( ) {
 	/**
 	 * include our 'decorations'
 	 */
-	require_once plugin_dir_path( __FILE__) . 'helpers/pv-model-signups.php';
+	require_once plugin_dir_path( __FILE__ ) . 'helpers/pv-model-signups.php';
 
-	$model = new Pv_Model_Signups();
-	$tablename = $model->get_tablename();
+	$model = new Pv_Model_Signups( );
+	$tablename = $model->get_tablename( );
 
-	$plugin = new Pv_Machine_Inspector_Signup(array( $tablename=>&$model));
-	$plugin->run();
+	$plugin = new Pv_Machine_Inspector_Signup( array( $tablename=>&$model ) );
+	$plugin->run( );
 
 }
-run_pv_machine_inspector_signup(  );
+run_pv_machine_inspector_signup( );
