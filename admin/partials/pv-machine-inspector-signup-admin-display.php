@@ -13,7 +13,7 @@
  */
 
 $action = isset( $_REQUEST['action'] ) ? $_REQUEST['action'] : '';
-d( $action === 'edit' );
+
 // * Grab option values if already set
 $options = get_option( $this->plugin_name );
    
