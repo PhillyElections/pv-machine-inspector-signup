@@ -20,6 +20,7 @@
  * @subpackage Pv_Machine_Inspector_Signup/admin
  * @author     matthew murphy <matthew.e.murphy@phila.gov>
  */
+
 class Pv_Machine_Inspector_Signup_Admin {
 
 	/**
@@ -110,13 +111,12 @@ class Pv_Machine_Inspector_Signup_Admin {
 
 	}
 
-
 	/**
 	 * Register the administration menu for this plugin into the WordPress Dashboard menu.
 	 *
 	 * @since    1.0.0
 	 */
-	public function add_plugin_admin_child_menu()
+	public function add_plugin_admin_child_menu( )
 	{
 
 		/*
@@ -127,14 +127,14 @@ class Pv_Machine_Inspector_Signup_Admin {
 		 *        Administration Menus: http://codex.wordpress.org/Administration_Menus
 		 *
 		 */
-		if ( isset($GLOBALS['admin_page_hooks']['phillyvotes']) ) {
+		if ( isset( $GLOBALS['admin_page_hooks']['phillyvotes'] ) ) {
 			// parent exists.  write just a child menu.
-			add_submenu_page( 'phillyvotes',__('Machine Inspector Signup', $this->plugin_name), 'Machine Inspectors', 'manage_options', $this->plugin_name, array($this, 'display_plugin_manage_display_page')
+			add_submenu_page( 'phillyvotes',__( 'Machine Inspector Signup', $this->plugin_name ), 'Machine Inspectors', 'manage_options', $this->plugin_name, array( $this, 'display_plugin_manage_display_page' )
 			);
 		} else {
 			// woops.  no parent.  wire parent and child to display page
-			add_menu_page( __('Machine Inspectors', $this->plugin_name),'Phillyvotes','manage_options','phillyvotes', array($this, 'display_plugin_manage_display_page') );
-			add_submenu_page( 'phillyvotes', __('Machine Inspector Signup', $this->plugin_name), 'Machine Inspectors', 'manage_options', $this->plugin_name, array($this, 'display_plugin_manage_display_page')
+			add_menu_page( __( 'Machine Inspectors', $this->plugin_name),'Phillyvotes','manage_options','phillyvotes', array( $this, 'display_plugin_manage_display_page' ) );
+			add_submenu_page( 'phillyvotes', __( 'Machine Inspector Signup', $this->plugin_name), 'Machine Inspectors', 'manage_options', $this->plugin_name, array( $this, 'display_plugin_manage_display_page' )
 			);
 		}
 	}
@@ -146,27 +146,28 @@ class Pv_Machine_Inspector_Signup_Admin {
 	 */
 	public function display_plugin_manage_display_page()
 	{
-		include_once('partials/pv-machine-inspector-signup-admin-display.php');
+		include_once( 'partials/pv-machine-inspector-signup-admin-display.php' );
 	}
 
+	// processing actions
+	public function create( ) {
 
-	static public function add( ) {
-		//$this->get_models( 'pv_mi_signups' );
-		ddd('ADD', $this, $this->get_models( 'pv_mi_signups' ), dirname( dirname( __FILE__ ) ) . '/db/pv-model-factory.php');
 	}
 
-	public function config( ) {
-		ddd('CONFIG');
+	public function read( ) {
+		return $this->models['pv_mi_signups']->get_row( ( int )$_REQUEST['item'] );
 	}
 
 	public function update( ) {
-		ddd('UPDATE');
+		$this->models['pv_mi_signups']
 	}
 
-	public function get_models( $tablename ) {
-		return $tablename;
-		//d('get_models', $tablename, dirname( dirname( __FILE__ ) ) . '/db/pv-model-factory.php');
-//		require_once dirname( dirname( __FILE__ ) ) . '/db/pv-model-factory.php';
-
+	public function delete( ) {
+		$this->models['pv_mi_signups']
 	}
+
+	public function config( ) {
+		// this is not a model action
+	}
+
 }

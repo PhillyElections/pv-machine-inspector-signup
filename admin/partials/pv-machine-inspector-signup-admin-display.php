@@ -31,9 +31,7 @@ do_settings_sections( $this->plugin_name );
 
 ?>
 <div class="wrap">
-
     <h2><?php echo esc_html( get_admin_page_title( ) ); ?></h2>
-
     <h2 class="nav-tab-wrapper">
         <?php if ( $action === 'edit' ) : ?>
         <a href="#pvmi-edit" class="nav-tab nav-tab-active"><?php _e( 'Edit', $this->plugin_name );?></a>
@@ -42,7 +40,6 @@ do_settings_sections( $this->plugin_name );
         <a href="#pvmi-add" class="nav-tab"><?php _e( 'Add', $this->plugin_name );?></a>
         <a href="#pvmi-config" class="nav-tab"><?php _e( 'Config', $this->plugin_name );?></a>
     </h2>
-
     <?php
     // Include tabs partials
     if ( $action === 'edit' ) {
@@ -52,5 +49,4 @@ do_settings_sections( $this->plugin_name );
     require_once( 'pv-machine-inspector-signup-admin-add.php' );
     require_once( 'pv-machine-inspector-signup-admin-config.php' );
     ?>
-
 </div>
