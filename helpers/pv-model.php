@@ -150,10 +150,9 @@ class Pv_Model {
      * update a row
      *
      * @param      mixed  $data   The data
-     * @param      string  $where  The where
      */
-    public function update( $data, $where ) {
-        $this->db->update( $this->_table( ), $data, $where );
+    public function update( $data ) {
+        $this->db->update( $this->_table( ), $data, array( 'id'=>( int )$data['id'] ) );
     }
 
     /**
