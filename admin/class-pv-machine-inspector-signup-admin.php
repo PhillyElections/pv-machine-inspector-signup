@@ -159,11 +159,11 @@ class Pv_Machine_Inspector_Signup_Admin {
 	}
 
 	public function update( ) {
-		$this->models['pv_mi_signups']
+
 	}
 
 	public function delete( ) {
-		$this->models['pv_mi_signups']
+
 	}
 
 	public function config( ) {
