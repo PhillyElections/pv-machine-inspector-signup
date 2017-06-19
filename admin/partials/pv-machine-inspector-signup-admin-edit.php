@@ -14,8 +14,8 @@
 ?>
 <!-- This file should primarily consist of HTML with a little bit of PHP. -->
 <div id="pvmi-edit" class="wrap metabox-holder columns-2 pvmi-metaboxes">
-	<h2><?php esc_attr_e('Edit a Machine Inspector Signup', $this->plugin_name); ?></h2>
-	<form class="validate" method="post" name="machine_inspector_edit" action="<?php echo esc_url( admin_url('admin-post.php') ); ?>">
+	<h2><?php esc_attr_e( 'Edit a Machine Inspector Signup', $this->plugin_name ); ?></h2>
+	<form class="validate" method="post" name="machine_inspector_edit" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
 		<table class="form-table">
 			<tbody>
 				<tr class="form-field form-required">
@@ -58,7 +58,7 @@
 		</table>
 		<p class="submit">
 			<input name="action" value="pvmi_admin_update" type="hidden">
-			<?php submit_button(__('Add', $this->plugin_name), 'primary', 'submit', true); ?>
+			<?php submit_button( __( 'Save', $this->plugin_name ), 'primary', 'submit', true ); ?>
 		</p>
 	</form>
 </div>
