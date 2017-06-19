@@ -58,6 +58,7 @@ $row = $this->read();
 			</tbody>
 		</table>
 		<p class="submit">
+			<input name="item" value="<?php echo $row->id; ?>" type="hidden">
 			<input name="action" value="pvmi_admin_update" type="hidden">
 			<?php submit_button( __( 'Save', $this->plugin_name ), 'primary', 'submit', true ); ?>
 		</p>
