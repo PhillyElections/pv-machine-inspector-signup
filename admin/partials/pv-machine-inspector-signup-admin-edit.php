@@ -11,8 +11,8 @@
  * @package	Pv_Machine_Inspector_Signup
  * @subpackage Pv_Machine_Inspector_Signup/admin/partials
  */
+
 ?>
-<!-- This file should primarily consist of HTML with a little bit of PHP. -->
 <div id="pvmi-edit" class="wrap metabox-holder columns-2 pvmi-metaboxes">
 	<h2><?php esc_attr_e( 'Edit a Machine Inspector Signup', $this->plugin_name ); ?></h2>
 	<form class="validate" method="post" name="machine_inspector_edit" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
