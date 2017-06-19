@@ -151,8 +151,11 @@ class Pv_Model {
      *
      * @param      mixed  $data   The data
      */
-    public function update( $data ) {
-        $this->db->update( $this->_table( ), $data, array( 'id'=>( int )$data['id'] ) );
+    public function update( $data, $where = null ) {
+        if ( !isset( $where ) ) {
+            $where = array( 'id'=>( int )$data['id'] );
+        }
+        $this->db->update( $this->_table( ), $data, $where );
     }
 
     /**
