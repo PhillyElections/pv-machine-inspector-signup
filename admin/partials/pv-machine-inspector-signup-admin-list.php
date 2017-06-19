@@ -11,12 +11,11 @@
  * @package    Pv_Machine_Inspector_Signup
  * @subpackage Pv_Machine_Inspector_Signup/admin/partials
  */
-$model = $this->models['pv_mi_signups'];
-d($this, $model->get_paged(), $action);
+
 ?>
 
 <!-- This file should primarily consist of HTML with a little bit of PHP. -->
-<div id="pvmi-list" class="wrap metabox-holder columns-8 pvmi-metaboxes <?php echo ($action === 'edit') ? 'hidden' : ''; ?>">
+<div id="pvmi-list" class="wrap metabox-holder columns-8 pvmi-metaboxes <?php echo ( $action === 'edit' ) ? 'hidden' : ''; ?>">
     <table>
         <thead>
             <tr>
@@ -48,49 +47,50 @@ d($this, $model->get_paged(), $action);
         </thead>
         <tbody>
         <?php
-            $rows = $model->get_paged();
-            $n=count($rows);
-            $k = 0;
-        foreach ($rows as $row) {
+        $rows = $this->models['pv_mi_signups']->get_paged( );
+        $n=count( $rows );
+        $i = 0;
+
+        foreach ( $rows as $row ) :
             $i++;
             $link     = admin_url( "admin.php?page=" . $this->plugin_name . "&action=edit&item=" . $row->id );
-            $fullname = $row->first_name . " " . ($row->middle_name ? $row->middle_name . " " : "") . $row->last_name;
+            $fullname = $row->first_name . " " . ( $row->middle_name ? $row->middle_name . " " : "" ) . $row->last_name;
             $matches  = '';
-            preg_match('/^(\d{3})(\d{3})(\d{4})$/', $row->phone, $matches);
+            preg_match( '/^(\d{3})(\d{3})(\d{4})$/', $row->phone, $matches );
         ?>
             <tr>
                 <td>
-                    <?=$row->id;?>
+                    <?php echo $row->id;?>
                 </td>
                 <td>
-                    <?=$row->division;?>
+                    <?php echo $row->division;?>
                 </td>
                 <td>
-                    <a href="<?=$link;?>"><?=$fullname;?></a>
+                    <a href="<?php echo $link;?>"><?php echo $fullname;?></a>
                 </td>
                 <td>
-                    <?=count($matches) ? sprintf("(%d) %d-%d", $matches[1], $matches[2], $matches[3]) : '';?>
+                    <?php echo count( $matches ) ? sprintf( "(%d) %d-%d", $matches[1], $matches[2], $matches[3] ) : '';?>
                 </td>
                 <td>
-                    <?=$row->email;?>
+                    <?php echo $row->email;?>
                 </td>
                 <td>
-                    <?=$row->address1 . ($row->address2 ? ' ' . $row->address2 : '');?>
+                    <?php echo $row->address1 . ( $row->address2 ? ', ' . $row->address2 : '' );?>
                 </td>
                 <td>
-                    <?=$row->postcode;?>
+                    <?php echo $row->postcode;?>
                 </td>
                 <td>
-                    <?=$row->created;?>
+                    <?php echo $row->created;?>
                 </td>
             </tr>
         <?php
-        }
+        endforeach;
         ?>
         </tbody>
         <tfoot>
             <tr>
-                <td colspan="8"><?php //echo $this->pagination->getListFooter(); ?></td>
+                <td colspan="8"><?php //echo $this->pagination->getListFooter( ); ?></td>
             </tr>
         </tfoot>
     </table>
