@@ -164,6 +164,7 @@ class Pv_Model {
         if ( !isset( $where ) ) {
             $where = array( 'id'=>( int )$data['id'] );
         }
+        $data['modified'] = $this->now();
         $this->db->update( $this->_table( ), $data, $where );
     }
 
@@ -217,16 +218,5 @@ class Pv_Model {
      */
     public function date_to_time( $date ) {
         return strtotime( $date . ' GMT' );
-    }
-
-    public function filter ( ) {
-        $data = $_REQUEST;
-
-        foreach ($data as $key->$value) {
-            if ( in_array($key, $this->fields) ) {
-                $filtered[$key] = $value;
-            }
-        }
-        return $filtered;
     }
 }
