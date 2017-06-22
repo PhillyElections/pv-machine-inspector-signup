@@ -17,11 +17,15 @@ if ( class_exists( 'Pv_Model' )) {
 		public function __construct( ) {
 			parent::__construct();
 			$this->tablename = 'pv_mi_signups';
+			$this->validation = '';
 		}
 
 		public function update( ) {
-
-			parent::update( );
+			// run validation routine
+			// -- we'll get data from the validation routine
+			$data = $_REQUEST;
+			// run update
+			parent::update( $data );
 		}
 	}	
 }

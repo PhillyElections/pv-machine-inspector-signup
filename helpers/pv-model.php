@@ -162,7 +162,8 @@ class Pv_Model {
      */
     public function update( $data, $where = null ) {
         if ( !isset( $where ) ) {
-            $where = array( 'id'=>( int )$data['id'] );
+            // it's item on the outsied, data on the inside
+            $where = array( 'id'=>( int )$data['item'] );
         }
         $data['modified'] = $this->now();
         $this->db->update( $this->_table( ), $data, $where );
