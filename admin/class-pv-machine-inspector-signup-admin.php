@@ -165,7 +165,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 
 		}
 
-		wp_safe_redirect( admin_url('admin.php?page=pv-machine-inspector-signup'));
+		wp_safe_redirect( admin_url('admin.php?page=' . $this->plugin ) );
 	}
 
 	public function delete( ) {
