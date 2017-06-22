@@ -144,7 +144,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 	 *
 	 * @since    1.0.0
 	 */
-	public function display_plugin_manage_display_page()
+	public function display_plugin_manage_display_page( )
 	{
 		include_once( 'partials/pv-machine-inspector-signup-admin-display.php' );
 	}
