@@ -161,7 +161,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 	public function update( ) {
 		$model = $this->models['pv_mi_signups'];
 		//$data = $model->filter( );
-		if ( $model->update( $data ) ) {
+		if ( $model->update( $_REQUEST ) ) {
 
 		}
 
