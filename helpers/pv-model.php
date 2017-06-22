@@ -63,7 +63,7 @@ class Pv_Model {
 
         $this->pagination = ( object ) array( 
             'start'=> ( isset( $_REQUEST['start'] ) ? ( int ) $_REQUEST['start'] : 0 ),
-            'end'=> ( isset( $_REQUEST['end'] ) ? ( int ) $_REQUEST['end'] : 20 ),
+            'range'=> ( isset( $_REQUEST['range'] ) ? ( int ) $_REQUEST['range'] : 20 ),
         );
     }
 
@@ -108,7 +108,7 @@ class Pv_Model {
      */
     private function _fetch_paged_sql( ) {
         $sql = sprintf( ' SELECT * FROM `%s` LIMIT %%d, %%d ', $this->_table( ) );
-        return $this->db->prepare( $sql, $this->pagination->start, $this->pagination->end );
+        return $this->db->prepare( $sql, $this->pagination->start, $this->pagination->range );
     }
 
     /**
