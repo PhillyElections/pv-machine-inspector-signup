@@ -83,9 +83,12 @@ class Pv_Model {
      *
      * @return     string  WP perpared sql
      */
-    private function _fetch_row_sql( ( int ) $value ) {
+    private function _fetch_row_sql( $value ) {
+        if ( !( int ) $value ) {
+            return false;
+        }
         $sql = sprintf( ' SELECT * FROM `%s` WHERE `%s` = %%s ', $this->_table( ), $this->primary_key );
-        return $this->db->prepare( $sql, $value );
+        return $this->db->prepare( $sql, ( int ) $value );
     }
 
     /**
