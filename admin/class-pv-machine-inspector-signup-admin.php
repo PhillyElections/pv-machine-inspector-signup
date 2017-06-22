@@ -161,11 +161,11 @@ class Pv_Machine_Inspector_Signup_Admin {
 	public function update( ) {
 		$model = $this->models['pv_mi_signups'];
 		//$data = $model->filter( );
-		if ( $model->update( $_REQUEST ) ) {
+		if ( !$model->update( $_REQUEST ) ) {
 
 		}
 
-
+		wp_safe_redirect( admin_url('admin.php?page=pv-machine-inspector-signup'));
 	}
 
 	public function delete( ) {
