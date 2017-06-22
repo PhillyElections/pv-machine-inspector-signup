@@ -168,6 +168,7 @@ class Pv_Model {
             // it's item on the outsied, data on the inside
             $where = array( 'id'=>( int )$data['item'] );
         }
+        unset($data['item']);
         $data['updated'] = $this->now();
         $this->db->update( $this->_table( ), $data, $where );
     }
