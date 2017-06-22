@@ -20,7 +20,7 @@ if ( class_exists( 'Pv_Model' )) {
 			$this->validation = '';
 		}
 
-		public function update( $data = $_REQUEST ) {
+		public function update( $data , $where = null) {
 			// run validation routine
 			// -- we'll get data from the validation routine
 
