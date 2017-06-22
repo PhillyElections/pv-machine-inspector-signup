@@ -20,10 +20,10 @@ if ( class_exists( 'Pv_Model' )) {
 			$this->validation = '';
 		}
 
-		public function update( ) {
+		public function update( $data = $_REQUEST ) {
 			// run validation routine
 			// -- we'll get data from the validation routine
-			$data = $_REQUEST;
+
 			// run update
 			parent::update( $data );
 		}
