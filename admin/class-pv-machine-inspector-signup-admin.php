@@ -169,7 +169,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 	}
 
 	public function delete( ) {
-		return $this->models['pv_mi_signups']->delete( ( int ) $_REQUEST['item'] ) );
+		return $this->models['pv_mi_signups']->delete( ( int ) $_REQUEST['item'] );
 	}
 
 	public function config( ) {
