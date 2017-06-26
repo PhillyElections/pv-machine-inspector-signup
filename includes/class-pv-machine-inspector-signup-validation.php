@@ -45,7 +45,7 @@ if ( class_exists( 'Pv_Core_Validation' ) && ! class_exists('Pv_Machine_Inspecto
 				'sanitize'=>array('sanitize_text_field'), 
 				'validate'=>'',
 			'address2' =>array(
-				'label'=>'Address 2'
+				'label'=>'Address 2',
 				'required'=>false, 
 				'sanitize'=>array('sanitize_text_field'), 
 				'validate'=>'',
