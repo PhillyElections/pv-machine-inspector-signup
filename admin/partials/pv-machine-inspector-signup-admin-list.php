@@ -12,11 +12,10 @@
  * @subpackage Pv_Machine_Inspector_Signup/admin/partials
  */
 
-d($this);
-//$model = &$this->models['pv_machine_inspector_signups'];
+$model = &$this->models['pv_machine_inspector_signups'];
 
-//require_once WP_PLUGIN_DIR . '/pv-core/helpers/pv-core-paginator-helper.php';
-//$paginator = new Pv_Core_Paginator_Helper( $model->get_pagination( ) );
+require_once WP_PLUGIN_DIR . '/pv-core/helpers/pv-core-paginator-helper.php';
+$paginator = new Pv_Core_Paginator_Helper( $model->get_pagination( ) );
 
 ?>
 <div id="pvmi-list" class="wrap metabox-holder columns-8 pvmi-metaboxes <?php echo ( $action === 'edit' ) ? 'hidden' : ''; ?>">
@@ -51,7 +50,7 @@ d($this);
         </thead>
         <tbody>
         <?php
-        $rows = '';//$model->get_paged( );
+        $rows = $model->get_paged( );
         $n=count( $rows );
         $i = 0;
 
@@ -94,7 +93,7 @@ d($this);
         </tbody>
         <tfoot>
             <tr>
-                <td colspan="8"><?php //echo $pagination->get_list_footer( ); ?></td>
+                <td colspan="8"><?php echo $pagination->get_list_footer( ); ?></td>
             </tr>
         </tfoot>
     </table>
