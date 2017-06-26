@@ -10,7 +10,7 @@
  * @author     matthew murphy <matthew.e.murphy@phila.gov>
  */
 
-require_once WP_PLUGIN_DIR . 'pv-core/shared/class-pv-core-pagination.php';
+require_once WP_PLUGIN_DIR . '/pv-core/shared/class-pv-core-pagination.php';
 
 if ( class_exists( 'Pv_Core_Pagination' ) && !class_exists( 'Pv_Machine_Inspector_Signup_Pagination' ) ) {
 	class Pv_Machine_Inspector_Signup_Pagination extends Pv_Core_Pagination {

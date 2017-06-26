@@ -10,7 +10,7 @@
  * @author     matthew murphy <matthew.e.murphy@phila.gov>
  */
 
-require_once WP_PLUGIN_DIR . 'pv-core/shared/class-pv-core-model.php';
+require_once WP_PLUGIN_DIR . '/pv-core/shared/class-pv-core-model.php';
 
 if ( class_exists( 'Pv_Core_Model' ) && ! class_exists( 'Pv_Machine_Inspector_Signup_Model' ) ) {
 	class Pv_Machine_Inspector_Signup_Model extends Pv_Core_Model {
