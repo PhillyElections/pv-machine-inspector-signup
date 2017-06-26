@@ -133,7 +133,6 @@ class Pv_Machine_Inspector_Signup {
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-pv-machine-inspector-signup-model.php';
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-pv-machine-inspector-signup-validation.php';
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-pv-machine-inspector-signup-pagination.php';
 
 		$this->loader = new Pv_Machine_Inspector_Signup_Loader( );
 
