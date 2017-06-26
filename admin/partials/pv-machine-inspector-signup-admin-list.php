@@ -93,7 +93,7 @@ $paginator = new Pv_Core_Paginator_Helper( $model->get_pagination( ) );
         </tbody>
         <tfoot>
             <tr>
-                <td colspan="8"><?php echo $pagination->get_list_footer( ); ?></td>
+                <td colspan="8"><?php echo $paginator->get_list_footer( ); ?></td>
             </tr>
         </tfoot>
     </table>
