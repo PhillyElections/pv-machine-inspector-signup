@@ -12,7 +12,7 @@
  * @subpackage Pv_Machine_Inspector_Signup/admin/partials
  */
 
-
+d($this);
 $model = &$this->models['pv_machine_inspector_signups'];
 
 //require_once WP_PLUGIN_DIR . '/pv-core/helpers/pv-core-paginator-helper.php';
