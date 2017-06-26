@@ -83,7 +83,7 @@ function run_pv_machine_inspector_signup( ) {
 	$tablename = $model->get_tablename( );
 
 
-	$plugin = new Pv_Machine_Inspector_Signup( array( $tablename=>$model), $pagination ) ) );
+	$plugin = new Pv_Machine_Inspector_Signup( array( $tablename=>$model), $pagination ) );
 	$plugin->run( );
 
 }
