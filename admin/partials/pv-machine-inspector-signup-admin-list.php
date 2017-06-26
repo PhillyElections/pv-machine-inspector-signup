@@ -14,7 +14,7 @@
 
 
 $model = &$this->models['pv_machine_inspector_signup'];
-d($model);
+d($this);
 require_once WP_PLUGIN_DIR . '/pv-core/helpers/pv-core-paginator-helper.php';
 //$paginator = new Pv_Core_Paginator_Helper( $model->get_pagination( ) );
 
