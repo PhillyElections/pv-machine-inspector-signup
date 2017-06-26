@@ -131,9 +131,9 @@ class Pv_Machine_Inspector_Signup {
 		/**
 		 * include our 'composable' classes 
 		 */
-		require_once plugin_dir_path( __FILE__ ) . 'includes/class-pv-machine-inspector-signup-model.php';
-		require_once plugin_dir_path( __FILE__ ) . 'includes/class-pv-machine-inspector-signup-validation.php';
-		require_once plugin_dir_path( __FILE__ ) . 'includes/class-pv-machine-inspector-signup-pagination.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-pv-machine-inspector-signup-model.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-pv-machine-inspector-signup-validation.php';
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-pv-machine-inspector-signup-pagination.php';
 
 		$this->loader = new Pv_Machine_Inspector_Signup_Loader( );
 
