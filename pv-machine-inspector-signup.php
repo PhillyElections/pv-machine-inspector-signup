@@ -67,6 +67,9 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-pv-machine-inspector-signu
  * @since    1.0.0
  */
 function run_pv_machine_inspector_signup( ) {
+	/**
+	 * include our 'decorations'
+	 */
 
 	$plugin = new Pv_Machine_Inspector_Signup( );
 	$plugin->run( );

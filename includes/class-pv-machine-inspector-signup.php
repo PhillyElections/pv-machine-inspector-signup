@@ -128,7 +128,6 @@ class Pv_Machine_Inspector_Signup {
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-pv-machine-inspector-signup-public.php';
 
-
 		/**
 		 * include our 'composable' classes 
 		 */
@@ -197,8 +196,12 @@ class Pv_Machine_Inspector_Signup {
 	 */
 	private function define_public_hooks( ) {
 
-		$plugin_public = new Pv_Machine_Inspector_Signup_Public( $this->get_plugin_name( ), $this->get_version( ), $this->models  );
-		$plugin_admin = new Pv_Machine_Inspector_Signup_Admin( $this->get_plugin_name( ), $this->get_version( ), $this->models );
+		$validation = new Pv_Machine_Inspector_Signup_Validation( $this->get_plugin_name( ), $this->get_version( ) );
+		$model = new Pv_Machine_Inspector_Signup_Model( &$validation );
+		$tablename = $model->get_tablename( );
+
+		$plugin_public = new Pv_Machine_Inspector_Signup_Public( $this->get_plugin_name( ), $this->get_version( ) );
+		$plugin_admin = new Pv_Machine_Inspector_Signup_Admin( $this->get_plugin_name( ), $this->get_version( ), array( $tablename=>&$models ) );
 
 		// script and style loads
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
