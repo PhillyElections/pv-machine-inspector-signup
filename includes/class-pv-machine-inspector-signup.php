@@ -197,7 +197,7 @@ class Pv_Machine_Inspector_Signup {
 	private function define_public_hooks( ) {
 
 		$validation = new Pv_Machine_Inspector_Signup_Validation( $this->get_plugin_name( ), $this->get_version( ) );
-		$model = new Pv_Machine_Inspector_Signup_Model( &$validation );
+		$model = new Pv_Machine_Inspector_Signup_Model( $validation );
 		$tablename = $model->get_tablename( );
 
 		$plugin_public = new Pv_Machine_Inspector_Signup_Public( $this->get_plugin_name( ), $this->get_version( ) );
