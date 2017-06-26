@@ -55,7 +55,7 @@ register_deactivation_hook( __FILE__, 'deactivate_pv_machine_inspector_signup' )
  * The core plugin class that is used to define internationalization,
  * admin-specific hooks, and public-facing site hooks.
  */
-require plugin_dir_path( __FILE__ ) . 'includes/class-pv-machine-inspector-signup.php';
+require_once plugin_dir_path( __FILE__ ) . 'includes/class-pv-machine-inspector-signup.php';
 
 /**
  * Begins execution of the plugin.
@@ -70,8 +70,14 @@ function run_pv_machine_inspector_signup( ) {
 	/**
 	 * include our 'decorations'
 	 */
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-pv-machine-inspector-signup-model.php';
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-pv-machine-inspector-signup-validation.php';
 
-	$plugin = new Pv_Machine_Inspector_Signup( );
+	$validation = new Pv_Machine_Inspector_Signup_Validation( );
+	$model = new Pv_Machine_Inspector_Signup_Model( $validation );
+	$table = $model->get_tablename( );
+
+	$plugin = new Pv_Machine_Inspector_Signup( array( $table=>$$model ) );
 	$plugin->run( );
 
 }
