@@ -15,9 +15,12 @@ require_once WP_PLUGIN_DIR . '/pv-core/shared/class-pv-core-validation.php';
 if ( class_exists( 'Pv_Core_Validation' ) && ! class_exists( 'Pv_Machine_Inspector_Signup_Validation' ) ) {
 	class Pv_Machine_Inspector_Signup_Validation extends Pv_Core_Validation {
 
-		private $data;
-		private $messages;
-		private $processing = array(
+		/**
+		 * Processing rules for this field set
+		 *
+		 * @var        array
+		 */
+		protected $processing = array(
 			'id' => '',
 			'division' => array(
 				'label'=> 'Division',
@@ -88,7 +91,12 @@ if ( class_exists( 'Pv_Core_Validation' ) && ! class_exists( 'Pv_Machine_Inspect
 			'published'=> ''
 		);
 
-		private $scrubbable = true;
+		/**
+		 * Is this table's data scrubbable?
+		 *
+		 * @var        boolean
+		 */
+		protected $scrubbable = true;
 
 	}
 }
