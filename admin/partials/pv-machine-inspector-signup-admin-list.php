@@ -14,7 +14,7 @@
 
 
 $model = &$this->models['pv_machine_inspector_signup'];
-
+d($model);
 require_once WP_PLUGIN_DIR . '/pv-core/helpers/pv-core-paginator-helper.php';
 $paginator = new Pv_Core_Paginator_Helper( $model->get_pagination( ) );
 
@@ -51,7 +51,7 @@ $paginator = new Pv_Core_Paginator_Helper( $model->get_pagination( ) );
         </thead>
         <tbody>
         <?php
-        $rows = &$model->get_paged( );
+        $rows = $model->get_paged( );
         $n=count( $rows );
         $i = 0;
 
