@@ -75,7 +75,7 @@ class Pv_Machine_Inspector_Signup {
 	 *
 	 * @since    1.0.0
 	 */
-	public function __construct( $composables ) {
+	public function __construct( $models ) {
 
 		$this->plugin_name = 'pv-machine-inspector-signup';
 		$this->version = '1.0.0';
