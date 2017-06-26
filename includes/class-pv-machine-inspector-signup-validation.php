@@ -74,7 +74,7 @@ if ( class_exists( 'Pv_Core_Validation' ) && ! class_exists('Pv_Machine_Inspecto
 				'required'=>false, 
 				'sanitize'=>array('sanitize_text_field', 'sanitize_phone'),
 				'validate'=>array('is_phone')),
-			'published'=>'',
+			'published'=>''
 		);
 
 		private $scrubbable = true;
