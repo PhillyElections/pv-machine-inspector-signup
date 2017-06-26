@@ -90,4 +90,5 @@ if ( class_exists( 'Pv_Core_Validation' ) && ! class_exists('Pv_Machine_Inspecto
 
 		private $scrubbable = true;
 
+	}
 }
