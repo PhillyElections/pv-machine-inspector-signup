@@ -76,7 +76,8 @@ function run_pv_machine_inspector_signup( ) {
 	$validation = new Pv_Machine_Inspector_Signup_Validation( );
 	$model = new Pv_Machine_Inspector_Signup_Model( $validation );
 	$table = $model->get_tablename( );
-
+echo $table;
+exit;
 	$plugin = new Pv_Machine_Inspector_Signup( array( $table=>&$model ) );
 	$plugin->run( );
 
