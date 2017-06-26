@@ -14,10 +14,10 @@ require_once WP_PLUGIN_DIR . '/pv-core/shared/class-pv-core-model.php';
 
 if ( class_exists( 'Pv_Core_Model' ) && ! class_exists( 'Pv_Machine_Inspector_Signup_Model' ) ) {
 	class Pv_Machine_Inspector_Signup_Model extends Pv_Core_Model {
-		public function __construct( $validatior ) {
-			parent::__construct();
+		public function __construct( $validator ) {
+			parent::__construct( );
 			$this->tablename = 'pv_machine_inspector_signups';
-			$this->validation = '';
+			$this->validator = $validator;
 		}
 
 		public function update( $data , $where = null) {
