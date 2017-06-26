@@ -168,7 +168,7 @@ class Pv_Machine_Inspector_Signup {
 		$validation = new Pv_Machine_Inspector_Signup_Validation( $this->get_plugin_name( ), $this->get_version( ) );
 		$pagination = new Pv_Machine_Inspector_Signup_Pagination( );
 
-		$model = new Pv_Machine_Inspector_Signup_Model( &$validation );
+		$model = new Pv_Machine_Inspector_Signup_Model( $validation );
 		$tablename = $model->get_tablename( );
 
 		$plugin_admin = new Pv_Machine_Inspector_Signup_Admin( $this->get_plugin_name( ), $this->get_version( ), array( $tablename=>&$models ), &$pagination );
