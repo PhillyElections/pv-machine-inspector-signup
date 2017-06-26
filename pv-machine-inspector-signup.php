@@ -51,8 +51,6 @@ function deactivate_pv_machine_inspector_signup( ) {
 register_activation_hook( __FILE__, 'activate_pv_machine_inspector_signup' );
 register_deactivation_hook( __FILE__, 'deactivate_pv_machine_inspector_signup' );
 
-
-
 /**
  * The core plugin class that is used to define internationalization,
  * admin-specific hooks, and public-facing site hooks.
