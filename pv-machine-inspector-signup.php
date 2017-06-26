@@ -72,13 +72,19 @@ function run_pv_machine_inspector_signup( ) {
 	/**
 	 * include our 'decorations'
 	 */
-	require_once plugin_dir_path( __FILE__ ) . 'helpers/pv-model-signups.php';
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-pv-machine-inspector-model.php';
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-pv-machine-inspector-validation.php';
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-pv-machine-inspector-pagination.php';
 
-	$model = new Pv_Model_Signups( );
+	$model = new Pv_Machine_Inspector_Signup_Model( );
 	$tablename = $model->get_tablename( );
 
-	$plugin = new Pv_Machine_Inspector_Signup( array( $tablename=>&$model ) );
+	$validation = new Pv_Machine_Inspector_Signup_Validation( );
+	$pagination = new Pv_Machine_Inspector_Signup_Pagination( );
+
+	$plugin = new Pv_Machine_Inspector_Signup( array( $tablename=>array('model'=>&$model, 'validation'=>&$validation, 'pagination'=>&$pagination ) ) );
 	$plugin->run( );
 
 }
+
 run_pv_machine_inspector_signup( );

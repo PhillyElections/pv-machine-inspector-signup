@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS `[[db_prefix]]pv_mi_signups` (
+CREATE TABLE IF NOT EXISTS `[[db_prefix]]pv_machine_inspector_signups` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `division` int(4) unsigned NOT NULL DEFAULT 0,
   `first_name` varchar(40) NOT NULL DEFAULT '',

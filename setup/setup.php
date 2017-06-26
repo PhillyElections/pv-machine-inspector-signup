@@ -67,7 +67,7 @@ class Pv_Machine_Inspector_Signup_Db {
 
             global $wpdb;
 
-            $table_name=$wpdb->prefix.'pv_mi_signups';
+            $table_name=$wpdb->prefix.'pv_machine_inspector_signups';
             $sql = "DROP TABLE IF EXISTS `$table_name` ";
 
             $wpdb->query( $sql );
@@ -122,5 +122,4 @@ class Pv_Machine_Inspector_Signup_Db {
 
         return true;
     }
-
 }

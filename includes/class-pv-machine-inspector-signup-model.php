@@ -10,13 +10,13 @@
  * @author     matthew murphy <matthew.e.murphy@phila.gov>
  */
 
-require_once plugin_dir_path( dirname( __FILE__ ) ) . 'helpers/pv-model.php';
+require_once WP_PLUGIN_DIR . 'pv-core/shared/class-pv-core-model.php';
 
-if ( class_exists( 'Pv_Model' )) {
-	class Pv_Model_Signups extends Pv_Model {
+if ( class_exists( 'Pv_Core_Model' ) && ! class_exists( 'Pv_Machine_Inspector_Signup_Model' ) ) {
+	class Pv_Machine_Inspector_Signup_Model extends Pv_Core_Model {
 		public function __construct( ) {
 			parent::__construct();
-			$this->tablename = 'pv_mi_signups';
+			$this->tablename = 'pv_machine_inspector_signups';
 			$this->validation = '';
 		}
 
