@@ -171,7 +171,7 @@ class Pv_Machine_Inspector_Signup {
 		$model = new Pv_Machine_Inspector_Signup_Model( $validation );
 		$tablename = $model->get_tablename( );
 
-		$plugin_admin = new Pv_Machine_Inspector_Signup_Admin( $this->get_plugin_name( ), $this->get_version( ), array( $tablename=>&$models ), &$pagination );
+		$plugin_admin = new Pv_Machine_Inspector_Signup_Admin( $this->get_plugin_name( ), $this->get_version( ), array( $tablename=>&$models ), $pagination );
 
 		// bind in our parent menu item
   		$this->loader->add_action( 'admin_menu', $plugin_admin, 'add_plugin_admin_child_menu' );
