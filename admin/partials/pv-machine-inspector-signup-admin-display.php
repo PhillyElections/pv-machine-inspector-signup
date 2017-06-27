@@ -34,7 +34,7 @@ do_settings_sections( $this->plugin_name );
     <h2 class="nav-tab-wrapper">
         <?php if ( $action === 'edit' ) : ?>
         <a href="#pvmi-edit" class="nav-tab nav-tab-active"><?php _e( 'Edit', $this->plugin_name );?></a>
-        <?php else; ?>
+        <?php else: ?>
         <a href="#pvmi-list" class="nav-tab nav-tab-active"><?php _e( 'List', $this->plugin_name );?></a>
         <a href="#pvmi-add" class="nav-tab"><?php _e( 'Add', $this->plugin_name );?></a>
         <a href="#pvmi-config" class="nav-tab"><?php _e( 'Config', $this->plugin_name );?></a>
