@@ -100,7 +100,7 @@ class Pv_Machine_Inspector_Signup_Db {
         require_once ABSPATH.'wp-admin/includes/upgrade.php';
 
         delete_option(self::$plugin_name.'_db_version', self::$version);
-        $table_name=$wpdb->prefix.'pv_mi_signups';
+        $table_name=$wpdb->prefix.'pv_machine_inspector_signups';
         $sql = "DROP TABLE IF EXISTS `$table_name` ";
 
         $wpdb->query( $sql );

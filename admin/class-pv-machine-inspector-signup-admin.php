@@ -155,11 +155,11 @@ class Pv_Machine_Inspector_Signup_Admin {
 	}
 
 	public function read( ) {
-		return $this->models['pv_mi_signups']->get_row( ( int )$_REQUEST['item'] );
+		return $this->models['pv_machine_inspector_signups']->get_row( ( int )$_REQUEST['item'] );
 	}
 
 	public function update( ) {
-		$model = $this->models['pv_mi_signups'];
+		$model = $this->models['pv_machine_inspector_signups'];
 		//$data = $model->filter( );
 		if ( !$model->update( $_REQUEST ) ) {
 
@@ -169,7 +169,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 	}
 
 	public function delete( ) {
-		return $this->models['pv_mi_signups']->delete( ( int ) $_REQUEST['item'] );
+		return $this->models['pv_machine_inspector_signups']->delete( ( int ) $_REQUEST['item'] );
 	}
 
 	public function config( ) {
