@@ -61,7 +61,7 @@ $row = $this->read( );
 			<input name="item" value="<?php echo $row->id; ?>" type="hidden">
 			<input name="action" value="pvmi_admin_update" type="hidden">
 			<?php submit_button( __( 'Save', $this->plugin_name ), 'primary', 'submit', true ); ?>
-			<?php submit_button( __( 'Cancel', $this->plugin_name ), 'secondary', 'cancel', true ); ?>
+			<?php submit_button( __( 'Cancel', $this->plugin_name ), 'primary', 'cancel', true ); ?>
 		</p>
 	</form>
 </div>
