@@ -172,6 +172,9 @@ class Pv_Machine_Inspector_Signup {
 		$this->loader->add_action( 'admin_post_pvmi_admin_config', $plugin_admin, 'config' );
 		$this->loader->add_action( 'admin_post_pvmi_admin_update', $plugin_admin, 'update' );
 
+		// backend messaging
+		$this->loader->add_action( 'admin_message', $plugin_admin, 'message' );
+
 	}
 
 	/**
