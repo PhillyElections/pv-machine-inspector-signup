@@ -164,7 +164,9 @@ class Pv_Machine_Inspector_Signup_Admin {
 		$model = $this->models['pv_machine_inspector_signups'];
 		//$data = $model->filter( );
 		if ( !$model->update( $_REQUEST ) ) {
-			
+			$this->messaging->failure("Whoah!");
+		} else {
+			$this->messaging->success("Yaaaay!");
 		}
 		
 		wp_safe_redirect( admin_url('admin.php?page=' . $this->plugin_name ) );
