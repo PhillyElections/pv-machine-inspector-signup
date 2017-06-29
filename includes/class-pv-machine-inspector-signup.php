@@ -30,48 +30,32 @@
 class Pv_Machine_Inspector_Signup {
 
 	/**
-	 * The loader that's responsible for maintaining and registering all hooks that power
-	 * the plugin.
-	 *
-	 * @since    1.0.0
-	 * @access   protected
-	 * @var      Pv_Machine_Inspector_Signup_Loader    $loader    Maintains and registers all hooks for the plugin.
+	 * $loader
 	 */
 	protected $loader;
 
 	/**
-	 * The unique identifier of this plugin.
-	 *
-	 * @since    1.0.0
-	 * @access   protected
-	 * @var      string    $messaging    The object used for admin-side messaging.
+	 * messaging
 	 */
 	protected $messaging;
 
 	/**
-	 * The unique identifier of this plugin.
-	 *
-	 * @since    1.0.0
-	 * @access   protected
-	 * @var      string    $plugin_name    The array of models, identified by plural entity name (usually tablename).
+	 * models
 	 */
 	protected $models;
 
 	/**
-	 * The unique identifier of this plugin.
-	 *
-	 * @since    1.0.0
-	 * @access   protected
-	 * @var      string    $plugin_name    The string used to uniquely identify this plugin.
+	 * plugin name
 	 */
 	protected $plugin_name;
 
 	/**
-	 * The current version of the plugin.
-	 *
-	 * @since    1.0.0
-	 * @access   protected
-	 * @var      string    $version    The current version of the plugin.
+	 * validators for the attached models
+	 */
+	protected $validators;
+
+	/**
+	 * version
 	 */
 	protected $version;
 
@@ -84,12 +68,13 @@ class Pv_Machine_Inspector_Signup {
 	 *
 	 * @since    1.0.0
 	 */
-	public function __construct( $models, $messaging ) {
+	public function __construct( $models, $validators, $messaging ) {
 
 		$this->plugin_name = 'pv-machine-inspector-signup';
 		$this->version = '1.0.0';
 		$this->models =& $models;
 		$this->messaging =& $messaging;
+		$this->validators =& $validators;
 		$this->load_dependencies();
 		$this->set_locale();
 		$this->define_admin_hooks();
