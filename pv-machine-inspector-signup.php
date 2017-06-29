@@ -71,8 +71,8 @@ function run_pv_machine_inspector_signup( ) {
 	 * include our 'decorations'
 	 */
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-pv-machine-inspector-signup-model.php';
+	require_once plugin_dir_path( __FILE__ ) . 'includes/class-pv-machine-inspector-signup-messaging.php';
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-pv-machine-inspector-signup-validation.php';
-	require_once WP_PLUGIN_DIR . '/pv-core/shared/class-pv-core-messaging.php';
 
 	$validator = new Pv_Machine_Inspector_Signup_Validation( );
 	$model = new Pv_Machine_Inspector_Signup_Model( );
