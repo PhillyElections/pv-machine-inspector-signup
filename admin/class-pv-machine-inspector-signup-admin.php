@@ -166,7 +166,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 		if ( !$model->update( $_REQUEST ) ) {
 			
 		}
-		$this->messaging()
+		
 		wp_safe_redirect( admin_url('admin.php?page=' . $this->plugin_name ) );
 	}
 
