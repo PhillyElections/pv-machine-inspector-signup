@@ -57,10 +57,12 @@ class Pv_Machine_Inspector_Signup_Admin {
 	 * @param      string    $plugin_name       The name of this plugin.
 	 * @param      string    $version    The version of this plugin.
 	 */
-	public function __construct( $plugin_name, $version, &$models ) {
+	public function __construct( $plugin_name, $version, &$models, &$validators, &$messaging ) {
 
+		$this->messaging =& $messaging;
 		$this->models =& $models;
 		$this->plugin_name = $plugin_name;
+		$this->validators =& $validators;
 		$this->version = $version;
 
 	}
@@ -162,9 +164,9 @@ class Pv_Machine_Inspector_Signup_Admin {
 		$model = $this->models['pv_machine_inspector_signups'];
 		//$data = $model->filter( );
 		if ( !$model->update( $_REQUEST ) ) {
-
+			
 		}
-
+		$this->messaging()
 		wp_safe_redirect( admin_url('admin.php?page=' . $this->plugin_name ) );
 	}
 
