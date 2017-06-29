@@ -153,7 +153,7 @@ class Pv_Machine_Inspector_Signup {
 	 */
 	private function define_admin_hooks() {
 
-		$plugin_admin = new Pv_Machine_Inspector_Signup_Admin( $this->get_plugin_name(), $this->get_version(), $this->models, $this->messaging );
+		$plugin_admin = new Pv_Machine_Inspector_Signup_Admin( $this->get_plugin_name(), $this->get_version(), $this->models, $this->validators, $this->messaging );
 
 		// bind in our parent menu item
   		$this->loader->add_action( 'admin_menu', $plugin_admin, 'add_plugin_admin_child_menu' );
