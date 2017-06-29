@@ -169,7 +169,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 			$this->messaging->queue("Yaaaay!", 'success');
 		}
 		
-		wp_safe_redirect( admin_url('admin.php?page=' . $this->plugin_name ) );
+		//wp_safe_redirect( admin_url('admin.php?page=' . $this->plugin_name ) );
 	}
 
 	public function delete( ) {
