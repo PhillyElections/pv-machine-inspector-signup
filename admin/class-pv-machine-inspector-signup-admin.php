@@ -196,8 +196,6 @@ class Pv_Machine_Inspector_Signup_Admin {
 		} else {
 			$this->messaging->queue("Yaaaay!", 'success');
 		}
-		$this->display_plugin_manage_display_page();
-//		wp_safe_redirect( admin_url('admin.php?page=' . $this->plugin_name ) );
 	}
 
 	public function delete( ) {
