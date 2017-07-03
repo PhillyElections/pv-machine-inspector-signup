@@ -15,7 +15,7 @@
 ?>
 <div id="pvmi-add" class="wrap metabox-holder columns-2 pvmi-metaboxes hidden">
 	<h2><?php esc_attr_e( 'Add a new Machine Inspector Signup', $this->plugin_name ); ?></h2>
-	<form class="validate" method="post" name="machine_inspector_add" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
+	<form class="validate" method="post" name="machine_inspector_add" action="<?php echo esc_url( admin_url( 'index.php?page=' . $this->plugin_name ) ); ?>">
 		<table class="form-table">
 			<tbody>
 				<tr class="form-field form-required">

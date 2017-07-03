@@ -15,7 +15,7 @@
 ?>
 <div id="pvmi-config" class="wrap metabox-holder columns-2 pvmi-metaboxes hidden">
 	<h2><?php esc_attr_e( 'Configure', $this->plugin_name ); ?></h2>
-    <form method="post" name="machine_inspector_config" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
+    <form method="post" name="machine_inspector_config" action="<?php echo esc_url( admin_url( 'index.php?page=' . $this->plugin_name ) ); ?>">
         <p class="submit">
 			<input name="action" value="pvmi_admin_config" type="hidden">
             <?php submit_button( __( 'Save Config', $this->plugin_name ), 'primary', 'submit', true ); ?>
