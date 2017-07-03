@@ -136,7 +136,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 		} else {
 			// woops.  no parent.  wire parent and child to display page
 			add_menu_page( __( 'Machine Inspectors', $this->plugin_name),'Phillyvotes','manage_options','phillyvotes', array( $this, 'display_plugin_manage_display_page' ) );
-			add_submenu_page( 'phillyvotes', __( 'Machine Inspector Signup', $this->plugin_name), 'Machine Inspectors', 'manage_options', $this->plugin_name, array( $this, 'display_plugin_manage_display_page' )
+			add_submenu_page( 'phillyvotes', __( 'Machine Inspector Signup', $this->plugin_name ), 'Machine Inspectors', 'manage_options', $this->plugin_name, array( $this, 'display_plugin_manage_display_page' )
 			);
 		}
 	}
@@ -157,7 +157,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 	}
 
 	public function read( ) {
-		return $this->models['pv_machine_inspector_signups']->get_row( ( int )$_REQUEST['item'] );
+		return $this->models['pv_machine_inspector_signups']->get_row( ( int ) $_REQUEST['item'] );
 	}
 
 	public function update( ) {
