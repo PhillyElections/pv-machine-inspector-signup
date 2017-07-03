@@ -65,6 +65,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 		$this->validators =& $validators;
 		$this->version = $version;
 
+		$this->process_action( );
 	}
 
 	/**
@@ -149,6 +150,33 @@ class Pv_Machine_Inspector_Signup_Admin {
 	public function display_plugin_manage_display_page( )
 	{
 		include_once( 'partials/pv-machine-inspector-signup-admin-display.php' );
+	}
+
+	/**
+	 * Because I'm not delving into any WP sexiness here, assuming there is any
+	 * 
+	 * @return mixed (method or null)
+	 */
+	public function process_action( )
+
+		if ( ! isset( $_REQUEST['action'] ) ) {
+			return;
+		}
+
+		switch ( $_REQUEST['action'] ) {
+			case 'create':
+				return $this->create( );
+			break;
+			case 'update':
+				return $this->update( );
+			break;
+			case 'delete':
+				return $this->delete( );
+			break;
+			default:
+				return;
+			break;
+		}
 	}
 
 	// processing actions
