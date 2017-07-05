@@ -257,7 +257,6 @@ class Pv_Machine_Inspector_Signup_Admin {
 
 	public function update( ) {
 		
-		//$data = $model->filter( );
 		if ( ! $this->model->update( $_REQUEST ) ) {
 			$this->messaging->queue( "Whoah!", 'failure' );
 		} else {
