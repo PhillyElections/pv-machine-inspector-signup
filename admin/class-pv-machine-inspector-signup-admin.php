@@ -256,7 +256,9 @@ class Pv_Machine_Inspector_Signup_Admin {
 	}
 
 	public function read( ) {
-		return $this->model->get_row( ( int ) $_REQUEST['item'] );
+		if ( isset($_REQUEST['item']) && $item = $_REQUEST['item'] ) {
+			return $this->model->get_row( ( int )  );
+		}
 	}
 
 	public function update( ) {
