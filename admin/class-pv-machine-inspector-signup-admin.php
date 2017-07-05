@@ -251,6 +251,10 @@ class Pv_Machine_Inspector_Signup_Admin {
 
 	}
 
+	public function list( ) {
+		return $this->model->get_row( ( int ) $_REQUEST['item'] );
+	}
+
 	public function read( ) {
 		return $this->model->get_row( ( int ) $_REQUEST['item'] );
 	}

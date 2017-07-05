@@ -48,7 +48,7 @@ $paginator = new Pv_Core_Paginator_Helper( $this->model->get_pagination( ) );
         </thead>
         <tbody>
         <?php
-        $rows = $model->get_paged( );
+        $rows = $this->list( );
         $n=count( $rows );
         $i = 0;
 
