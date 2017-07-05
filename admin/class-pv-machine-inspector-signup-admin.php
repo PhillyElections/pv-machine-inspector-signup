@@ -82,7 +82,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 
 		// prepare to do stuff
 		$this->get_model( );
-		$this->get_validation( );
+		$this->get_validator( );
 		$this->get_messaging( );
 
 		// do stuff, if there's stuff to be done
