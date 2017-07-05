@@ -252,7 +252,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 	}
 
 	public function list( ) {
-		return $this->model->get_row( ( int ) $_REQUEST['item'] );
+		return $this->model->get_paged( );
 	}
 
 	public function read( ) {
