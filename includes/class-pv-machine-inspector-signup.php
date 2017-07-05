@@ -167,7 +167,7 @@ class Pv_Machine_Inspector_Signup {
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
 
 		// form processing
-		$this->loader->add_action( 'public_create', $plugin_admin, 'create' );
+		$this->loader->add_action( 'public_create', $plugin_public, 'create' );
 
 	}
 
