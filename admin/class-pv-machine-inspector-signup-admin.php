@@ -268,6 +268,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 		} else {
 			$this->messaging->queue( "Yaaaay!", 'success' );
 		}
+		d($this->messaging);
 	}
 
 	public function delete( ) {
