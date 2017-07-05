@@ -179,11 +179,11 @@ class Pv_Machine_Inspector_Signup_Admin {
 	 * @return mixed (method or null)
 	 */
 	public function process_action( ) {
-		dd('process action');
+
 		if ( ! isset( $_REQUEST['action'] ) ) {
 			return;
 		}
-
+		dd('process action');
 		switch ( $_REQUEST['action'] ) {
 			case 'create':
 				return $this->create( );
