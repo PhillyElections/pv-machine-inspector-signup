@@ -42,13 +42,31 @@ class Pv_Machine_Inspector_Signup_Admin {
 	private $version;
 
 	/**
+	 * The messaging object.
+	 *
+	 * @since    1.0.0
+	 * @access   private
+	 * @var      mixed
+	 */
+	private $messaging;
+
+	/**
+	 * The .
+	 *
+	 * @since    1.0.0
+	 * @access   private
+	 * @var      mixed
+	 */
+	private $model;
+
+	/**
 	 * The admin form actions of this plugin.
 	 *
 	 * @since    1.0.0
 	 * @access   private
 	 * @var      mixed
 	 */
-	private $models;
+	private $validator;
 
 	/**
 	 * Initialize the class and set its properties.
@@ -57,14 +75,17 @@ class Pv_Machine_Inspector_Signup_Admin {
 	 * @param      string    $plugin_name       The name of this plugin.
 	 * @param      string    $version    The version of this plugin.
 	 */
-	public function __construct( $plugin_name, $version, &$models, &$validators, &$messaging ) {
+	public function __construct( $plugin_name, $version ) {
 
-		$this->messaging =& $messaging;
-		$this->models =& $models;
 		$this->plugin_name = $plugin_name;
-		$this->validators =& $validators;
 		$this->version = $version;
 
+		// prepare to do stuff
+		$this->get_model( );
+		$this->get_validation( );
+		$this->get_messaging( );
+
+		// do stuff, if there's stuff to be done
 		$this->process_action( );
 	}
 
@@ -179,27 +200,73 @@ class Pv_Machine_Inspector_Signup_Admin {
 		}
 	}
 
+	/**
+	 * load up messaging
+	 * 
+	 * @return void
+	 */
+	private function get_messaging( ) {
+
+		if ( ! $this->messaging ) {
+
+			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-pv-machine-inspector-signup-messaging.php';
+
+			$this->messaging = new Pv_Machine_Inspector_Signup_Messaging( );
+		}
+	}
+
+	/**
+	 * load up a model
+	 * 
+	 * @return void
+	 */
+	private function get_model( ) {
+
+		if ( ! $this->model ) {
+
+			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-pv-machine-inspector-signup-model.php';
+
+			$this->model = new Pv_Machine_Inspector_Signup_Model( );
+		}
+
+	}
+
+	/**
+	 * load up a validator
+	 * 
+	 * @return void
+	 */
+	private function get_validator( ) {
+
+		if ( ! $this->validator ) {
+
+			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-pv-machine-inspector-signup-validation.php';
+
+			$this->validator = new Pv_Machine_Inspector_Signup_Validation( );
+		}
+	}
+
 	// processing actions
 	public function create( ) {
 
 	}
 
 	public function read( ) {
-		return $this->models['pv_machine_inspector_signups']->get_row( ( int ) $_REQUEST['item'] );
+		return $this->model->get_row( ( int ) $_REQUEST['item'] );
 	}
 
 	public function update( ) {
-		$model = $this->models['pv_machine_inspector_signups'];
+		
 		//$data = $model->filter( );
-		if ( !$model->update( $_REQUEST ) ) {
-			$this->messaging->queue("Whoah!", 'failure');
+		if ( ! $this->model->update( $_REQUEST ) ) {
+			$this->messaging->queue( "Whoah!", 'failure' );
 		} else {
-			$this->messaging->queue("Yaaaay!", 'success');
+			$this->messaging->queue( "Yaaaay!", 'success' );
 		}
 	}
 
 	public function delete( ) {
-		return $this->models['pv_machine_inspector_signups']->delete( ( int ) $_REQUEST['item'] );
+		return $this->model->delete( ( int ) $_REQUEST['item'] );
 	}
 
 	public function config( ) {

@@ -35,24 +35,9 @@ class Pv_Machine_Inspector_Signup {
 	protected $loader;
 
 	/**
-	 * messaging
-	 */
-	protected $messaging;
-
-	/**
-	 * models
-	 */
-	protected $models;
-
-	/**
 	 * plugin name
 	 */
 	protected $plugin_name;
-
-	/**
-	 * validators for the attached models
-	 */
-	protected $validators;
 
 	/**
 	 * version
@@ -68,13 +53,10 @@ class Pv_Machine_Inspector_Signup {
 	 *
 	 * @since    1.0.0
 	 */
-	public function __construct( $models, $validators, $messaging ) {
+	public function __construct( ) {
 
 		$this->plugin_name = 'pv-machine-inspector-signup';
 		$this->version = '1.0.0';
-		$this->models =& $models;
-		$this->messaging =& $messaging;
-		$this->validators =& $validators;
 		$this->load_dependencies();
 		$this->set_locale();
 		$this->define_admin_hooks();
@@ -153,7 +135,7 @@ class Pv_Machine_Inspector_Signup {
 	 */
 	private function define_admin_hooks( ) {
 
-		$plugin_admin = new Pv_Machine_Inspector_Signup_Admin( $this->get_plugin_name(), $this->get_version(), $this->models, $this->validators, $this->messaging );
+		$plugin_admin = new Pv_Machine_Inspector_Signup_Admin( $this->get_plugin_name(), $this->get_version() );
 
 		// bind in our parent menu item
   		$this->loader->add_action( 'admin_menu', $plugin_admin, 'add_plugin_admin_child_menu' );
@@ -163,9 +145,9 @@ class Pv_Machine_Inspector_Signup {
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 
 		// form processing
-		// $this->loader->add_action( 'admin_create', $plugin_admin, 'create' );
-		// $this->loader->add_action( 'admin_config', $plugin_admin, 'config' );
-		// $this->loader->add_action( 'admin_update', $plugin_admin, 'update' );
+		$this->loader->add_action( 'admin_create', $plugin_admin, 'create' );
+		$this->loader->add_action( 'admin_config', $plugin_admin, 'config' );
+		$this->loader->add_action( 'admin_update', $plugin_admin, 'update' );
 
 	}
 
