@@ -183,7 +183,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 		if ( ! isset( $_REQUEST['action'] ) ) {
 			return;
 		}
-		dd('process action');
+		
 		switch ( $_REQUEST['action'] ) {
 			case 'create':
 				return $this->create( );
@@ -193,6 +193,9 @@ class Pv_Machine_Inspector_Signup_Admin {
 			break;
 			case 'delete':
 				return $this->delete( );
+			break;
+			case 'edit':
+				return;
 			break;
 			default:
 				return;
