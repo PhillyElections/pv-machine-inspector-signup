@@ -144,11 +144,6 @@ class Pv_Machine_Inspector_Signup {
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 
-		// form processing
-		$this->loader->add_action( 'admin_create', $plugin_admin, 'create' );
-		$this->loader->add_action( 'admin_config', $plugin_admin, 'config' );
-		$this->loader->add_action( 'admin_update', $plugin_admin, 'update' );
-
 	}
 
 	/**

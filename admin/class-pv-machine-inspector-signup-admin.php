@@ -185,13 +185,13 @@ class Pv_Machine_Inspector_Signup_Admin {
 		}
 		
 		switch ( $_REQUEST['action'] ) {
-			case 'create':
+			case 'pvmi_admin_create':
 				return $this->create( );
 			break;
-			case 'update':
+			case 'pvmi_admin_update':
 				return $this->update( );
 			break;
-			case 'delete':
+			case 'pvmi_admin_delete':
 				return $this->delete( );
 			break;
 			case 'edit':
