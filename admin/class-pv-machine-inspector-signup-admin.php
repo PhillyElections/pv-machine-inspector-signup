@@ -82,7 +82,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 
 		// we always need our model
 		$this->get_model( );
-
+		$this->get_messaging( );
 	}
 
 	/**
