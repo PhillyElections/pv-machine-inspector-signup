@@ -220,7 +220,6 @@ class Pv_Machine_Inspector_Signup_Admin {
 	public function create( ) {
 
 		$this->get_validator( );
-		$this->get_messaging( );
 
 	}
 
@@ -235,15 +234,14 @@ class Pv_Machine_Inspector_Signup_Admin {
 	}
 
 	public function update( ) {
+
 		$this->get_validator( );
-		$this->get_messaging( );
 		
 		if ( ! $this->model->update( $_REQUEST ) ) {
-			$this->messaging->queue( "Whoah!", 'failure' );
+			wp_redirect( esc_url( admin_url( 'admin.php?page=' . $this->plugin_name . '&message=failure' ) ) );
 		} else {
-			$this->messaging->queue( "Yaaaay!", 'success' );
+			wp_redirect( esc_url( admin_url( 'admin.php?page=' . $this->plugin_name . '&message=success' ) ) );
 		}
-		d($this->messaging);
 	}
 
 	public function delete( ) {
