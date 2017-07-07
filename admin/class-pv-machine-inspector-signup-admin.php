@@ -80,13 +80,9 @@ class Pv_Machine_Inspector_Signup_Admin {
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
 
-		// prepare to do stuff
+		// we always need our model
 		$this->get_model( );
-		$this->get_validator( );
-		$this->get_messaging( );
 
-		// do stuff, if there's stuff to be done
-		$this->process_action( );
 	}
 
 	/**
@@ -173,35 +169,6 @@ class Pv_Machine_Inspector_Signup_Admin {
 		include_once( 'partials/pv-machine-inspector-signup-admin-display.php' );
 	}
 
-	/**
-	 * Because I'm not delving into any WP sexiness here, assuming there is any
-	 * 
-	 * @return mixed (method or null)
-	 */
-	public function process_action( ) {
-
-		if ( ! isset( $_REQUEST['action'] ) ) {
-			return;
-		}
-		
-		switch ( $_REQUEST['action'] ) {
-			case 'pvmi_admin_create':
-				return $this->create( );
-			break;
-			case 'pvmi_admin_update':
-				return $this->update( );
-			break;
-			case 'pvmi_admin_delete':
-				return $this->delete( );
-			break;
-			case 'edit':
-				return;
-			break;
-			default:
-				return;
-			break;
-		}
-	}
 
 	/**
 	 * load up messaging
@@ -252,6 +219,9 @@ class Pv_Machine_Inspector_Signup_Admin {
 	// processing actions
 	public function create( ) {
 
+		$this->get_validator( );
+		$this->get_messaging( );
+
 	}
 
 	public function list( ) {
@@ -265,6 +235,8 @@ class Pv_Machine_Inspector_Signup_Admin {
 	}
 
 	public function update( ) {
+		$this->get_validator( );
+		$this->get_messaging( );
 		
 		if ( ! $this->model->update( $_REQUEST ) ) {
 			$this->messaging->queue( "Whoah!", 'failure' );
