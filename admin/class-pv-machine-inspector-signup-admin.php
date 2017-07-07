@@ -238,10 +238,15 @@ class Pv_Machine_Inspector_Signup_Admin {
 		$this->get_validator( );
 		
 		if ( ! $this->model->update( $_REQUEST ) ) {
-			wp_redirect( esc_url( admin_url( 'admin.php?page=' . $this->plugin_name . '&status=failure&message=Updated' ) ) );
+			$status = 'failure';
+			$message = 'Something went wrong.';
 		} else {
-			wp_redirect( esc_url( admin_url( 'admin.php?page=' . $this->plugin_name . '&status=success&message=Woops' ) ) );
+			$status = 'success';
+			$message = 'Changes saved.';
 		}
+
+		wp_redirect( esc_url( admin_url( 'admin.php?page=' . $this->plugin_name . '&pvstatus=' . urlencode( $status ) . 'pvmessage=' . urlencode( $message ) ) ) );
+
 	}
 
 	public function delete( ) {
