@@ -238,9 +238,9 @@ class Pv_Machine_Inspector_Signup_Admin {
 		$this->get_validator( );
 		
 		if ( ! $this->model->update( $_REQUEST ) ) {
-			wp_redirect( esc_url( admin_url( 'admin.php?page=' . $this->plugin_name . '&message=failure' ) ) );
+			wp_redirect( esc_url( admin_url( 'admin.php?page=' . $this->plugin_name . '&status=failure&message=Updated' ) ) );
 		} else {
-			wp_redirect( esc_url( admin_url( 'admin.php?page=' . $this->plugin_name . '&message=success' ) ) );
+			wp_redirect( esc_url( admin_url( 'admin.php?page=' . $this->plugin_name . '&status=success&message=Woops' ) ) );
 		}
 	}
 
