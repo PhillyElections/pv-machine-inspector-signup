@@ -33,8 +33,8 @@ class Pv_Machine_Inspector_Signup_Deactivator {
 
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'setup/setup.php';
 
-		Pv_Machine_Inspector_Signup_Db::delete();
-
+		$setup = new Pv_Machine_Inspector_Signup_Db();
+		$setup->delete();
 	}
 
 }
