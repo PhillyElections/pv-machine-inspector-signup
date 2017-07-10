@@ -47,7 +47,7 @@ class Pv_Machine_Inspector_Signup_Db {
 	public function __construct() {
 
 		$this->plugin_name = 'pv-machine-inspector-signup';
-		$this->version = '0.5.0';
+		$this->version = '1.0.0';
 
 	}
 
