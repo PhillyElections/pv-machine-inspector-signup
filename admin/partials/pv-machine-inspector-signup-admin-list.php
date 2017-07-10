@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Provide a admin area view for the plugin
  *
@@ -12,87 +11,88 @@
  * @subpackage Pv_Machine_Inspector_Signup/admin/partials
  */
 
+// load paginator.
 require_once WP_PLUGIN_DIR . '/pv-core/helpers/pv-core-paginator-helper.php';
-$paginator = new Pv_Core_Paginator_Helper( $this->model->get_pagination( ) );
+$paginator = new Pv_Core_Paginator_Helper( $this->model->get_pagination() );
 
 ?>
-<div id="pvmi-list" class="wrap metabox-holder columns-8 pvmi-metaboxes <?php echo ( $action === 'edit' ) ? 'hidden' : ''; ?>">
-    <table>
-        <thead>
-            <tr>
-                <th>
-                    <?php _e( 'Id', $this->plugin_name );?>
-                </th>
-                <th>
-                    <?php _e( 'Division', $this->plugin_name );?>
-                </th>
-                <th>
-                    <?php _e( 'Name', $this->plugin_name );?>
-                </th>
-                <th>
-                    <?php _e( 'Phone', $this->plugin_name );?>
-                </th>
-                <th>
-                    <?php _e( 'Email', $this->plugin_name );?>
-                </th>
-                <th>
-                    <?php _e( 'Street Address', $this->plugin_name );?>
-                </th>
-                <th>
-                    <?php _e( 'Zip', $this->plugin_name );?>
-                </th>
-                <th>
-                    <?php _e( 'Date', $this->plugin_name );?>
-                </th>
-            </tr>
-        </thead>
-        <tbody>
-        <?php
-        $rows = $this->list( );
-        $n=count( $rows );
-        $i = 0;
+<div id="pvmi-list" class="wrap metabox-holder columns-8 pvmi-metaboxes <?php echo ( 'edit' === $action ) ? 'hidden' : ''; ?>">
+	<table>
+		<thead>
+			<tr>
+				<th>
+					<?php esc_html_e( 'Id', $this->plugin_name );?>
+				</th>
+				<th>
+					<?php esc_html_e( 'Division', $this->plugin_name );?>
+				</th>
+				<th>
+					<?php esc_html_e( 'Name', $this->plugin_name );?>
+				</th>
+				<th>
+					<?php esc_html_e( 'Phone', $this->plugin_name );?>
+				</th>
+				<th>
+					<?php esc_html_e( 'Email', $this->plugin_name );?>
+				</th>
+				<th>
+					<?php esc_html_e( 'Street Address', $this->plugin_name );?>
+				</th>
+				<th>
+					<?php esc_html_e( 'Zip', $this->plugin_name );?>
+				</th>
+				<th>
+					<?php esc_html_e( 'Date', $this->plugin_name );?>
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+		<?php
+		$rows = $this->list( );
+		$n = count( $rows );
+		$i = 0;
 
-        foreach ( $rows as $row ) :
-            $i++;
-            $link     = admin_url( "admin.php?page=" . $this->plugin_name . "&action=edit&item=" . $row->id );
-            $fullname = $row->first_name . " " . ( $row->middle_name ? $row->middle_name . " " : "" ) . $row->last_name;
-            $matches  = '';
-            preg_match( '/^(\d{3})(\d{3})(\d{4})$/', $row->phone, $matches );
-        ?>
-            <tr>
-                <td>
-                    <?php echo $row->id;?>
-                </td>
-                <td>
-                    <?php echo $row->division;?>
-                </td>
-                <td>
-                    <a href="<?php echo $link;?>"><?php echo $fullname;?></a>
-                </td>
-                <td>
-                    <?php echo count( $matches ) ? sprintf( "(%d) %d-%d", $matches[1], $matches[2], $matches[3] ) : '';?>
-                </td>
-                <td>
-                    <?php echo $row->email;?>
-                </td>
-                <td>
-                    <?php echo $row->address1 . ( $row->address2 ? ', ' . $row->address2 : '' );?>
-                </td>
-                <td>
-                    <?php echo $row->postcode;?>
-                </td>
-                <td>
-                    <?php echo $row->created;?>
-                </td>
-            </tr>
-        <?php
-        endforeach;
-        ?>
-        </tbody>
-        <tfoot>
-            <tr>
-                <td colspan="8"><?php echo $paginator->get_list_footer( ); ?></td>
-            </tr>
-        </tfoot>
-    </table>
+		foreach ( $rows as $row ) :
+			$i++;
+			$link     = admin_url( 'admin.php?page=' . $this->plugin_name . '&action=edit&item=' . $row->id );
+			$fullname = $row->first_name . ' ' . ( $row->middle_name ? $row->middle_name . ' ' : '' ) . $row->last_name;
+			$matches  = '';
+			preg_match( '/^(\d{3})(\d{3})(\d{4})$/', $row->phone, $matches );
+		?>
+			<tr>
+				<td>
+					<?php echo esc_html( $row->id );?>
+				</td>
+				<td>
+					<?php echo esc_html( $row->division );?>
+				</td>
+				<td>
+					<a href="<?php echo esc_html( $link );?>"><?php echo esc_html( $fullname );?></a>
+				</td>
+				<td>
+					<?php echo esc_html( count( $matches ) ? sprintf( '(%d) %d-%d', $matches[1], $matches[2], $matches[3] ) : '' );?>
+				</td>
+				<td>
+					<?php echo esc_html( $row->email );?>
+				</td>
+				<td>
+					<?php echo esc_html( $row->address1 . ( $row->address2 ? ', ' . $row->address2 : '' ) );?>
+				</td>
+				<td>
+					<?php echo esc_html( $row->postcode );?>
+				</td>
+				<td>
+					<?php echo esc_html( $row->created );?>
+				</td>
+			</tr>
+		<?php
+		endforeach;
+		?>
+		</tbody>
+		<tfoot>
+			<tr>
+				<td colspan="8"><?php echo esc_html( $paginator->get_list_footer() ); ?></td>
+			</tr>
+		</tfoot>
+	</table>
 </div>

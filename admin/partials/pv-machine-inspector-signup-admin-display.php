@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Provide a admin area view for the plugin
  *
@@ -12,12 +11,10 @@
  * @subpackage Pv_Machine_Inspector_Signup/admin/partials
  */
 
-$action = isset( $_REQUEST['action'] ) ? $_REQUEST['action'] : '';
-
-// * Grab option values if already set
+// Grab option values if already set.
 $options = get_option( $this->plugin_name );
-   
-// options
+
+// options.
 $o_lock_deactivate = $options['lock_deactivate'];
 $o_admin_footer_text  = $options['admin_footer_text'];
 
@@ -30,24 +27,20 @@ do_settings_sections( $this->plugin_name );
 
 ?>
 <div class="wrap">
-    <h2><?php echo esc_html( get_admin_page_title( ) ); ?></h2>
-    <h2 class="nav-tab-wrapper">
-        <?php if ( $action === 'edit' ) : ?>
-        <a href="#pvmi-edit" class="nav-tab nav-tab-active"><?php _e( 'Edit', $this->plugin_name );?></a>
-        <?php else: ?>
-        <a href="#pvmi-list" class="nav-tab nav-tab-active"><?php _e( 'List', $this->plugin_name );?></a>
-        <a href="#pvmi-add" class="nav-tab"><?php _e( 'Add', $this->plugin_name );?></a>
-        <a href="#pvmi-config" class="nav-tab"><?php _e( 'Config', $this->plugin_name );?></a>
-        <?php endif; ?>
-    </h2>
-    <?php
-    // Include tabs partials
-    if ( $action === 'edit' ) {
-        require_once( 'pv-machine-inspector-signup-admin-edit.php' );
-    } else {
-        require_once( 'pv-machine-inspector-signup-admin-list.php' );
-        require_once( 'pv-machine-inspector-signup-admin-add.php' );
-        require_once( 'pv-machine-inspector-signup-admin-config.php' );        
-    }
-    ?>
+	<h2><?php echo esc_html( get_admin_page_title() ); ?></h2>
+	<h2 class="nav-tab-wrapper">
+		<?php if ( isset( $_REQUEST['action'] )  && 'edit' === $_REQUEST['action'] ) : ?>
+		<a href="#pvmi-edit" class="nav-tab nav-tab-active"><?php esc_html_e( 'Edit', $this->plugin_name );?></a>
+		<?php
+		require_once( 'pv-machine-inspector-signup-admin-edit.php' );
+		else : ?>
+		<a href="#pvmi-list" class="nav-tab nav-tab-active"><?php esc_html_e( 'List', $this->plugin_name );?></a>
+		<a href="#pvmi-add" class="nav-tab"><?php esc_html_e( 'Add', $this->plugin_name );?></a>
+		<a href="#pvmi-config" class="nav-tab"><?php esc_html_e( 'Config', $this->plugin_name );?></a>
+		<?php
+		require_once( 'pv-machine-inspector-signup-admin-list.php' );
+		require_once( 'pv-machine-inspector-signup-admin-add.php' );
+		require_once( 'pv-machine-inspector-signup-admin-config.php' );
+		endif; ?>
+	</h2>
 </div>
