@@ -43,13 +43,11 @@ class Pv_Machine_Inspector_Signup_Db {
 	 * Initialize the class and set its properties.
 	 *
 	 * @since    1.0.0
-	 * @param      string $plugin_name       The name of this plugin.
-	 * @param      string $version    The version of this plugin.
 	 */
-	public function __construct( $plugin_name, $version ) {
+	public function __construct() {
 
-		$this->plugin_name = $plugin_name;
-		$this->version = $version;
+		$this->plugin_name = 'pv-machine-inspector-signup';
+		$this->version = '0.5.0';
 
 	}
 
