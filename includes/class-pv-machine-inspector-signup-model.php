@@ -10,21 +10,30 @@
  * @author     matthew murphy <matthew.e.murphy@phila.gov>
  */
 
-require_once WP_PLUGIN_DIR . '/pv-core/shared/class-pv-core-model.php';
+// include model.
+require_once WP_PLUGIN_DIR . '/pv-core/shared/class-pv-core-model.php' ;
 
 if ( class_exists( 'Pv_Core_Model' ) && ! class_exists( 'Pv_Machine_Inspector_Signup_Model' ) ) {
+	/**
+	 * Local Signup model
+	 */
 	class Pv_Machine_Inspector_Signup_Model extends Pv_Core_Model {
+		/**
+		 * Constructor override
+		 */
 		public function __construct() {
 			parent::__construct();
 			$this->tablename = 'pv_machine_inspector_signups';
 		}
 
-		public function update( $data , $where = null) {
-			// run validation routine
-			// -- we'll get data from the validation routine
-
-			// run update
-			parent::update( $data );
+		/**
+		 * Update override
+		 *
+		 * @param      mixed  $data   The data.
+		 * @param      string $where  The where.
+		 */
+		public function update( $data, $where = null ) {
+			parent::update( $data, $where );
 		}
 	}
 }

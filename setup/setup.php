@@ -46,21 +46,25 @@ class Pv_Machine_Inspector_Signup_Db {
 	 * @param      string $plugin_name       The name of this plugin.
 	 * @param      string $version    The version of this plugin.
 	 */
-	public function __construct( $config ) {
+	public function __construct( $plugin_name, $version ) {
 
-		$this->plugin_name = $config->plugin_name;
-		$this->version = $config->version;
+		$this->plugin_name = $plugin_name;
+		$this->version = $version;
 
 	}
 
-	public static function create() {
+	/**
+	 * Create
+	 *
+	 * @return     boolean  ( description_of_the_return_value )
+	 */
+	public function create() {
 
 		$current_db_version = get_option( $this->plugin_name . '_db_version' );
 		if ( ! $current_db_version ) {
-			// This is a fresh install
-			// Perform any databases modifications related to plugin activation here, if necessary
 
-			require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+			// Perform any databases modifications related to plugin activation here, if necessary.
+			require_once ABSPATH . 'wp-admin/includes/upgrade.php' ;
 
 			add_option( $this->plugin_name . '_db_version', $this->version );
 
@@ -92,11 +96,16 @@ class Pv_Machine_Inspector_Signup_Db {
 		return false;
 	}
 
+	/**
+	 * Delete
+	 *
+	 * @return     boolean  ( description_of_the_return_value )
+	 */
 	public static function delete() {
 
 		global $wpdb;
 
-		require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+		require_once ABSPATH . 'wp-admin/includes/upgrade.php' ;
 
 		delete_option( $this->plugin_name . '_db_version', $this->version );
 		$table_name = $wpdb->prefix . 'pv_machine_inspector_signups';
@@ -107,11 +116,16 @@ class Pv_Machine_Inspector_Signup_Db {
 		return true;
 	}
 
+	/**
+	 * Update
+	 *
+	 * @return     boolean  ( description_of_the_return_value )
+	 */
 	public static function update() {
 
 		global $wpdb;
 
-		require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+		require_once ABSPATH . 'wp-admin/includes/upgrade.php' ;
 
 		$update = plugin_dir_path( __FILE__ ) . 'update.sql';
 
