@@ -33,7 +33,7 @@ class Pv_Machine_Inspector_Signup_Activator {
 
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'setup/setup.php';
 
-		Pv_Machine_Inspector_Signup_Db::create();
-
+		$setup = new Pv_Machine_Inspector_Signup_Db();
+		$setup->create();
 	}
 }
