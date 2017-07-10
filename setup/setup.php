@@ -1,5 +1,4 @@
 <?php
-
 /**
  * The manage database install and update.
  *
@@ -29,7 +28,7 @@ class Pv_Machine_Inspector_Signup_Db {
 	 * @access   private
 	 * @var      string    $plugin_name    The ID of this plugin.
 	 */
-	private static $plugin_name;
+	private $plugin_name;
 
 	/**
 	 * The version of this plugin.
@@ -38,88 +37,88 @@ class Pv_Machine_Inspector_Signup_Db {
 	 * @access   private
 	 * @var      string    $version    The current version of this plugin.
 	 */
-	private static $version;
+	private $version;
 
 	/**
 	 * Initialize the class and set its properties.
 	 *
 	 * @since    1.0.0
-	 * @param      string    $plugin_name       The name of this plugin.
-	 * @param      string    $version    The version of this plugin.
+	 * @param      string $plugin_name       The name of this plugin.
+	 * @param      string $version    The version of this plugin.
 	 */
 	public function __construct( $config ) {
 
-        self::$plugin_name = $config->plugin_name;
-        self::$version = $config->version;
+		$this->plugin_name = $config->plugin_name;
+		$this->version = $config->version;
 
 	}
 
-    public static function create() {
+	public static function create() {
 
-        $current_db_version = get_option(self::$plugin_name.'_db_version');
-        if (!$current_db_version) {
-            // This is a fresh install
-            // Perform any databases modifications related to plugin activation here, if necessary
+		$current_db_version = get_option( $this->plugin_name . '_db_version' );
+		if ( ! $current_db_version ) {
+			// This is a fresh install
+			// Perform any databases modifications related to plugin activation here, if necessary
 
-            require_once ABSPATH.'wp-admin/includes/upgrade.php';
+			require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
 
-            add_option(self::$plugin_name.'_db_version', self::$version);
+			add_option( $this->plugin_name . '_db_version', $this->version );
 
-            global $wpdb;
+			global $wpdb;
 
-            $table_name=$wpdb->prefix.'pv_machine_inspector_signups';
-            $sql = "DROP TABLE IF EXISTS `$table_name` ";
+			$table_name = $wpdb->prefix . 'pv_machine_inspector_signups';
+			$sql = "DROP TABLE IF EXISTS `$table_name` ";
 
-            $wpdb->query( $sql );
-            
-            $schema = dirname(__FILE__).DIRECTORY_SEPARATOR.'schema.sql';
-			$data = dirname(__FILE__).DIRECTORY_SEPARATOR.'data.sql';
+			$wpdb->query( $sql );
 
-            if ($sql = file_get_contents($schema)) {
-                dbDelta(str_replace('[[db_prefix]]', $wpdb->prefix, $sql));
-            }
-            if ($sql = file_get_contents($data)) {
-            	dbDelta(str_replace('[[db_prefix]]', $wpdb->prefix, $sql));
-            }
+			$schema = dirname( __FILE__ ) . DIRECTORY_SEPARATOR . 'schema.sql';
+			$data = dirname( __FILE__ ) . DIRECTORY_SEPARATOR . 'data.sql';
 
-            return true;
+			if ( $sql = file_get_contents( $schema ) ) {
+				dbDelta( str_replace( '[[db_prefix]]', $wpdb->prefix, $sql ) );
+			}
+			if ( $sql = file_get_contents( $data ) ) {
+				dbDelta( str_replace( '[[db_prefix]]', $wpdb->prefix, $sql ) );
+			}
 
-        } else if ($current_db_version !== self::$version) {
+			return true;
 
-        	return self::update();
+		} else if ( $current_db_version !== $this->version ) {
 
-        }
+			return $this->update();
 
-        return false;
-    }
+		}
 
-    public static function delete() {
+		return false;
+	}
 
-        global $wpdb;
+	public static function delete() {
 
-        require_once ABSPATH.'wp-admin/includes/upgrade.php';
+		global $wpdb;
 
-        delete_option(self::$plugin_name.'_db_version', self::$version);
-        $table_name=$wpdb->prefix.'pv_machine_inspector_signups';
-        $sql = "DROP TABLE IF EXISTS `$table_name` ";
+		require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
 
-        $wpdb->query( $sql );
+		delete_option( $this->plugin_name . '_db_version', $this->version );
+		$table_name = $wpdb->prefix . 'pv_machine_inspector_signups';
+		$sql = "DROP TABLE IF EXISTS `$table_name` ";
 
-        return true;
-    }
+		$wpdb->query( $sql );
 
-    public static function update() {
+		return true;
+	}
 
-        global $wpdb;
+	public static function update() {
 
-        require_once ABSPATH.'wp-admin/includes/upgrade.php';
+		global $wpdb;
 
-        $update = plugin_dir_path(__FILE__).'update.sql';
+		require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
 
-        if ($sql = file_get_contents($update)) {
-            dbDelta(str_replace('[[db_prefix]]', $wpdb->prefix, $sql));
-        }
+		$update = plugin_dir_path( __FILE__ ) . 'update.sql';
 
-        return true;
-    }
+		if ( $sql = file_get_contents( $update ) ) {
+			dbDelta( str_replace( '[[db_prefix]]', $wpdb->prefix, $sql ) );
+		}
+
+		return true;
+	}
 }

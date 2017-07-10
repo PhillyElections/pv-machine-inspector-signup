@@ -34,16 +34,16 @@ if ( ! defined( 'WPINC' ) ) {
  * The code that runs during plugin activation.
  * This action is documented in includes/class-pv-machine-inspector-signup-activator.php
  */
-function activate_pv_machine_inspector_signup( ) {
+function activate_pv_machine_inspector_signup() {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-pv-machine-inspector-signup-activator.php';
-	Pv_Machine_Inspector_Signup_Activator::activate( );
+	Pv_Machine_Inspector_Signup_Activator::activate();
 }
 
 /**
  * The code that runs during plugin deactivation.
  * This action is documented in includes/class-pv-machine-inspector-signup-deactivator.php
  */
-function deactivate_pv_machine_inspector_signup( ) {
+function deactivate_pv_machine_inspector_signup() {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-pv-machine-inspector-signup-deactivator.php';
 	Pv_Machine_Inspector_Signup_Deactivator::deactivate();
 }
@@ -66,11 +66,11 @@ require_once plugin_dir_path( __FILE__ ) . 'includes/class-pv-machine-inspector-
  *
  * @since    1.0.0
  */
-function run_pv_machine_inspector_signup( ) {
+function run_pv_machine_inspector_signup() {
 
-	$plugin = new Pv_Machine_Inspector_Signup( );
-	$plugin->run( );
+	$plugin = new Pv_Machine_Inspector_Signup();
+	$plugin->run();
 
 }
 
-run_pv_machine_inspector_signup( );
+run_pv_machine_inspector_signup();

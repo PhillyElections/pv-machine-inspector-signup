@@ -31,6 +31,7 @@ class Pv_Machine_Inspector_Signup {
 
 	/**
 	 * $loader
+	 * @var
 	 */
 	protected $loader;
 
@@ -53,7 +54,7 @@ class Pv_Machine_Inspector_Signup {
 	 *
 	 * @since    1.0.0
 	 */
-	public function __construct( ) {
+	public function __construct() {
 
 		$this->plugin_name = 'pv-machine-inspector-signup';
 		$this->version = '1.0.0';
@@ -80,7 +81,7 @@ class Pv_Machine_Inspector_Signup {
 	 * @since    1.0.0
 	 * @access   private
 	 */
-	private function load_dependencies( ) {
+	private function load_dependencies() {
 
 		/**
 		 * The class responsible for orchestrating the actions and filters of the
@@ -118,7 +119,7 @@ class Pv_Machine_Inspector_Signup {
 	 * @since    1.0.0
 	 * @access   private
 	 */
-	private function set_locale( ) {
+	private function set_locale() {
 
 		$plugin_i18n = new Pv_Machine_Inspector_Signup_i18n();
 
@@ -133,14 +134,14 @@ class Pv_Machine_Inspector_Signup {
 	 * @since    1.0.0
 	 * @access   private
 	 */
-	private function define_admin_hooks( ) {
+	private function define_admin_hooks() {
 
 		$plugin_admin = new Pv_Machine_Inspector_Signup_Admin( $this->get_plugin_name(), $this->get_version() );
 
 		// bind in our parent menu item
-  		$this->loader->add_action( 'admin_menu', $plugin_admin, 'add_plugin_admin_child_menu' );
+		$this->loader->add_action( 'admin_menu', $plugin_admin, 'add_plugin_admin_child_menu' );
 
-  		// script and style loads
+		// script and style loads
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 
@@ -148,7 +149,7 @@ class Pv_Machine_Inspector_Signup {
 		$this->loader->add_action( 'admin_post_pvmi_admin_create', $plugin_admin, 'create' );
 		$this->loader->add_action( 'admin_post_pvmi_admin_config', $plugin_admin, 'config' );
 		$this->loader->add_action( 'admin_post_pvmi_admin_update', $plugin_admin, 'update' );
-		
+
 	}
 
 	/**
@@ -158,9 +159,9 @@ class Pv_Machine_Inspector_Signup {
 	 * @since    1.0.0
 	 * @access   private
 	 */
-	private function define_public_hooks( ) {
+	private function define_public_hooks() {
 
-		$plugin_public = new Pv_Machine_Inspector_Signup_Public( $this->get_plugin_name( ), $this->get_version( ) );
+		$plugin_public = new Pv_Machine_Inspector_Signup_Public( $this->get_plugin_name(), $this->get_version() );
 
 		// script and style loads
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
@@ -176,8 +177,8 @@ class Pv_Machine_Inspector_Signup {
 	 *
 	 * @since    1.0.0
 	 */
-	public function run( ) {
-		$this->loader->run( );
+	public function run() {
+		$this->loader->run();
 	}
 
 	/**
@@ -187,7 +188,7 @@ class Pv_Machine_Inspector_Signup {
 	 * @since     1.0.0
 	 * @return    string    The name of the plugin.
 	 */
-	public function get_plugin_name( ) {
+	public function get_plugin_name() {
 		return $this->plugin_name;
 	}
 
@@ -197,7 +198,7 @@ class Pv_Machine_Inspector_Signup {
 	 * @since     1.0.0
 	 * @return    Pv_Machine_Inspector_Signup_Loader    Orchestrates the hooks of the plugin.
 	 */
-	public function get_loader( ) {
+	public function get_loader() {
 		return $this->loader;
 	}
 
@@ -207,7 +208,7 @@ class Pv_Machine_Inspector_Signup {
 	 * @since     1.0.0
 	 * @return    string    The version number of the plugin.
 	 */
-	public function get_version( ) {
+	public function get_version() {
 		return $this->version;
 	}
 

@@ -38,7 +38,7 @@
                 location.hash = $tabContent;
             }
         })
-        
+
     });
 
 })(jQuery, window);

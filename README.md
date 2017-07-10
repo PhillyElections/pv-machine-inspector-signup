@@ -1,6 +1,6 @@
 === Plugin Name ===
 Contributors: matthew murphy
-Donate link: 
+Donate link:
 Tags: elections, election board workers
 Requires at least: 4.0
 Tested up to: 4.7

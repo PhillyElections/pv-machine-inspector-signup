@@ -1,5 +1,4 @@
 <?php
-
 /**
  * The admin-specific functionality of the plugin.
  *
@@ -19,8 +18,7 @@
  * @package    Pv_Machine_Inspector_Signup
  * @subpackage Pv_Machine_Inspector_Signup/admin
  * @author     matthew murphy <matthew.e.murphy@phila.gov>
- */
-
+ **/
 class Pv_Machine_Inspector_Signup_Admin {
 
 	/**
@@ -72,17 +70,17 @@ class Pv_Machine_Inspector_Signup_Admin {
 	 * Initialize the class and set its properties.
 	 *
 	 * @since    1.0.0
-	 * @param      string    $plugin_name       The name of this plugin.
-	 * @param      string    $version    The version of this plugin.
+	 * @param      string $plugin_name       The name of this plugin.
+	 * @param      string $version    The version of this plugin.
 	 */
 	public function __construct( $plugin_name, $version ) {
 
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
 
-		// we always need our model
-		$this->get_model( );
-		$this->get_messaging( );
+		// we always need our model.
+		$this->get_model();
+		$this->get_messaging();
 	}
 
 	/**
@@ -90,12 +88,12 @@ class Pv_Machine_Inspector_Signup_Admin {
 	 *
 	 * @since    1.0.0
 	 */
-	public function enqueue_styles( ) {
+	public function enqueue_styles() {
 
 		/**
 		 * This function is provided for demonstration purposes only.
 		 *
-		 * An instance of this class should be passed to the run( ) function
+		 * An instance of this class should be passed to the run() function
 		 * defined in Pv_Machine_Inspector_Signup_Loader as all of the hooks are defined
 		 * in that particular class.
 		 *
@@ -104,7 +102,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 		 * class.
 		 */
 
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/pv-machine-inspector-signup-admin.css', array( ), $this->version, 'all' );
+		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/pv-machine-inspector-signup-admin.css', array(), $this->version, 'all' );
 
 	}
 
@@ -113,12 +111,12 @@ class Pv_Machine_Inspector_Signup_Admin {
 	 *
 	 * @since    1.0.0
 	 */
-	public function enqueue_scripts( ) {
+	public function enqueue_scripts() {
 
 		/**
 		 * This function is provided for demonstration purposes only.
 		 *
-		 * An instance of this class should be passed to the run( ) function
+		 * An instance of this class should be passed to the run() function
 		 * defined in Pv_Machine_Inspector_Signup_Loader as all of the hooks are defined
 		 * in that particular class.
 		 *
@@ -136,26 +134,16 @@ class Pv_Machine_Inspector_Signup_Admin {
 	 *
 	 * @since    1.0.0
 	 */
-	public function add_plugin_admin_child_menu( )
-	{
+	public function add_plugin_admin_child_menu() {
 
-		/*
-		 * Add a settings page for this plugin to the Settings menu.
-		 *
-		 * NOTE:  Alternative menu locations are available via WordPress administration menu functions.
-		 *
-		 *        Administration Menus: http://codex.wordpress.org/Administration_Menus
-		 *
-		 */
 		if ( isset( $GLOBALS['admin_page_hooks']['phillyvotes'] ) ) {
 			// parent exists.  write just a child menu.
-			add_submenu_page( 'phillyvotes',__( 'Machine Inspector Signup', $this->plugin_name ), 'Machine Inspectors', 'manage_options', $this->plugin_name, array( $this, 'display_plugin_manage_display_page' )
-			);
-		} else {
-			// woops.  no parent.  wire parent and child to display page
-			add_menu_page( __( 'Machine Inspectors', $this->plugin_name),'Phillyvotes','manage_options','phillyvotes', array( $this, 'display_plugin_manage_display_page' ) );
 			add_submenu_page( 'phillyvotes', __( 'Machine Inspector Signup', $this->plugin_name ), 'Machine Inspectors', 'manage_options', $this->plugin_name, array( $this, 'display_plugin_manage_display_page' )
 			);
+		} else {
+			// woops.  no parent.  wire parent and child to display page.
+			add_menu_page( __( 'Machine Inspectors', $this->plugin_name ),'Phillyvotes','manage_options','phillyvotes', array( $this, 'display_plugin_manage_display_page' ) );
+			add_submenu_page( 'phillyvotes', __( 'Machine Inspector Signup', $this->plugin_name ), 'Machine Inspectors', 'manage_options', $this->plugin_name, array( $this, 'display_plugin_manage_display_page' ) );
 		}
 	}
 
@@ -164,79 +152,89 @@ class Pv_Machine_Inspector_Signup_Admin {
 	 *
 	 * @since    1.0.0
 	 */
-	public function display_plugin_manage_display_page( )
-	{
+	public function display_plugin_manage_display_page() {
 		include_once( 'partials/pv-machine-inspector-signup-admin-display.php' );
 	}
 
-
 	/**
-	 * load up messaging
-	 * 
+	 * Load up messaging
+	 *
 	 * @return void
 	 */
-	private function get_messaging( ) {
+	private function get_messaging() {
 
 		if ( ! $this->messaging ) {
 
 			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-pv-machine-inspector-signup-messaging.php';
 
-			$this->messaging = new Pv_Machine_Inspector_Signup_Messaging( );
+			$this->messaging = new Pv_Machine_Inspector_Signup_Messaging();
 		}
 	}
 
 	/**
-	 * load up a model
-	 * 
+	 * Load up a model
+	 *
 	 * @return void
 	 */
-	private function get_model( ) {
+	private function get_model() {
 
 		if ( ! $this->model ) {
 
 			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-pv-machine-inspector-signup-model.php';
 
-			$this->model = new Pv_Machine_Inspector_Signup_Model( );
+			$this->model = new Pv_Machine_Inspector_Signup_Model();
 		}
 
 	}
 
 	/**
-	 * load up a validator
-	 * 
+	 * Load up a validator
+	 *
 	 * @return void
 	 */
-	private function get_validator( ) {
+	private function get_validator() {
 
 		if ( ! $this->validator ) {
 
 			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-pv-machine-inspector-signup-validation.php';
 
-			$this->validator = new Pv_Machine_Inspector_Signup_Validation( );
+			$this->validator = new Pv_Machine_Inspector_Signup_Validation();
 		}
 	}
 
-	// processing actions
-	public function create( ) {
+	// processing actions.
+	/**
+	 * Create a record
+	 */
+	public function create() {
 
-		$this->get_validator( );
+		$this->get_validator();
 
 	}
 
-	public function list( ) {
-		return $this->model->get_paged( );
+	/**
+	 * List records
+	 */
+	public function list() {
+		return $this->model->get_paged();
 	}
 
-	public function read( ) {
-		if ( isset($_REQUEST['item']) && $item = (int) $_REQUEST['item'] ) {
+	/**
+	 * Read a record
+	 */
+	public function read() {
+		if ( isset( $_REQUEST['item'] ) && $item = ( int ) $_REQUEST['item'] ) {
 			return $this->model->get_row( $item );
 		}
 	}
 
-	public function update( ) {
+	/**
+	 * Update a record
+	 */
+	public function update() {
 
-		$this->get_validator( );
-		
+		$this->get_validator();
+
 		if ( ! $this->model->update( $_REQUEST ) ) {
 			$status = 'failure';
 			$message = 'Something went wrong.';
@@ -249,12 +247,24 @@ class Pv_Machine_Inspector_Signup_Admin {
 
 	}
 
-	public function delete( ) {
-		return $this->model->delete( ( int ) $_REQUEST['item'] );
+	/**
+	 * Delete a record
+	 */
+	public function delete() {
+		return $this->model->delete();
 	}
 
-	public function config( ) {
-		// this is not a model action
+	/**
+	 * Write Configuration
+	 */
+	public function get_config() {
+
 	}
 
+	/**
+	 * Write Configuration
+	 */
+	public function set_config() {
+
+	}
 }
