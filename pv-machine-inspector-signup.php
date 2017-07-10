@@ -48,7 +48,7 @@ function activate_pv_machine_inspector_signup() {
 function deactivate_pv_machine_inspector_signup() {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-pv-machine-inspector-signup-deactivator.php';
 	
-	$deactivator = Pv_Machine_Inspector_Signup_Deactivator::deactivate();
+	$deactivator = new Pv_Machine_Inspector_Signup_Deactivator();
 	$deactivator->deactivate();
 }
 
