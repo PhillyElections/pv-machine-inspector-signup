@@ -99,7 +99,7 @@ class Pv_Machine_Inspector_Signup_Db {
 	 *
 	 * @return     boolean  ( description_of_the_return_value )
 	 */
-	public static function delete() {
+	public function delete() {
 
 		global $wpdb;
 
@@ -119,7 +119,7 @@ class Pv_Machine_Inspector_Signup_Db {
 	 *
 	 * @return     boolean  ( description_of_the_return_value )
 	 */
-	public static function update() {
+	public function update() {
 
 		global $wpdb;
 

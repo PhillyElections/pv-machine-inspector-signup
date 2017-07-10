@@ -36,7 +36,9 @@ if ( ! defined( 'WPINC' ) ) {
  */
 function activate_pv_machine_inspector_signup() {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-pv-machine-inspector-signup-activator.php';
-	Pv_Machine_Inspector_Signup_Activator::activate();
+
+	$activator = new Pv_Machine_Inspector_Signup_Activator();
+	$activator->activate();
 }
 
 /**
@@ -45,7 +47,9 @@ function activate_pv_machine_inspector_signup() {
  */
 function deactivate_pv_machine_inspector_signup() {
 	require_once plugin_dir_path( __FILE__ ) . 'includes/class-pv-machine-inspector-signup-deactivator.php';
-	Pv_Machine_Inspector_Signup_Deactivator::deactivate();
+	
+	$deactivator = Pv_Machine_Inspector_Signup_Deactivator::deactivate();
+	$deactivator->deactivate();
 }
 
 register_activation_hook( __FILE__, 'activate_pv_machine_inspector_signup' );
