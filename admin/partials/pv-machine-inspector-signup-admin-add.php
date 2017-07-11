@@ -19,39 +19,39 @@
 			<tbody>
 				<tr class="form-field form-required">
 					<th scope="row"><label for="first_name"><?php esc_html_e( 'First Name', $this->plugin_name ); ?><span class="description"> (required)</span></label></th>
-					<td><input id="first_name" name="first_name" type="text" value=""></td>
+					<td><input class="requied" id="first_name" name="first_name" type="text" value=""></td>
 				</tr>
 				<tr class="form-field">
 					<th scope="row"><label for="middle_name"><?php esc_html_e( 'Middle Name', $this->plugin_name ); ?> <span class="description"></span></label></th>
-					<td><input id="middle_name" name="middle_name" type="text" value=""></td>
+					<td><input class="requied" id="middle_name" name="middle_name" type="text" value=""></td>
 				</tr>
 				<tr class="form-field form-required">
 					<th scope="row"><label for="last_name"><?php esc_html_e( 'Last Name', $this->plugin_name ); ?><span class="description"> (required)</span></label></th>
-					<td><input id="last_name" name="last_name" type="text" value=""></td>
+					<td><input class="requied" id="last_name" name="last_name" type="text" value=""></td>
 				</tr>
 				<tr class="form-field form-required">
 					<th scope="row"><label for="address1"><?php esc_html_e( 'Address', $this->plugin_name ); ?><span class="description"> (required)</span></label></th>
-					<td><input id="address1" name="address1" type="text" value=""></td>
+					<td><input class="requied" id="address1" name="address1" type="text" value=""></td>
 				</tr>
 				<tr class="form-field">
 					<th scope="row"><label for="address2">(<?php esc_html_e( 'Continued', $this->plugin_name ); ?>) <span class="description"></span></label></th>
-					<td><input id="address2" name="address2" type="text" value=""></td>
+					<td><input class="requied" id="address2" name="address2" type="text" value=""></td>
 				</tr>
 				<tr class="form-field form-required">
 					<th scope="row"><label for="city"><?php esc_html_e( 'City', $this->plugin_name ); ?><span class="description"> (required)</span></label></th>
-					<td><input id="city" name="city" type="text" value=""></td>
+					<td><input class="requied" id="city" name="city" type="text" value=""></td>
 				</tr>
 				<tr class="form-field form-required">
 					<th scope="row"><label for="postcode"><?php esc_html_e( 'Zip', $this->plugin_name ); ?><span class="description"> (required)</span></label></th>
-					<td><input id="postcode" name="postcode" type="text" value=""></td>
+					<td><input class="requied" id="postcode" name="postcode" type="text" value=""></td>
 				</tr>
 				<tr class="form-field">
 					<th scope="row"><label for="email"><?php esc_html_e( 'Email', $this->plugin_name ); ?> <span class="description"></span></label></th>
-					<td><input id="email" name="email" type="email" value=""></td>
+					<td><input class="requied" id="email" name="email" type="email" value=""></td>
 				</tr>
 				<tr class="form-field form-required">
 					<th scope="row"><label for="phone"><?php esc_html_e( 'Phone', $this->plugin_name ); ?><span class="description"> (required)</span></label></th>
-					<td><input id="phone" name="phone" type="text" value=""></td>
+					<td><input class="requied" id="phone" name="phone" type="text" value=""></td>
 				</tr>
 			</tbody>
 		</table>
