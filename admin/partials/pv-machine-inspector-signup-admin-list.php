@@ -72,7 +72,10 @@ $paginator = new Pv_Core_Paginator_Helper( $this->model->get_pagination() );
 						<input name="action" value="pvmi_admin_delete" type="hidden">
 						<input name="item" value="<?php echo esc_attr( $row->id );?>" type="hidden">
 						<button value="submit">X</button>
-					</form> &nbsp;<a href="<?php echo esc_attr( $link );?>"><?php echo esc_html( $fullname );?></a>
+					</form> 
+				</td>
+				<td>
+					<a href="<?php echo esc_attr( $link );?>"><?php echo esc_html( $fullname );?></a>
 				</td>
 				<td>
 					<?php echo esc_html( count( $matches ) ? sprintf( '(%d) %d-%d', $matches[1], $matches[2], $matches[3] ) : '' );?>
