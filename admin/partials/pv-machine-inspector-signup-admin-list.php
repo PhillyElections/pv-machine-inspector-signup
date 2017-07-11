@@ -61,7 +61,7 @@ $paginator = new Pv_Core_Paginator_Helper( $this->model->get_pagination() );
 		?>
 			<tr>
 				<td>
-					<?php echo esc_html( $row->id );?>
+					<?php echo $row->id ;?>
 				</td>
 				<td>
 					<?php echo esc_html( $row->division );?>
