@@ -54,7 +54,7 @@ $paginator = new Pv_Core_Paginator_Helper( $this->model->get_pagination() );
 
 		foreach ( $rows as $row ) :
 			$i++;
-			$link     = admin_url( 'admin.php?page=' . $this->plugin_name . '&action=edit&item=' . $row->id ) ;
+			$link     = admin_url( 'admin.php?page=' . esc_url( $this->plugin_name ) . '&action=edit&item=' . esc_url( $row->id ) ) ;
 			$fullname = $row->first_name . ' ' . ( $row->middle_name ? $row->middle_name . ' ' : '' ) . $row->last_name;
 			$matches  = '';
 			preg_match( '/^(\d{3})(\d{3})(\d{4})$/', $row->phone, $matches );
