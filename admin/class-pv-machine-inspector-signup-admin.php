@@ -261,7 +261,9 @@ class Pv_Machine_Inspector_Signup_Admin {
 	 * Delete a record
 	 */
 	public function delete() {
-		return $this->model->delete();
+		if ( isset( $_REQUEST['item'] ) && $item = ( int ) $_REQUEST['item'] ) {
+			return $this->model->delete( $item );
+		}
 	}
 
 	/**
