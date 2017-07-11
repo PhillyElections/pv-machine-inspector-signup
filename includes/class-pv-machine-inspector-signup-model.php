@@ -25,15 +25,5 @@ if ( class_exists( 'Pv_Core_Model' ) && ! class_exists( 'Pv_Machine_Inspector_Si
 			parent::__construct();
 			$this->tablename = 'pv_machine_inspector_signups';
 		}
-
-		/**
-		 * Update override
-		 *
-		 * @param      mixed  $data   The data.
-		 * @param      string $where  The where.
-		 */
-		public function update( $data, $where = null ) {
-			parent::update( $data, $where );
-		}
 	}
 }
