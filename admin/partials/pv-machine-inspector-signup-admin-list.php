@@ -20,28 +20,31 @@ $paginator = new Pv_Core_Paginator_Helper( $this->model->get_pagination() );
 	<table>
 		<thead>
 			<tr>
-				<th>
+				<th width="1%">
 					<?php esc_html_e( 'Id', $this->plugin_name );?>
 				</th>
-				<th>
+				<th width="3%">
 					<?php esc_html_e( 'Division', $this->plugin_name );?>
 				</th>
-				<th>
+				<th width="20%">
 					<?php esc_html_e( 'Name', $this->plugin_name );?>
 				</th>
-				<th>
+				<th width="1%">
+					&nbsp;
+				</th>
+				<th width="15%">
 					<?php esc_html_e( 'Phone', $this->plugin_name );?>
 				</th>
-				<th>
+				<th width="15%">
 					<?php esc_html_e( 'Email', $this->plugin_name );?>
 				</th>
-				<th>
+				<th width="20%">
 					<?php esc_html_e( 'Street Address', $this->plugin_name );?>
 				</th>
-				<th>
+				<th width="10%">
 					<?php esc_html_e( 'Zip', $this->plugin_name );?>
 				</th>
-				<th>
+				<th width="15%">
 					<?php esc_html_e( 'Date', $this->plugin_name );?>
 				</th>
 			</tr>
