@@ -54,10 +54,10 @@ $paginator = new Pv_Core_Paginator_Helper( $this->model->get_pagination() );
 
 		foreach ( $rows as $row ) :
 			$i++;
-			$link     = admin_url( 'admin.php?page=' . $this->plugin_name . '&action=edit&item=' . $row->id );
-			$delete   = admin_url( 'admin.php?page=' . $this->plugin_name . '&action=delete&item=' . $row->id );
-			$fullname = $row->first_name . ' ' . ( $row->middle_name ? $row->middle_name . ' ' : '' ) . $row->last_name;
-			$matches  = '';
+			$link      = admin_url( 'admin.php?page=' . $this->plugin_name . '&action=edit&item=' . $row->id );
+			$base_post = admin_url( 'admin_post.php' );
+			$fullname  = $row->first_name . ' ' . ( $row->middle_name ? $row->middle_name . ' ' : '' ) . $row->last_name;
+			$matches   = '';
 			preg_match( '/^(\d{3})(\d{3})(\d{4})$/', $row->phone, $matches );
 		?>
 			<tr>
@@ -68,7 +68,11 @@ $paginator = new Pv_Core_Paginator_Helper( $this->model->get_pagination() );
 					<?php echo esc_html( $row->division );?>
 				</td>
 				<td>
-					<a href="<?php echo esc_attr( $delete );?>">X</a>&nbsp;<a href="<?php echo esc_attr( $link );?>"><?php echo esc_html( $fullname );?></a>
+					<form class="validate" method="post" name="machine_inspector_add" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
+						<input name="action" value="pvmi_admin_delete" type="hidden">
+						<input name="item" value="<?php echo esc_attr( $row->id );?>" type="hidden">
+						<button value="submit">X</button>
+					</form> &nbsp;<a href="<?php echo esc_attr( $link );?>"><?php echo esc_html( $fullname );?></a>
 				</td>
 				<td>
 					<?php echo esc_html( count( $matches ) ? sprintf( '(%d) %d-%d', $matches[1], $matches[2], $matches[3] ) : '' );?>
