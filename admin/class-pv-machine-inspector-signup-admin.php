@@ -243,7 +243,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 			$message = 'Changes saved.';
 		}
 
-		wp_redirect( esc_url( admin_url( 'admin.php?page=' . $this->plugin_name . '&pvstatus=' . urlencode( $status ) . 'pvmessage=' . urlencode( $message ) ) ) );
+		wp_redirect( admin_url( 'admin.php?page=' . $this->plugin_name . '&pvstatus=' . urlencode( $status ) . 'pvmessage=' . urlencode( $message ) ) );
 
 	}
 
