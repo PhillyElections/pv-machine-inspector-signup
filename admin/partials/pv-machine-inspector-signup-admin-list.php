@@ -26,11 +26,11 @@ $paginator = new Pv_Core_Paginator_Helper( $this->model->get_pagination() );
 				<th width="3%">
 					<?php esc_html_e( 'Division', $this->plugin_name );?>
 				</th>
-				<th width="20%">
-					<?php esc_html_e( 'Name', $this->plugin_name );?>
-				</th>
 				<th width="1%">
 					&nbsp;
+				</th>
+				<th width="20%">
+					<?php esc_html_e( 'Name', $this->plugin_name );?>
 				</th>
 				<th width="15%">
 					<?php esc_html_e( 'Phone', $this->plugin_name );?>
