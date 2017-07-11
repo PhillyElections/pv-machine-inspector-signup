@@ -11,6 +11,8 @@
  * @subpackage Pv_Machine_Inspector_Signup/admin/partials
  */
 
+$action = '';
+
 // Grab option values if already set.
 $options = get_option( $this->plugin_name );
 
@@ -29,7 +31,9 @@ do_settings_sections( $this->plugin_name );
 <div class="wrap">
 	<h2><?php echo esc_html( get_admin_page_title() ); ?></h2>
 	<h2 class="nav-tab-wrapper">
-		<?php if ( isset( $_REQUEST['action'] )  && 'edit' === $_REQUEST['action'] ) : ?>
+		<?php if ( isset( $_REQUEST['action'] )  && 'edit' === $_REQUEST['action'] ) :
+			$action = 'edit';
+		?>
 		<a href="#pvmi-edit" class="nav-tab nav-tab-active"><?php esc_html_e( 'Edit', $this->plugin_name );?></a>
 		<?php
 		require_once 'pv-machine-inspector-signup-admin-edit.php' ;
