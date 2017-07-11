@@ -261,9 +261,20 @@ class Pv_Machine_Inspector_Signup_Admin {
 	 * Delete a record
 	 */
 	public function delete() {
+		$status = 'error';
+		$message = 'No item specified for deletion.';
+
 		if ( isset( $_REQUEST['item'] ) && $item = ( int ) $_REQUEST['item'] ) {
-			return $this->model->delete( $item );
+			if ( ! $this->model->delete( $item ) ) {
+				$status = 'error';
+				$message = 'Something went wrong.';
+			} else {
+				$status = 'success';
+				$message = 'Deleted.';
+			}
 		}
+
+		wp_redirect( admin_url( 'admin.php?page=' . $this->plugin_name . '&pvstatus=' . urlencode( $status ) . '&pvmessage=' . urlencode( $message ) ) );
 	}
 
 	/**
