@@ -28,7 +28,7 @@ class Pv_Machine_Inspector_Signup_Db {
 	 * @access   private
 	 * @var      string    $plugin_name    The ID of this plugin.
 	 */
-	private $plugin_name;
+	public $plugin_name;
 
 	/**
 	 * The version of this plugin.
@@ -37,7 +37,7 @@ class Pv_Machine_Inspector_Signup_Db {
 	 * @access   private
 	 * @var      string    $version    The current version of this plugin.
 	 */
-	private $version;
+	public $version;
 
 	/**
 	 * Initialize the class and set its properties.
