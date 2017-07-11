@@ -208,6 +208,10 @@ class Pv_Machine_Inspector_Signup_Admin {
 	 */
 	public function create() {
 
+		$data = $_REQUEST;
+
+		unset( $data['action'], $data['submit'] );
+
 		$this->get_validator();
 
 		if ( ! $this->model->insert( $_REQUEST ) ) {
@@ -243,9 +247,23 @@ class Pv_Machine_Inspector_Signup_Admin {
 	 */
 	public function update() {
 
+		if ( isset( $_REQUEST['item'] ) && $item = ( int ) $_REQUEST['item'] ) {
+
+			$data = $_REQUEST;
+/*
+		if ( ! isset( $where ) ) {
+			// it's item on the outsied, data on the inside.
+			$where = array( 'id' => ( int ) $data['item'] );
+		}
+		unset( $data['item'], $data['action'], $data['submit'] );
+*/
+			unset( $data['item'], $data['action'], $data['submit'] );
+
+		}
+
 		$this->get_validator();
 
-		if ( ! $this->model->update( $_REQUEST ) ) {
+		if ( ! $this->model->update( $data, array( 'id' => $item ) ) ) {
 			$status = 'error';
 			$message = 'Something went wrong.';
 		} else {
