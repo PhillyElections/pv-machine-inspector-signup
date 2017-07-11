@@ -67,7 +67,7 @@ $paginator = new Pv_Core_Paginator_Helper( $this->model->get_pagination() );
 					<?php echo esc_html( $row->division );?>
 				</td>
 				<td>
-					<a href="<?php echo esc_html( $link );?>"><?php echo esc_html( $fullname );?></a>
+					<a href="<?php echo esc_attr( $link );?>"><?php echo esc_html( $fullname );?></a>
 				</td>
 				<td>
 					<?php echo esc_html( count( $matches ) ? sprintf( '(%d) %d-%d', $matches[1], $matches[2], $matches[3] ) : '' );?>
