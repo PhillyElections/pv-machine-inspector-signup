@@ -35,16 +35,17 @@ do_settings_sections( $this->plugin_name );
 			$action = 'edit';
 		?>
 		<a href="#pvmi-edit" class="nav-tab nav-tab-active"><?php esc_html_e( 'Edit', $this->plugin_name );?></a>
+	</h2>
 		<?php
 		require_once 'pv-machine-inspector-signup-admin-edit.php' ;
 		else : ?>
 		<a href="#pvmi-list" class="nav-tab nav-tab-active"><?php esc_html_e( 'List', $this->plugin_name );?></a>
 		<a href="#pvmi-add" class="nav-tab"><?php esc_html_e( 'Add', $this->plugin_name );?></a>
 		<a href="#pvmi-config" class="nav-tab"><?php esc_html_e( 'Config', $this->plugin_name );?></a>
+	</h2>
 		<?php
 		require_once 'pv-machine-inspector-signup-admin-list.php' ;
 		require_once 'pv-machine-inspector-signup-admin-add.php' ;
 		require_once 'pv-machine-inspector-signup-admin-config.php' ;
 		endif; ?>
-	</h2>
 </div>
