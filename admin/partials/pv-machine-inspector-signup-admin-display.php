@@ -30,15 +30,16 @@ do_settings_sections( $this->plugin_name );
 ?>
 <div class="wrap">
 	<h2><?php echo esc_html( get_admin_page_title() ); ?></h2>
-	<h2 class="nav-tab-wrapper">
 		<?php if ( isset( $_REQUEST['action'] )  && 'edit' === $_REQUEST['action'] ) :
 			$action = 'edit';
 		?>
+	<h2 class="nav-tab-wrapper">
 		<a href="#pvmi-edit" class="nav-tab nav-tab-active"><?php esc_html_e( 'Edit', $this->plugin_name );?></a>
 	</h2>
 		<?php
 		require_once 'pv-machine-inspector-signup-admin-edit.php' ;
 		else : ?>
+	<h2 class="nav-tab-wrapper">
 		<a href="#pvmi-list" class="nav-tab nav-tab-active"><?php esc_html_e( 'List', $this->plugin_name );?></a>
 		<a href="#pvmi-add" class="nav-tab"><?php esc_html_e( 'Add', $this->plugin_name );?></a>
 		<a href="#pvmi-config" class="nav-tab"><?php esc_html_e( 'Config', $this->plugin_name );?></a>
