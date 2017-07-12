@@ -214,7 +214,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 
 		$this->get_validator();
 
-		if ( ! $this->model->insert( $_REQUEST ) ) {
+		if ( ! $this->model->insert( $data ) ) {
 			$status = 'error';
 			$message = 'Something went wrong.';
 		} else {
