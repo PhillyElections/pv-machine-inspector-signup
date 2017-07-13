@@ -21,6 +21,8 @@ if ( ! class_exists( 'Pv_Machine_Inspector_Signup_Configurator' ) ) {
 	 * @author     matthew murphy <matthew.e.murphy@phila.gov>
 	 */
 	class Pv_Machine_Inspector_Signup_Configurator {
-
+		static public function get_configuration() {
+			
+		}
 	}	
 }
