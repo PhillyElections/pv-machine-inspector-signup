@@ -221,7 +221,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 			$status = 'success';
 			$message = 'Changes saved.';
 		}
-		dd($this->model);
+
 		wp_redirect( admin_url( 'admin.php?page=' . $this->plugin_name . '&pvstatus=' . urlencode( $status ) . '&pvmessage=' . urlencode( $message ) ) );
 
 	}
@@ -250,25 +250,19 @@ class Pv_Machine_Inspector_Signup_Admin {
 		if ( isset( $_REQUEST['item'] ) && $item = ( int ) $_REQUEST['item'] ) {
 
 			$data = $_REQUEST;
-/*
-		if ( ! isset( $where ) ) {
-			// it's item on the outsied, data on the inside.
-			$where = array( 'id' => ( int ) $data['item'] );
-		}
-		unset( $data['item'], $data['action'], $data['submit'] );
-*/
+
 			unset( $data['item'], $data['action'], $data['submit'] );
 
-		}
+			$this->get_validator();
 
-		$this->get_validator();
+			if ( ! $this->model->update( $data, array( 'id' => $item ) ) ) {
+				$status = 'error';
+				$message = 'Something went wrong.';
+			} else {
+				$status = 'success';
+				$message = 'Changes saved.';
+			}
 
-		if ( ! $this->model->update( $data, array( 'id' => $item ) ) ) {
-			$status = 'error';
-			$message = 'Something went wrong.';
-		} else {
-			$status = 'success';
-			$message = 'Changes saved.';
 		}
 
 		wp_redirect( admin_url( 'admin.php?page=' . $this->plugin_name . '&pvstatus=' . urlencode( $status ) . '&pvmessage=' . urlencode( $message ) ) );
