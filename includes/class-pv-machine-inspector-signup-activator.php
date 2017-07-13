@@ -9,30 +9,32 @@
  * @subpackage Pv_Machine_Inspector_Signup/includes
  */
 
-/**
- * Fired during plugin activation.
- *
- * This class defines all code necessary to run during the plugin's activation.
- *
- * @since      1.0.0
- * @package    Pv_Machine_Inspector_Signup
- * @subpackage Pv_Machine_Inspector_Signup/includes
- * @author     matthew murphy <matthew.e.murphy@phila.gov>
- */
-class Pv_Machine_Inspector_Signup_Activator {
-
+if ( ! class_exists('Pv_Machine_Inspector_Signup_Activator') ) {
 	/**
-	 * Short Description. (use period)
+	 * Fired during plugin activation.
 	 *
-	 * Long Description.
+	 * This class defines all code necessary to run during the plugin's activation.
 	 *
-	 * @since    1.0.0
+	 * @since      1.0.0
+	 * @package    Pv_Machine_Inspector_Signup
+	 * @subpackage Pv_Machine_Inspector_Signup/includes
+	 * @author     matthew murphy <matthew.e.murphy@phila.gov>
 	 */
-	public static function activate() {
+	class Pv_Machine_Inspector_Signup_Activator {
 
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'setup/setup.php';
+		/**
+		 * Short Description. (use period)
+		 *
+		 * Long Description.
+		 *
+		 * @since    1.0.0
+		 */
+		public static function activate() {
 
-		$setup = new Pv_Machine_Inspector_Signup_Db();
-		$setup->create();
+			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'setup/setup.php';
+
+			$setup = new Pv_Machine_Inspector_Signup_Db();
+			$setup->create();
+		}
 	}
 }

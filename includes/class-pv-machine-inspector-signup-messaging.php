@@ -15,7 +15,7 @@ require_once WP_PLUGIN_DIR . '/pv-core/shared/class-pv-core-messaging.php';
 
 if ( class_exists( 'Pv_Core_Messaging' ) && ! class_exists( 'Pv_Machine_Inspector_Signup_Messaging' ) ) {
 	/**
-	 * Local instance
+	 * Local messaging instance
 	 */
 	class Pv_Machine_Inspector_Signup_Messaging extends Pv_Core_Messaging {
 

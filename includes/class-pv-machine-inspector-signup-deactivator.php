@@ -9,31 +9,33 @@
  * @subpackage Pv_Machine_Inspector_Signup/includes
  */
 
-/**
- * Fired during plugin deactivation.
- *
- * This class defines all code necessary to run during the plugin's deactivation.
- *
- * @since      1.0.0
- * @package    Pv_Machine_Inspector_Signup
- * @subpackage Pv_Machine_Inspector_Signup/includes
- * @author     matthew murphy <matthew.e.murphy@phila.gov>
- */
-class Pv_Machine_Inspector_Signup_Deactivator {
-
+if ( ! class_exists( 'Pv_Machine_Inspector_Signup_Deactivator' ) ) {
 	/**
-	 * Short Description. (use period)
+	 * Fired during plugin deactivation.
 	 *
-	 * Long Description.
+	 * This class defines all code necessary to run during the plugin's deactivation.
 	 *
-	 * @since    1.0.0
+	 * @since      1.0.0
+	 * @package    Pv_Machine_Inspector_Signup
+	 * @subpackage Pv_Machine_Inspector_Signup/includes
+	 * @author     matthew murphy <matthew.e.murphy@phila.gov>
 	 */
-	public static function deactivate() {
+	class Pv_Machine_Inspector_Signup_Deactivator {
 
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'setup/setup.php';
+		/**
+		 * Short Description. (use period)
+		 *
+		 * Long Description.
+		 *
+		 * @since    1.0.0
+		 */
+		public static function deactivate() {
 
-		$setup = new Pv_Machine_Inspector_Signup_Db();
-		$setup->delete();
+			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'setup/setup.php';
+
+			$setup = new Pv_Machine_Inspector_Signup_Db();
+			$setup->delete();
+		}
+
 	}
-
 }
