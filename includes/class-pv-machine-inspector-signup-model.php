@@ -25,5 +25,39 @@ if ( class_exists( 'Pv_Core_Model' ) && ! class_exists( 'Pv_Machine_Inspector_Si
 			parent::__construct();
 			$this->tablename = 'pv_machine_inspector_signups';
 		}
+
+
+		/**
+		 * Insert a row
+		 *
+		 * @param      mixed $data   The data.
+		 */
+		public function insert( &$data ) {
+			// include division-lookup.
+			require_once WP_PLUGIN_DIR . '/pv-core/shared/class-pv-core-division-lookup.php';
+			$division_lookup = new Pv_Core_Division_Lookup( $data );
+
+			$data['division'] = $division_lookup->get_division();
+
+			return parent::insert( $data );
+		}
+
+		/**
+		 * Update a row
+		 *
+		 * @param      mixed $data   The data.
+		 * @param      array $where  The where.
+		 *
+		 * @return     bool  result of the update query.
+		 */
+		public function update( &$data, $where = null ) {
+			// include division-lookup.
+			require_once WP_PLUGIN_DIR . '/pv-core/shared/class-pv-core-division-lookup.php';
+			$division_lookup = new Pv_Core_Division_Lookup( $data );
+
+			$data['division'] = $division_lookup->get_division();
+
+			return parent::update( $data, $where );
+		}
 	}
 }
