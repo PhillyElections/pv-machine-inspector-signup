@@ -190,16 +190,18 @@ class Pv_Machine_Inspector_Signup_Admin {
 	/**
 	 * Load up a validator
 	 *
-	 * @return void
+	 * @param mixed $data form data.
 	 */
-	private function get_validator() {
+	private function get_validator( &$data ) {
 
 		if ( ! $this->validator ) {
 
 			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-pv-machine-inspector-signup-validation.php';
 
-			$this->validator = new Pv_Machine_Inspector_Signup_Validation();
+			$this->validator = new Pv_Machine_Inspector_Signup_Validation( $data );
 		}
+
+		return $this->validator;
 	}
 
 	// processing actions.
@@ -212,7 +214,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 
 		unset( $data['action'], $data['submit'] );
 
-		$this->get_validator();
+		$validator = $this->get_validator( $data );
 
 		if ( ! $this->model->insert( $data ) ) {
 			$status = 'error';
@@ -253,7 +255,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 
 			unset( $data['item'], $data['action'], $data['submit'] );
 
-			$this->get_validator();
+			$validator = $this->get_validator( $data );
 
 			if ( ! $this->model->update( $data, array( 'id' => $item ) ) ) {
 				$status = 'error';
