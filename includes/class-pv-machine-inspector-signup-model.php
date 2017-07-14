@@ -34,10 +34,10 @@ if ( class_exists( 'Pv_Core_Model' ) && ! class_exists( 'Pv_Machine_Inspector_Si
 		 */
 		public function insert( &$data ) {
 			// include division-lookup.
-			require_once WP_PLUGIN_DIR . '/pv-core/shared/class-pv-core-division-lookup.php';
-			$division_lookup = new Pv_Core_Division_Lookup( $data );
+			require_once WP_PLUGIN_DIR . '/pv-core/shared/class-pv-core-address-lookup.php';
+			$address_lookup = new Pv_Core_Address_Lookup( $data );
 
-			$data['division'] = $division_lookup->get_division();
+			$data['division'] = $address_lookup->get_division();
 
 			return parent::insert( $data );
 		}
@@ -52,10 +52,10 @@ if ( class_exists( 'Pv_Core_Model' ) && ! class_exists( 'Pv_Machine_Inspector_Si
 		 */
 		public function update( &$data, $where = null ) {
 			// include division-lookup.
-			require_once WP_PLUGIN_DIR . '/pv-core/shared/class-pv-core-division-lookup.php';
-			$division_lookup = new Pv_Core_Division_Lookup( $data );
+			require_once WP_PLUGIN_DIR . '/pv-core/shared/class-pv-core-address-lookup.php';
+			$address_lookup = new Pv_Core_Address_Lookup( $data );
 
-			$data['division'] = $division_lookup->get_division();
+			$data['division'] = $address_lookup->get_division();
 
 			return parent::update( $data, $where );
 		}
