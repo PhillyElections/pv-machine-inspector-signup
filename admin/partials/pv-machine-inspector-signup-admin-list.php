@@ -57,7 +57,8 @@ $paginator->setup( $this->models->signups->get_pagination() );
 
 		foreach ( $rows as $row ) :
 			$i++;
-			$link      = admin_url( 'admin.php?page=' . $this->plugin_name . '&action=edit&item=' . $row->id );
+			$delete_link    = admin_url( 'admin-post.php?action=pvmi_admin_delete&item=' . $row->id );
+			$edit_link      = admin_url( 'admin.php?page=' . $this->plugin_name . '&action=edit&item=' . $row->id );
 			$base_post = admin_url( 'admin_post.php' );
 			$fullname  = $row->first_name . ' ' . ( $row->middle_name ? $row->middle_name . ' ' : '' ) . $row->last_name;
 			$matches   = '';
@@ -90,8 +91,8 @@ $paginator->setup( $this->models->signups->get_pagination() );
 				</td>
 				<td>
 					<div class="row-actions visible">
-						<span class="trash"><a href="<?php echo esc_url( admin_url( 'admin-post.php' ) . '?action=pvmi_admin_delete&item=' . $row->id ); ?>" class="submitdelete" aria-label="Delete">Delete</a>|</span>
-						<span class="trash"><a href="<?php echo esc_url( admin_url( 'admin-post.php' ) . '?action=pvmi_admin_edit&item=' . $row->id ); ?>" aria-label="Edit">Edit</a></span>
+						<span class="trash"><a href="<?php echo esc_attr( $delete_link ); ?>" class="submitdelete" aria-label="Delete">Delete</a>|</span>
+						<span class="trash"><a href="<?php echo esc_attr( $edit_link );?>" aria-label="Edit">Edit</a></span>
 					</div>
 				</td>
 			</tr>
