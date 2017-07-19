@@ -40,9 +40,9 @@ do_settings_sections( $this->plugin_name );
 			$action = '';
 		?>
 	<h2 class="nav-tab-wrapper">
-		<a href="#pvmi-list" class="nav-tab nav-tab-active"><?php esc_html_e( 'List', $this->plugin_name );?></a>
-		<a href="#pvmi-add" class="nav-tab"><?php esc_html_e( 'Add', $this->plugin_name );?></a>
-		<a href="#pvmi-config" class="nav-tab"><?php esc_html_e( 'Config', $this->plugin_name );?></a>
+		<a href="#pv-list" class="nav-tab nav-tab-active"><?php esc_html_e( 'List', $this->plugin_name );?></a>
+		<a href="#pv-add" class="nav-tab"><?php esc_html_e( 'Add', $this->plugin_name );?></a>
+		<a href="#pv-config" class="nav-tab"><?php esc_html_e( 'Config', $this->plugin_name );?></a>
 	</h2>
 		<?php
 		require_once 'pv-machine-inspector-signup-admin-list.php' ;
