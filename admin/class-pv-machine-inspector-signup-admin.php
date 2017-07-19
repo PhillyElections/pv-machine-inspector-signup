@@ -23,6 +23,15 @@ class Pv_Machine_Inspector_Signup_Admin {
 
 
 	/**
+	 * The helpers object.
+	 *
+	 * @since    1.0.0
+	 * @access   private
+	 * @var      mixed
+	 */
+	private $helpers;
+
+	/**
 	 * The messaging object.
 	 *
 	 * @since    1.0.0
