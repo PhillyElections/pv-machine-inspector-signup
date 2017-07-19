@@ -45,8 +45,8 @@ if ( class_exists( 'Pv_Core_Model' ) && ! class_exists( 'Pv_Machine_Inspector_Si
 
 			$this->address_lookup->set_data( $data );
 
-			$data['division'] = $address_lookup->get_division();
-			$data['postcode'] = $address_lookup->get_postcode();
+			$data['division'] = $this->address_lookup->get_division();
+			$data['postcode'] = $this->address_lookup->get_postcode();
 
 			return parent::insert( $data );
 		}
@@ -65,8 +65,8 @@ if ( class_exists( 'Pv_Core_Model' ) && ! class_exists( 'Pv_Machine_Inspector_Si
 
 			$this->address_lookup->set_data( $data );
 
-			$data['division'] = $address_lookup->get_division();
-			$data['postcode'] = $address_lookup->get_postcode();
+			$data['division'] = $this->address_lookup->get_division();
+			$data['postcode'] = $this->address_lookup->get_postcode();
 
 			return parent::update( $data, $where );
 		}
