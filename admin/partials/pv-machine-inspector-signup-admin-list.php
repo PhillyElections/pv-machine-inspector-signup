@@ -20,32 +20,32 @@ $paginator->setup( $this->models->signups->get_pagination() );
 	<table class="wp-list-table widefat fixed striped pages">
 		<thead>
 			<tr>
-				<th >
+				<th width="2%">
 					<?php esc_html_e( 'Id', $this->plugin_name );?>
 				</th>
-				<th >
+				<th width="6%">
 					<?php esc_html_e( 'Division', $this->plugin_name );?>
 				</th>
-				<th >
-					&nbsp;
-				</th>
-				<th >
+				<th width="16%">
 					<?php esc_html_e( 'Name', $this->plugin_name );?>
 				</th>
-				<th >
+				<th width="8%">
 					<?php esc_html_e( 'Phone', $this->plugin_name );?>
 				</th>
-				<th >
+				<th width="12%">
 					<?php esc_html_e( 'Email', $this->plugin_name );?>
 				</th>
-				<th >
+				<th width="20%">
 					<?php esc_html_e( 'Street Address', $this->plugin_name );?>
 				</th>
-				<th >
+				<th width="8%">
 					<?php esc_html_e( 'Zip', $this->plugin_name );?>
 				</th>
-				<th >
+				<th width="16%">
 					<?php esc_html_e( 'Date', $this->plugin_name );?>
+				</th>
+				<th>
+					&nbsp;
 				</th>
 			</tr>
 		</thead>
@@ -71,9 +71,6 @@ $paginator->setup( $this->models->signups->get_pagination() );
 					<?php echo esc_html( $row->division );?>
 				</td>
 				<td>
-					|<a href="<?php echo esc_url( admin_url( 'admin-post.php' ) . '?action=pvmi_admin_delete&item=' . $row->id ); ?>" class="submitdelete deletion" aria-label="Delete">Delete</a>|
-				</td>
-				<td>
 					<a href="<?php echo esc_attr( $link );?>"><?php echo esc_html( $fullname );?></a>
 				</td>
 				<td>
@@ -90,6 +87,9 @@ $paginator->setup( $this->models->signups->get_pagination() );
 				</td>
 				<td>
 					<?php echo esc_html( $row->created );?>
+				</td>
+				<td>
+					[<a href="<?php echo esc_url( admin_url( 'admin-post.php' ) . '?action=pvmi_admin_delete&item=' . $row->id ); ?>" class="submitdelete deletion" aria-label="Delete">Delete</a>]
 				</td>
 			</tr>
 		<?php
