@@ -44,8 +44,8 @@ $paginator->setup( $this->models->signups->get_pagination() );
 				<th width="16%">
 					<?php esc_html_e( 'Date', $this->plugin_name );?>
 				</th>
-				<th>
-					&nbsp;
+				<th width="">
+					.
 				</th>
 			</tr>
 		</thead>
