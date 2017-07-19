@@ -26,7 +26,7 @@ $paginator->setup( $this->models->signups->get_pagination() );
 				<th width="3%">
 					<?php esc_html_e( 'Division', $this->plugin_name );?>
 				</th>
-				<th width="1%">
+				<th width="5%">
 					&nbsp;
 				</th>
 				<th width="20%">
@@ -44,7 +44,7 @@ $paginator->setup( $this->models->signups->get_pagination() );
 				<th width="10%">
 					<?php esc_html_e( 'Zip', $this->plugin_name );?>
 				</th>
-				<th width="15%">
+				<th width="10%">
 					<?php esc_html_e( 'Date', $this->plugin_name );?>
 				</th>
 			</tr>
