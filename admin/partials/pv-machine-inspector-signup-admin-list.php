@@ -91,7 +91,7 @@ $paginator->setup( $this->models->signups->get_pagination() );
 				</td>
 				<td>
 					<div class="row-actions visible">
-						<span class="trash"><a href="<?php echo esc_attr( $delete_link ); ?>" class="submitdelete" aria-label="Delete">Delete</a>|</span>
+						<span class="trash"><a href="<?php echo esc_attr( $delete_link ); ?>" class="submitdelete" aria-label="Delete">Delete</a> |</span>
 						<span class="edit"><a href="<?php echo esc_attr( $edit_link );?>" aria-label="Edit">Edit</a></span>
 					</div>
 				</td>
