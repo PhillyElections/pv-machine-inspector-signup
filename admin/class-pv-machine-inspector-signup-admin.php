@@ -289,7 +289,8 @@ class Pv_Machine_Inspector_Signup_Admin {
 		if ( isset( $_REQUEST['item'] ) && $item = ( int ) $_REQUEST['item'] ) {
 
 			$data = $_REQUEST;
-
+			$item = $_REQUEST['item'];
+			
 			unset( $data['item'], $data['action'], $data['submit'] );
 
 			$validator = $this->get_validator( $data );
