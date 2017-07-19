@@ -61,7 +61,7 @@ if ( class_exists( 'Pv_Core_Model' ) && ! class_exists( 'Pv_Machine_Inspector_Si
 		 *
 		 * @return     string  The division.
 		 */
-		private function get_division( $data ) {
+		private function get_division( &$data ) {
 			// include division-lookup.
 			require_once WP_PLUGIN_DIR . '/pv-core/shared/class-pv-core-address-lookup.php';
 			$address_lookup = new Pv_Core_Address_Lookup( $data );
