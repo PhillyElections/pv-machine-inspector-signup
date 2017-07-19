@@ -89,8 +89,8 @@ class Pv_Machine_Inspector_Signup_Admin {
 
 		// needed admin classes.
 		$this->get_helpers();
-		$this->get_models();
 		$this->get_messaging();
+		$this->get_models();
 	}
 
 	/**

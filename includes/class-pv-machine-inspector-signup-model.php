@@ -57,7 +57,7 @@ if ( class_exists( 'Pv_Core_Model' ) && ! class_exists( 'Pv_Machine_Inspector_Si
 
 			$data['division'] = $address_lookup->get_division();
 
-			return parent::update( $data, $where );
+			return parent::update( $data, array( 'id' => $data['item'] ) );
 		}
 	}
 }
