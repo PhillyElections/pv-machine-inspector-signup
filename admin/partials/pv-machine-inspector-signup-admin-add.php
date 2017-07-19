@@ -12,7 +12,7 @@
  */
 
 ?>
-<div id="pvmi-add" class="wrap metabox-holder columns-2 pvmi-metaboxes hidden">
+<div id="pv-add" class="wrap metabox-holder columns-2 pv-metaboxes hidden">
 	<h2><?php esc_attr_e( 'Add a new Machine Inspector Signup', $this->plugin_name ); ?></h2>
 	<form class="validate" method="post" name="machine_inspector_add" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
 		<table class="form-table">

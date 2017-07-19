@@ -12,10 +12,11 @@
  */
 
 $row = $this->read();
-
 $select = &$this->helpers->select;
+
+$select->setup( 'region',  )
 ?>
-<div id="pvmi-edit" class="wrap metabox-holder columns-2 pvmi-metaboxes">
+<div id="pv-edit" class="wrap metabox-holder columns-2 pv-metaboxes">
 	<h2><?php echo esc_attr( 'Edit a Machine Inspector Signup', $this->plugin_name ); ?></h2>
 	<form class="validate" method="post" name="machine_inspector_edit" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
 		<table class="form-table">
