@@ -20,31 +20,31 @@ $paginator->setup( $this->models->signups->get_pagination() );
 	<table class="wp-list-table widefat fixed striped pages">
 		<thead>
 			<tr>
-				<th width="3em">
+				<th >
 					<?php esc_html_e( 'Id', $this->plugin_name );?>
 				</th>
-				<th width="10em">
+				<th >
 					<?php esc_html_e( 'Division', $this->plugin_name );?>
 				</th>
-				<th width="10em">
+				<th >
 					&nbsp;
 				</th>
-				<th width="30em">
+				<th >
 					<?php esc_html_e( 'Name', $this->plugin_name );?>
 				</th>
-				<th width="12em">
+				<th >
 					<?php esc_html_e( 'Phone', $this->plugin_name );?>
 				</th>
-				<th width="20em">
+				<th >
 					<?php esc_html_e( 'Email', $this->plugin_name );?>
 				</th>
-				<th width="25em">
+				<th >
 					<?php esc_html_e( 'Street Address', $this->plugin_name );?>
 				</th>
-				<th width="6em">
+				<th >
 					<?php esc_html_e( 'Zip', $this->plugin_name );?>
 				</th>
-				<th width="10em">
+				<th >
 					<?php esc_html_e( 'Date', $this->plugin_name );?>
 				</th>
 			</tr>
