@@ -12,7 +12,8 @@
  */
 
 // load paginator.
-$paginator = $this->helpers->paginator( $this->models->signups->get_pagination() );
+$paginators = &$this->helpers->paginator;
+$paginator->setup( $this->models->signups->get_pagination() );
 
 ?>
 <div id="pvmi-list" class="wrap metabox-holder columns-8 pvmi-metaboxes <?php echo ( 'edit' === $action ) ? 'hidden' : ''; ?>">
