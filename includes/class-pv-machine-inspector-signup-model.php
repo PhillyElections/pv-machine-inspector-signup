@@ -34,7 +34,6 @@ if ( class_exists( 'Pv_Core_Model' ) && ! class_exists( 'Pv_Machine_Inspector_Si
 			$this->tablename = 'pv_machine_inspector_signups';
 		}
 
-
 		/**
 		 * Insert a row
 		 *
