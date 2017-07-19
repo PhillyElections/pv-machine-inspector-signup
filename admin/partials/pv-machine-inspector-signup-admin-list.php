@@ -98,7 +98,7 @@ $paginator->setup( $this->models->signups->get_pagination() );
 		</tbody>
 		<tfoot>
 			<tr>
-				<td colspan="8"><?php echo esc_html( $paginator->get_list_footer() ); ?></td>
+				<td colspan="9"><?php echo esc_html( $paginator->get_list_footer() ); ?></td>
 			</tr>
 		</tfoot>
 	</table>
