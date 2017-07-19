@@ -21,7 +21,6 @@
  **/
 class Pv_Machine_Inspector_Signup_Admin {
 
-
 	/**
 	 * The helpers object.
 	 *
