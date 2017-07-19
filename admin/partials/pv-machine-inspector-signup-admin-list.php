@@ -26,10 +26,10 @@ $paginator->setup( $this->models->signups->get_pagination() );
 				<th width="6%">
 					<?php esc_html_e( 'Division', $this->plugin_name );?>
 				</th>
-				<th width="16%">
+				<th width="20%">
 					<?php esc_html_e( 'Name', $this->plugin_name );?>
 				</th>
-				<th width="8%">
+				<th width="10%">
 					<?php esc_html_e( 'Phone', $this->plugin_name );?>
 				</th>
 				<th width="12%">
