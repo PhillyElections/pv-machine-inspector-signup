@@ -12,7 +12,7 @@
  */
 
 // load paginator.
-$paginators = &$this->helpers->paginator;
+$paginator = &$this->helpers->paginator;
 $paginator->setup( $this->models->signups->get_pagination() );
 
 ?>
