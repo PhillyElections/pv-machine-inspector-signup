@@ -286,11 +286,11 @@ class Pv_Machine_Inspector_Signup_Admin {
 	 */
 	public function update() {
 
-		if ( isset( $_REQUEST['item'] ) && $item = ( int ) $_REQUEST['item'] ) {
+		if ( isset( $_REQUEST['item'] ) ) {
 
 			$data = $_REQUEST;
-			$item = $_REQUEST['item'];
-			
+			$item = wp_unslash( ( int ) $_REQUEST['item'] );
+
 			unset( $data['item'], $data['action'], $data['submit'] );
 
 			$validator = $this->get_validator( $data );
