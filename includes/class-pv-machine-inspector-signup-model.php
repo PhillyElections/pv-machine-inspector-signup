@@ -18,6 +18,7 @@ if ( class_exists( 'Pv_Core_Model' ) && ! class_exists( 'Pv_Machine_Inspector_Si
 	 * Local Signup model
 	 */
 	class Pv_Machine_Inspector_Signup_Model extends Pv_Core_Model {
+
 		/**
 		 * Constructor override
 		 */
@@ -34,7 +35,10 @@ if ( class_exists( 'Pv_Core_Model' ) && ! class_exists( 'Pv_Machine_Inspector_Si
 		 */
 		public function insert( &$data ) {
 
-			$data['division'] = $this->get_division( $data );
+			$address_lookup = $this->get_address_lookup( $data );
+
+			$data['division'] = $address_lookup->get_division();
+			$data['postcode'] = $address_lookup->get_postcode();
 
 			return parent::insert( $data );
 		}
@@ -49,24 +53,27 @@ if ( class_exists( 'Pv_Core_Model' ) && ! class_exists( 'Pv_Machine_Inspector_Si
 		 */
 		public function update( &$data, $where = null ) {
 
-			$data['division'] = $this->get_division( $data );
+			$address_lookup = $this->get_address_lookup( $data );
+
+			$data['division'] = $address_lookup->get_division();
+			$data['postcode'] = $address_lookup->get_postcode();
 
 			return parent::update( $data, $where );
 		}
 
 		/**
-		 * Gets the division.
+		 * Gets address lookup.
 		 *
 		 * @param      mixed $data   The data.
 		 *
 		 * @return     string  The division.
 		 */
-		private function get_division( &$data ) {
+		private function get_address_lookup( &$data ) {
 			// include division-lookup.
 			require_once WP_PLUGIN_DIR . '/pv-core/shared/class-pv-core-address-lookup.php';
 			$address_lookup = new Pv_Core_Address_Lookup( $data );
 
-			return $address_lookup->get_division();
+			return $address_lookup;
 		}
 	}
 }
