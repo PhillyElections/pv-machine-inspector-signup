@@ -12,8 +12,7 @@
  */
 
 // load paginator.
-require_once WP_PLUGIN_DIR . '/pv-core/helpers/pv-core-paginator-helper.php';
-$paginator = new Pv_Core_Paginator_Helper( $this->model->get_pagination() );
+$paginator = $this->helpers->paginator( $this->models->signups->get_pagination() );
 
 ?>
 <div id="pvmi-list" class="wrap metabox-holder columns-8 pvmi-metaboxes <?php echo ( 'edit' === $action ) ? 'hidden' : ''; ?>">

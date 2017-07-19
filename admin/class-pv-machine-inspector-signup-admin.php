@@ -21,23 +21,6 @@
  **/
 class Pv_Machine_Inspector_Signup_Admin {
 
-	/**
-	 * The ID of this plugin.
-	 *
-	 * @since    1.0.0
-	 * @access   private
-	 * @var      string    $plugin_name    The ID of this plugin.
-	 */
-	private $plugin_name;
-
-	/**
-	 * The version of this plugin.
-	 *
-	 * @since    1.0.0
-	 * @access   private
-	 * @var      string    $version    The current version of this plugin.
-	 */
-	private $version;
 
 	/**
 	 * The messaging object.
@@ -55,7 +38,16 @@ class Pv_Machine_Inspector_Signup_Admin {
 	 * @access   private
 	 * @var      mixed
 	 */
-	private $model;
+	private $models;
+
+	/**
+	 * The ID of this plugin.
+	 *
+	 * @since    1.0.0
+	 * @access   private
+	 * @var      string    $plugin_name    The ID of this plugin.
+	 */
+	private $plugin_name;
 
 	/**
 	 * The admin form actions of this plugin.
@@ -65,6 +57,15 @@ class Pv_Machine_Inspector_Signup_Admin {
 	 * @var      mixed
 	 */
 	private $validator;
+
+	/**
+	 * The version of this plugin.
+	 *
+	 * @since    1.0.0
+	 * @access   private
+	 * @var      string    $version    The current version of this plugin.
+	 */
+	private $version;
 
 	/**
 	 * Initialize the class and set its properties.
@@ -78,8 +79,9 @@ class Pv_Machine_Inspector_Signup_Admin {
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
 
-		// we always need our model.
-		$this->get_model();
+		// needed admin classes.
+		$this->get_helpers();
+		$this->get_models();
 		$this->get_messaging();
 	}
 
@@ -156,6 +158,29 @@ class Pv_Machine_Inspector_Signup_Admin {
 		include_once( 'partials/pv-machine-inspector-signup-admin-display.php' );
 	}
 
+
+	/**
+	 * Load up a model
+	 *
+	 * @return void
+	 */
+	private function get_helpers() {
+
+		if ( ! $this->helpers ) {
+
+			$helpers = array();
+
+			require_once WP_PLUGIN_DIR . '/pv-core/helpers/pv-core-helper-html-select.php' ;
+			require_once WP_PLUGIN_DIR . '/pv-core/helpers/pv-core-helper-paginator.php' ;
+
+			$helpers['select'] = new Pv_Core_Helper_Html_Select();
+			$helpers['paginator'] = new Pv_Core_Helper_Paginator();
+
+			$this->helpers = ( object ) $helpers;
+		}
+
+	}
+
 	/**
 	 * Load up messaging
 	 *
@@ -176,13 +201,17 @@ class Pv_Machine_Inspector_Signup_Admin {
 	 *
 	 * @return void
 	 */
-	private function get_model() {
+	private function get_models() {
 
-		if ( ! $this->model ) {
+		if ( ! $this->models ) {
+
+			$models = array();
 
 			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-pv-machine-inspector-signup-model.php';
 
-			$this->model = new Pv_Machine_Inspector_Signup_Model();
+			$models['signups'] = new Pv_Machine_Inspector_Signup_Model();
+
+			$this->models = ( object ) $models;
 		}
 
 	}
@@ -216,7 +245,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 
 		$validator = $this->get_validator( $data );
 
-		if ( ! $this->model->insert( $data ) ) {
+		if ( ! $this->models->signups->insert( $data ) ) {
 			$status = 'error';
 			$message = 'Something went wrong.';
 		} else {
@@ -232,7 +261,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 	 * List records
 	 */
 	public function list() {
-		return $this->model->get_paged();
+		return $this->models->signups->get_paged();
 	}
 
 	/**
@@ -240,7 +269,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 	 */
 	public function read() {
 		if ( isset( $_REQUEST['item'] ) && $item = ( int ) $_REQUEST['item'] ) {
-			return $this->model->get_row( $item );
+			return $this->models->signups->get_row( $item );
 		}
 	}
 
@@ -257,7 +286,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 
 			$validator = $this->get_validator( $data );
 
-			if ( ! $this->model->update( $data, array( 'id' => $item ) ) ) {
+			if ( ! $this->models->signups->update( $data, array( 'id' => $item ) ) ) {
 				$status = 'error';
 				$message = 'Something went wrong.';
 			} else {
@@ -267,7 +296,6 @@ class Pv_Machine_Inspector_Signup_Admin {
 		}
 
 		wp_redirect( admin_url( 'admin.php?page=' . $this->plugin_name . '&pvstatus=' . urlencode( $status ) . '&pvmessage=' . urlencode( $message ) ) );
-
 	}
 
 	/**
@@ -278,7 +306,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 		$message = 'No item specified for deletion.';
 
 		if ( isset( $_REQUEST['item'] ) && $item = ( int ) $_REQUEST['item'] ) {
-			if ( ! $this->model->delete( $item ) ) {
+			if ( ! $this->models->signups->delete( $item ) ) {
 				$status = 'error';
 				$message = 'Something went wrong.';
 			} else {
