@@ -88,8 +88,8 @@ $paginator->setup( $this->models->signups->get_pagination() );
 				<td>
 					<?php echo esc_html( $row->created );?>
 				</td>
-				<td class="trash">
-					[<a href="<?php echo esc_url( admin_url( 'admin-post.php' ) . '?action=pvmi_admin_delete&item=' . $row->id ); ?>" class="submitdelete deletion" aria-label="Delete">Delete</a>]
+				<td>
+					<span class="trash">[<a href="<?php echo esc_url( admin_url( 'admin-post.php' ) . '?action=pvmi_admin_delete&item=' . $row->id ); ?>" class="submitdelete deletion" aria-label="Delete">Delete</a>]</span>
 				</td>
 			</tr>
 		<?php
