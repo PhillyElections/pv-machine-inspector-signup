@@ -17,7 +17,7 @@ $paginator->setup( $this->models->signups->get_pagination() );
 
 ?>
 <div id="pvmi-list" class="wrap metabox-holder columns-8 pvmi-metaboxes <?php echo ( 'edit' === $action ) ? 'hidden' : ''; ?>">
-	<table>
+	<table class="wp-list-table widefat fixed striped pages">
 		<thead>
 			<tr>
 				<th width="1%">
