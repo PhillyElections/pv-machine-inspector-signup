@@ -75,7 +75,7 @@ $paginator->setup( $this->models->signups->get_pagination() );
 						<input name="action" value="pvmi_admin_delete" type="hidden">
 						<input name="item" value="<?php echo esc_attr( $row->id );?>" type="hidden">
 						<button class="submitdelete deletion" value="submit">X</button>
-					</form> <a href="<?php echo esc_url( admin_url( 'admin-post.php' ) . '?action=pvmi_admin_delete&action=' . $row->id ); ?>" class="submitdelete" aria-label="Move “Sample Page” to the Trash">Trash</a> | 
+					</form> <a href="<?php echo esc_url( admin_url( 'admin-post.php' ) . '?action=pvmi_admin_delete&item=' . $row->id ); ?>" class="submitdelete" aria-label="Move “Sample Page” to the Trash">Trash</a> | 
 				</td>
 				<td>
 					<a href="<?php echo esc_attr( $link );?>"><?php echo esc_html( $fullname );?></a>
