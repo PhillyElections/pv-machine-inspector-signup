@@ -20,6 +20,13 @@ if ( class_exists( 'Pv_Core_Model' ) && ! class_exists( 'Pv_Machine_Inspector_Si
 	class Pv_Machine_Inspector_Signup_Model extends Pv_Core_Model {
 
 		/**
+		 * Address lookup object
+		 *
+		 * @var mixed $address_lookup
+		 */
+		private $address_lookup;
+
+		/**
 		 * Constructor override
 		 */
 		public function __construct() {
@@ -35,8 +42,9 @@ if ( class_exists( 'Pv_Core_Model' ) && ! class_exists( 'Pv_Machine_Inspector_Si
 		 */
 		public function insert( &$data ) {
 
-			$address_lookup = $this->get_address_lookup();
-			$address_lookup->set_data( $data );
+			$this->get_address_lookup();
+
+			$this->address_lookup->set_data( $data );
 
 			$data['division'] = $address_lookup->get_division();
 			$data['postcode'] = $address_lookup->get_postcode();
@@ -54,8 +62,9 @@ if ( class_exists( 'Pv_Core_Model' ) && ! class_exists( 'Pv_Machine_Inspector_Si
 		 */
 		public function update( &$data, $where = null ) {
 
-			$address_lookup = $this->get_address_lookup();
-			$address_lookup->set_data( $data );
+			$this->get_address_lookup();
+
+			$this->address_lookup->set_data( $data );
 
 			$data['division'] = $address_lookup->get_division();
 			$data['postcode'] = $address_lookup->get_postcode();
@@ -75,8 +84,6 @@ if ( class_exists( 'Pv_Core_Model' ) && ! class_exists( 'Pv_Machine_Inspector_Si
 				require_once WP_PLUGIN_DIR . '/pv-core/shared/class-pv-core-address-lookup.php';
 				$this->address_lookup = new Pv_Core_Address_Lookup();
 			}
-
-			return $this->address_lookup;
 		}
 	}
 }
