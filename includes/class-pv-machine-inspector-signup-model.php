@@ -71,9 +71,8 @@ if ( class_exists( 'Pv_Core_Model' ) && ! class_exists( 'Pv_Machine_Inspector_Si
 		private function get_address_lookup( &$data ) {
 			// include division-lookup.
 			require_once WP_PLUGIN_DIR . '/pv-core/shared/class-pv-core-address-lookup.php';
-			$address_lookup = new Pv_Core_Address_Lookup( $data );
 
-			return $address_lookup;
+			return new Pv_Core_Address_Lookup( $data );
 		}
 	}
 }
