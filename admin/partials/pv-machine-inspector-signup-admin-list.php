@@ -20,7 +20,7 @@ $paginator->setup( $this->models->signups->get_pagination() );
 	<table class="wp-list-table widefat fixed striped pages">
 		<thead>
 			<tr>
-				<th width="1%">
+				<th width="1.5%">
 					<?php esc_html_e( 'Id', $this->plugin_name );?>
 				</th>
 				<th width="5%">
@@ -29,7 +29,7 @@ $paginator->setup( $this->models->signups->get_pagination() );
 				<th width="5.5%">
 					&nbsp;
 				</th>
-				<th width="17.5%">
+				<th width="17%">
 					<?php esc_html_e( 'Name', $this->plugin_name );?>
 				</th>
 				<th width="15%">
