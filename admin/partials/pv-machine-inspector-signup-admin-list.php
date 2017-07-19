@@ -74,7 +74,7 @@ $paginator->setup( $this->models->signups->get_pagination() );
 					<form class="validate" method="post" name="machine_inspector_add" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
 						<input name="action" value="pvmi_admin_delete" type="hidden">
 						<input name="item" value="<?php echo esc_attr( $row->id );?>" type="hidden">
-						<button value="submit">X</button>
+						<button class="submitdelete deletion" value="submit">X</button>
 					</form> 
 				</td>
 				<td>
