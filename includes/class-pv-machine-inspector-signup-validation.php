@@ -11,7 +11,7 @@
  */
 
 // Include validation.
-require_once WP_PLUGIN_DIR . '/pv-core/shared/class-pv-core-validation.php' ;
+require_once WP_PLUGIN_DIR . '/pv-core/classes/class-pv-core-validation.php' ;
 
 if ( class_exists( 'Pv_Core_Validation' ) && ! class_exists( 'Pv_Machine_Inspector_Signup_Validation' ) ) {
 	/**
