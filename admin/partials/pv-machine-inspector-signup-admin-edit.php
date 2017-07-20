@@ -52,7 +52,7 @@ $select->get_combo_data( 'state' );
 				</tr>
 				<tr class="form-field form-required">
 					<th scope="row"><label for="postcode"><?php esc_html_e( 'Region', $this->plugin_name ); ?><span class="description"> (required)</span></label></th>
-					<td><?php $list->getHTML(); ?></td>
+					<td><?php $select->getHTML(); ?></td>
 				</tr>
 				<tr class="form-field">
 					<th scope="row"><label for="email"><?php esc_html_e( 'Email', $this->plugin_name ); ?> <span class="description"></span></label></th>
