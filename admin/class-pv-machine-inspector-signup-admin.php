@@ -113,7 +113,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 		 */
 
 		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/pv-machine-inspector-signup-admin.css', array(), $this->version, 'all' );
-		wp_enqueue_style( $this->plugin_name . '-pv-core', plugins_url( 'js/pv-core-admin.css', 'pv-core' ) , array(), $this->version, 'all' );
+		wp_enqueue_style( $this->plugin_name . '-pv-core', plugins_url( 'pv-core/js/pv-core-admin.css', 'pv-core' ) , array(), $this->version, 'all' );
 
 	}
 
@@ -137,7 +137,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 		 */
 
 		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/pv-machine-inspector-signup-admin.js', array( 'jquery' ), $this->version, false );
-		wp_enqueue_script( $this->plugin_name . '-pv-core', plugins_url( 'js/pv-core-admin.js', 'pv-core' ) , array( 'jquery' ), $this->version, false );
+		wp_enqueue_script( $this->plugin_name . '-pv-core', plugins_url( 'pv-core/js/pv-core-admin.js', 'pv-core' ) , array( 'jquery' ), $this->version, false );
 
 	}
 
