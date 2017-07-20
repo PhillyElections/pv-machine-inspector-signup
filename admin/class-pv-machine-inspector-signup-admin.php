@@ -313,6 +313,22 @@ class Pv_Machine_Inspector_Signup_Admin {
 	}
 
 	/**
+	 * Delete a record
+	 */
+	public function delete_all() {
+
+		if ( ! $this->models->signups->delete_all() ) {
+			$status = 'error';
+			$message = 'Something went wrong.';
+		} else {
+			$status = 'success';
+			$message = 'Deleted.';
+		}
+
+		wp_redirect( admin_url( 'admin.php?page=' . $this->plugin_name . '&pvstatus=' . urlencode( $status ) . '&pvmessage=' . urlencode( $message ) ) );
+	}
+
+	/**
 	 * Write Configuration
 	 */
 	public function get_config() {
