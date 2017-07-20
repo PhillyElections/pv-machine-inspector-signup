@@ -180,10 +180,10 @@ class Pv_Machine_Inspector_Signup_Admin {
 
 			$helpers = array();
 
-			require_once WP_PLUGIN_DIR . '/pv-core/helpers/pv-core-helper-html-select.php' ;
+			require_once WP_PLUGIN_DIR . '/pv-core/helpers/pv-core-helper-select.php' ;
 			require_once WP_PLUGIN_DIR . '/pv-core/helpers/pv-core-helper-paginator.php' ;
 
-			$helpers['select'] = new Pv_Core_Helper_Html_Select();
+			$helpers['select'] = new Pv_Core_Helper_Select();
 			$helpers['paginator'] = new Pv_Core_Helper_Paginator();
 
 			$this->helpers = ( object ) $helpers;
