@@ -43,11 +43,11 @@ $select->get_combo_data( 'state' );
 				</tr>
 				<tr class="form-field form-required">
 					<th scope="row"><label for="city"><?php esc_html_e( 'City', $this->plugin_name ); ?><span class="description"> (required)</span></label></th>
-					<td><input required id="city" name="city" type="text" value=""></td>
+					<td><input required id="city" name="city" type="text" value="Philadelphia"></td>
 				</tr>
 				<tr class="form-field form-required">
 					<th scope="row"><label for="postcode"><?php esc_html_e( 'Zip', $this->plugin_name ); ?><span class="description"> (required)</span></label></th>
-					<td><input id="postcode" name="postcode" type="text" value="<?php echo esc_html( $row->postcode ); ?>"></td>
+					<td><input id="postcode" name="postcode" type="text" value=""></td>
 				</tr>
 				<tr class="form-field form-required">
 					<th scope="row"><label for="postcode"><?php esc_html_e( 'Zip', $this->plugin_name ); ?><span class="description"> (required)</span></label></th>
