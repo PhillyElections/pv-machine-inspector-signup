@@ -14,7 +14,8 @@
 $row = $this->read();
 $select = &$this->helpers->select;
 
-$select->setup( 'region',  )
+$select->setup( 'region', 'Pennsylvania' );
+$select->get_combo_data( 'state' );
 ?>
 <div id="pv-edit" class="wrap metabox-holder columns-2 pv-metaboxes">
 	<h2><?php echo esc_attr( 'Edit a Machine Inspector Signup', $this->plugin_name ); ?></h2>
