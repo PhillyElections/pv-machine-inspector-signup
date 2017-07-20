@@ -50,8 +50,8 @@ $select->get_combo_data( 'state' );
 					<td><input id="postcode" name="postcode" type="text" value=""></td>
 				</tr>
 				<tr class="form-field form-required">
-					<th scope="row"><label for="postcode"><?php esc_html_e( 'Zip', $this->plugin_name ); ?><span class="description"> (required)</span></label></th>
-					<td><input required id="postcode" name="postcode" type="text" value=""></td>
+					<th scope="row"><label for="postcode"><?php esc_html_e( 'Region', $this->plugin_name ); ?><span class="description"> (required)</span></label></th>
+					<td><?php echo $select->get_html(); ?></td>
 				</tr>
 				<tr class="form-field">
 					<th scope="row"><label for="email"><?php esc_html_e( 'Email', $this->plugin_name ); ?> <span class="description"></span></label></th>
