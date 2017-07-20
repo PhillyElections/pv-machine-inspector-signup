@@ -154,6 +154,7 @@ if ( ! class_exists( 'Pv_Machine_Inspector_Signup' ) ) {
 			$this->loader->add_action( 'admin_post_pvmi_admin_config', $plugin_admin, 'config' );
 			$this->loader->add_action( 'admin_post_pvmi_admin_create', $plugin_admin, 'create' );
 			$this->loader->add_action( 'admin_post_pvmi_admin_delete', $plugin_admin, 'delete' );
+			$this->loader->add_action( 'admin_post_pvmi_admin_delete_all', $plugin_admin, 'delete_all' );
 			$this->loader->add_action( 'admin_post_pvmi_admin_update', $plugin_admin, 'update' );
 
 		}
