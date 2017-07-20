@@ -14,7 +14,7 @@
 $row = $this->read();
 $select = &$this->helpers->select;
 
-$select->setup( 'region', 'Pennsylvania' );
+$select->setup( 'region', $row->postcode );
 $select->get_combo_data( 'state' );
 ?>
 <div id="pv-edit" class="wrap metabox-holder columns-2 pv-metaboxes">

@@ -11,6 +11,10 @@
  * @subpackage Pv_Machine_Inspector_Signup/admin/partials
  */
 
+$select = &$this->helpers->select;
+
+$select->setup( 'region', 'PA' );
+$select->get_combo_data( 'state' );
 ?>
 <div id="pv-add" class="wrap metabox-holder columns-2 pv-metaboxes hidden">
 	<h2><?php esc_attr_e( 'Add a new Machine Inspector Signup', $this->plugin_name ); ?></h2>
@@ -40,6 +44,10 @@
 				<tr class="form-field form-required">
 					<th scope="row"><label for="city"><?php esc_html_e( 'City', $this->plugin_name ); ?><span class="description"> (required)</span></label></th>
 					<td><input required id="city" name="city" type="text" value=""></td>
+				</tr>
+				<tr class="form-field form-required">
+					<th scope="row"><label for="postcode"><?php esc_html_e( 'Zip', $this->plugin_name ); ?><span class="description"> (required)</span></label></th>
+					<td><input id="postcode" name="postcode" type="text" value="<?php echo esc_html( $row->postcode ); ?>"></td>
 				</tr>
 				<tr class="form-field form-required">
 					<th scope="row"><label for="postcode"><?php esc_html_e( 'Zip', $this->plugin_name ); ?><span class="description"> (required)</span></label></th>
