@@ -141,7 +141,10 @@ class Pv_Machine_Inspector_Signup_Admin {
 	 * @since    1.0.0
 	 */
 	public function display_plugin_manage_display_page() {
-		switch ( $_REQUEST['action'] ) {
+
+		$action = isset( $_REQUEST['action'] ) ? wp_unslash( $_REQUEST['action'] ) : false ;
+
+		switch ( $action ) {
 			case 'export':
 				include_once( 'partials/pv-machine-inspector-signup-admin-export.php' );
 			break;
@@ -276,17 +279,25 @@ class Pv_Machine_Inspector_Signup_Admin {
 			$data = $_REQUEST;
 			$item = wp_unslash( ( int ) $_REQUEST['item'] );
 
-			unset( $data['item'], $data['action'], $data['submit'] );
+			if ( check_admin_referer( 'pvmi_admin_update_' . $item, 'pvmi_admin_update_nonce' ) ) {
 
-			$validator = $this->get_validator( $data );
+				unset( $data['item'], $data['action'], $data['submit'], $data[ 'pvmi_admin_update_' . $item ] );
 
-			if ( ! $this->models->signups->update( $data, array( 'id' => $item ) ) ) {
-				$status = 'error';
-				$message = 'Something went wrong.';
+				$validator = $this->get_validator( $data );
+
+				if ( ! $this->models->signups->update( $data, array( 'id' => $item ) ) ) {
+					$status = 'error';
+					$message = 'Validation failure.';
+				} else {
+					$status = 'success';
+					$message = 'Changes saved.';
+				}
+
 			} else {
-				$status = 'success';
-				$message = 'Changes saved.';
+				$status = 'error';
+				$message = 'Nonce failure.';
 			}
+
 		}
 
 		wp_redirect( admin_url( 'admin.php?page=' . $this->plugin_name . '&pvstatus=' . urlencode( $status ) . '&pvmessage=' . urlencode( $message ) ) );
