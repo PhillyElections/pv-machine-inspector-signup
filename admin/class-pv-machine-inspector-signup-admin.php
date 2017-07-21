@@ -142,7 +142,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 	 */
 	public function display_plugin_manage_display_page() {
 
-		$action = isset( $_REQUEST['action'] ) ? wp_unslash( $_REQUEST['action'] ) : false ;
+		$action = isset( $_REQUEST['action'] ) ? sanitize_text_field( wp_unslash( $_REQUEST['action'] ) ) : false ;
 
 		switch ( $action ) {
 			case 'export':
@@ -237,16 +237,22 @@ class Pv_Machine_Inspector_Signup_Admin {
 
 		$data = $_REQUEST;
 
-		unset( $data['action'], $data['submit'] );
+		if ( check_admin_referer( 'pvmi_admin_create', 'pvmi_admin_create_nonce' ) ) {
 
-		$validator = $this->get_validator( $data );
+			unset( $data['action'], $data['submit'], $data[ 'pvmi_admin_update_' . $item ], $data['_wp_http_referer'] );
 
-		if ( ! $this->models->signups->insert( $data ) ) {
-			$status = 'error';
-			$message = 'Something went wrong.';
+			$validator = $this->get_validator( $data );
+
+			if ( ! $this->models->signups->insert( $data ) ) {
+				$status = 'error';
+				$message = 'Something went wrong.';
+			} else {
+				$status = 'success';
+				$message = 'Changes saved.';
+			}
 		} else {
-			$status = 'success';
-			$message = 'Changes saved.';
+			$status = 'error';
+			$message = 'Nonce failure.';
 		}
 
 		wp_redirect( admin_url( 'admin.php?page=' . $this->plugin_name . '&pvstatus=' . urlencode( $status ) . '&pvmessage=' . urlencode( $message ) ) );
@@ -281,13 +287,13 @@ class Pv_Machine_Inspector_Signup_Admin {
 
 			if ( check_admin_referer( 'pvmi_admin_update_' . $item, 'pvmi_admin_update_nonce' ) ) {
 
-				unset( $data['item'], $data['action'], $data['submit'], $data[ 'pvmi_admin_update_' . $item ] );
+				unset( $data['item'], $data['action'], $data['submit'], $data[ 'pvmi_admin_update_' . $item ], $data['_wp_http_referer'] );
 
 				$validator = $this->get_validator( $data );
 
 				if ( ! $this->models->signups->update( $data, array( 'id' => $item ) ) ) {
 					$status = 'error';
-					$message = 'Validation failure.';
+					$message = 'Save failure.';
 				} else {
 					$status = 'success';
 					$message = 'Changes saved.';
