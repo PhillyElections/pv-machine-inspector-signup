@@ -51,7 +51,7 @@ $select->get_combo_data( 'state' );
 				</tr>
 				<tr class="form-field form-required">
 					<th scope="row"><label for="postcode"><?php esc_html_e( 'Region', $this->plugin_name ); ?><span class="description"> (required)</span></label></th>
-					<td><?php echo $select->get_html(); ?></td>
+					<td><?php echo esc_html( $select->get_html() ); ?></td>
 				</tr>
 				<tr class="form-field">
 					<th scope="row"><label for="email"><?php esc_html_e( 'Email', $this->plugin_name ); ?> <span class="description"></span></label></th>
@@ -65,6 +65,7 @@ $select->get_combo_data( 'state' );
 		</table>
 		<p class="submit">
 			<input name="action" value="pvmi_admin_create" type="hidden">
+			<?php wp_nonce_field( 'pvmi_admin_create', 'pvmi_admin_create_nonce' ); ?>
 			<?php submit_button( __( 'Add', $this->plugin_name ), 'primary', 'submit', true ); ?>
 		</p>
 	</form>

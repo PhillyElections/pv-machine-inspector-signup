@@ -69,6 +69,7 @@ $select->get_combo_data( 'state' );
 				<td>
 					<input name="item" value="<?php echo esc_attr( $row->id ); ?>" type="hidden">
 					<input name="action" value="pvmi_admin_update" type="hidden">
+					<?php wp_nonce_field( 'pvmi_admin_update', 'pvmi_admin_update_nonce' ); ?>
 					<?php submit_button( __( 'Save', $this->plugin_name ), 'primary', 'submit', true ); ?>
 				</td>
 				<td>
