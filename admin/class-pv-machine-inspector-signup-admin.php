@@ -290,7 +290,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 				unset( $data['item'], $data['action'], $data['submit'], $data[ 'pvmi_admin_update_' . $item ], $data['_wp_http_referer'] );
 
 				$validator = $this->get_validator( $data );
-
+dd($data, $item);
 				if ( ! $this->models->signups->update( $data, array( 'id' => $item ) ) ) {
 					$status = 'error';
 					$message = 'Save failure.';
