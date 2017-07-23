@@ -13,11 +13,11 @@
 // include model.
 require_once WP_PLUGIN_DIR . '/pv-core/classes/class-pv-core-model.php' ;
 
-if ( class_exists( 'Pv_Core_Model' ) && ! class_exists( 'Pv_Machine_Inspector_Signup_Model' ) ) {
+if ( class_exists( 'Pv_Core_Model' ) && ! class_exists( 'Pv_Machine_Inspector_Signup_Model_Signups' ) ) {
 	/**
 	 * Local Signup model
 	 */
-	class Pv_Machine_Inspector_Signup_Model extends Pv_Core_Model {
+	class Pv_Machine_Inspector_Signup_Model_Signups extends Pv_Core_Model {
 
 		/**
 		 * Address lookup object

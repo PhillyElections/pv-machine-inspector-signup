@@ -1,4 +1,4 @@
- <?php
+<?php
 /**
  * Shared validator class
  *
@@ -13,11 +13,11 @@
 // Include validation.
 require_once WP_PLUGIN_DIR . '/pv-core/classes/class-pv-core-validation.php' ;
 
-if ( class_exists( 'Pv_Core_Validation' ) && ! class_exists( 'Pv_Machine_Inspector_Signup_Validation' ) ) {
+if ( class_exists( 'Pv_Core_Validation' ) && ! class_exists( 'Pv_Machine_Inspector_Signup_Validation_Signgups' ) ) {
 	/**
 	 * Local validation instance (aka validator)
 	 */
-	class Pv_Machine_Inspector_Signup_Validation extends Pv_Core_Validation {
+	class Pv_Machine_Inspector_Signup_Validation_Signups extends Pv_Core_Validation {
 
 		/**
 		 * Processing rules for this field set

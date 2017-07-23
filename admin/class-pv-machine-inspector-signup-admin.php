@@ -203,9 +203,9 @@ class Pv_Machine_Inspector_Signup_Admin {
 
 			$models = array();
 
-			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-pv-machine-inspector-signup-model.php';
+			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-pv-machine-inspector-signup-model-signups.php';
 
-			$models['signups'] = new Pv_Machine_Inspector_Signup_Model();
+			$models['signups'] = new Pv_Machine_Inspector_Signup_Model_Signups();
 
 			$this->models = ( object ) $models;
 		}
@@ -221,9 +221,9 @@ class Pv_Machine_Inspector_Signup_Admin {
 
 		if ( ! $this->validator ) {
 
-			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-pv-machine-inspector-signup-validation.php';
+			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-pv-machine-inspector-signup-validation-signups.php';
 
-			$this->validator = new Pv_Machine_Inspector_Signup_Validation( $data );
+			$this->validator = new Pv_Machine_Inspector_Signup_Validation_Signups( $data );
 		}
 
 		return $this->validator;
