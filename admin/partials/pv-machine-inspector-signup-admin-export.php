@@ -11,42 +11,68 @@
  * @subpackage Pv_Machine_Inspector_Signup/admin/partials
  */
 
-// Grab option values if already set.
-$options = get_option( $this->plugin_name );
+if ( ! headers_sent() ) {
+	foreach ( headers_list() as $header ) {
+		header_remove( $header );
+	}
+}
 
-// options.
-$o_lock_deactivate = $options['lock_deactivate'];
-$o_admin_footer_text  = $options['admin_footer_text'];
+$export_filename = date( 'Y-m-d' ) . '_appliants_export.csv';
 
-/*
-* Set up hidden fields
-*
-*/
-settings_fields( $this->plugin_name );
-do_settings_sections( $this->plugin_name );
+header( 'Content-type: application/csv' );
+header( 'Content-Disposition: attachment; filename="' . $csv_filename . '"' );
+header( 'Pragma: public' );
+header( 'Expires: Sat, 26 Jul 1997 05:00:00 GMT' ); // Date in the past.
+header( 'Last-Modified: ' . gmdate( 'D, d M Y H:i:s' ) . ' GMT' );
+header( 'Cache-Control', 'no-store, no-cache, must-revalidate' ); // HTTP/1.1.
+header( 'Cache-Control: pre-check=0, post-check=0, max-age=0' ); // HTTP/1.1.
+header( 'Pragma: no-cache' );
+header( 'Expires: 0' );
+header( 'Content-Transfer-Encoding: none' );
+header( 'Content-Type: application/csv' ); // joomla will overwrite this...
+header( 'Content-Disposition: attachment; filename="' . $export_filename . '"' );
 
-?>
-<div class="wrap">
-	<h2><?php echo esc_html( get_admin_page_title() ); ?></h2>
-		<?php if ( isset( $_REQUEST['action'] )  && 'edit' === $_REQUEST['action'] ) :
-			$action = 'edit';
-		?>
-	<h2 class="nav-tab-wrapper">
-		<a href="#pv-edit" class="nav-tab nav-tab-active"><?php esc_html_e( 'Edit', $this->plugin_name );?></a>
-	</h2>
-		<?php
-		require_once 'pv-machine-inspector-signup-admin-edit.php' ;
-		else :
-			$action = '';
-		?>
-	<h2 class="nav-tab-wrapper">
-		<a href="#pv-list" class="nav-tab nav-tab-active"><?php esc_html_e( 'List', $this->plugin_name );?></a>
-		<a href="#pv-add" class="nav-tab"><?php esc_html_e( 'Add', $this->plugin_name );?></a>
-		<a href="#pv-config" class="nav-tab"><?php esc_html_e( 'Config', $this->plugin_name );?></a>
-	</h2>
-		<?php
-		require_once 'pv-machine-inspector-signup-admin-list.php' ;
-		require_once 'pv-machine-inspector-signup-admin-add.php' ;
-		require_once 'pv-machine-inspector-signup-admin-config.php' ;
-		endif; ?>
-</div>
+ob_end_flush();
+
+$output = fopen( 'php://output', 'w' );
+
+fputcsv( $output,
+	array(
+		esc_html_e( 'Id', $this->plugin_name ),
+		esc_html_e( 'Division', $this->plugin_name ),
+		esc_html_e( 'Name', $this->plugin_name ),
+		esc_html_e( 'Street Address', $this->plugin_name ),
+		esc_html_e( 'City', $this->plugin_name ),
+		esc_html_e( 'State', $this->plugin_name ),
+		esc_html_e( 'Zip', $this->plugin_name ),
+		esc_html_e( 'Phone', $this->plugin_name ),
+		esc_html_e( 'Email', $this->plugin_name ),
+		esc_html_e( 'Date', $this->plugin_name ),
+	)
+);
+
+$rows = $this->list();
+$n = count( $rows );
+$i = 0;
+
+foreach ( $rows as $row ) {
+	$matches     = '';
+	preg_match( '/^(\d{3})(\d{3})(\d{4})$/', $row->phone, $matches );
+
+	fputcsv( $output,
+		array(
+			esc_html( $row->id ),
+			esc_html( $row->division ),
+			esc_html( $row->first_name ),
+			esc_html( $row->middle_name ),
+			esc_html( $row->last_name ),
+			esc_html( $row->address1 . ( $row->address2 ? ', ' . $row->address2 : '' ) ),
+			esc_html( $row->city ),
+			esc_html( $row->region ),
+			esc_html( $row->postcode ),
+			esc_html( count( $matches ) ? sprintf( '(%d) %d-%d', $matches[1], $matches[2], $matches[3] ) : '' ),
+			esc_html( $row->email ),
+			esc_html( $row->created ),
+		)
+	);
+}
