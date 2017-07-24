@@ -239,7 +239,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 
 		if ( check_admin_referer( 'pvmi_admin_create', 'pvmi_admin_create_nonce' ) ) {
 
-			unset( $data['action'], $data['submit'], $data['pvmi_admin_create'], $data['_wp_http_referer'] );
+			unset( $data['action'], $data['submit'], $data['pvmi_admin_create_nonce'], $data['_wp_http_referer'] );
 
 			$validator = $this->get_validator( $data );
 
