@@ -57,8 +57,8 @@ $paginator->setup( $this->plugin_name, $this->models->signups->get_pagination() 
 
 		foreach ( $rows as $row ) :
 			$i++;
-			$delete_link = admin_url( 'admin-post.php?action=pvmi_admin_delete&item=' . $row->id );
-			$edit_link   = admin_url( 'admin.php?page=' . $this->plugin_name . '&action=edit&item=' . $row->id );
+			$delete_link = admin_url( 'admin-post.php?action=pvmi_admin_delete&item=' . $row->id . '&_wpnonce=' . wp_create_nonce( 'pvmi_admin_delete' ) );
+			$edit_link   = admin_url( 'admin.php?page=' . $this->plugin_name . '&action=edit&item=' . $row->id . '&_wpnonce=' . wp_create_nonce( 'pvmi_admin_edit' ) );
 			$base_post   = admin_url( 'admin_post.php' );
 			$fullname    = $row->first_name . ' ' . ( $row->middle_name ? $row->middle_name . ' ' : '' ) . $row->last_name;
 			$matches     = '';
@@ -105,9 +105,9 @@ $paginator->setup( $this->plugin_name, $this->models->signups->get_pagination() 
 				<td colspan="9">
 					<?php echo esc_html( $paginator->get_list_footer() ); ?>
 					<span class="row-actions visible">
-						<span><a target="_blank" href="<?php echo wp_nonce_url( WP_PLUGIN_URL . '/' . $this->plugin_name . '/admin/export.php', 'pvmi_admin_export' ); ?>" >export all</a></span>
+						<span><a target="_blank" href="<?php echo WP_PLUGIN_URL . '/' . $this->plugin_name . '/admin/export.php?_wpnonce=' . wp_create_nonce( 'pvmi_admin_export' ); ?>" >export all</a></span>
 						<span>|</span>
-						<span class="trash"><a href="<?php echo esc_attr( wp_nonce_url( admin_url( 'admin-post.php?action=pvmi_admin_delete_all' ), 'pvmi_admin_delete_all' ) ); ?>" >delete all</a></span>
+						<span class="trash"><a href="<?php echo esc_attr( admin_url( 'admin-post.php?action=pvmi_admin_delete_all&_wpnonce=' . wp_create_nonce( 'pvmi_admin_delete_all' ) ) ); ?>" >delete all</a></span>
 					</span>
 				</td>
 			</tr>
