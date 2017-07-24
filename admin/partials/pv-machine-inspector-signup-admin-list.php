@@ -114,4 +114,3 @@ $paginator->setup( $this->plugin_name, $this->models->signups->get_pagination() 
 		</tfoot>
 	</table>
 </div>
-wp_nonce_url(admin_url('options.php?page=my_plugin_settings'), 'doing_something', 'my_nonce')
