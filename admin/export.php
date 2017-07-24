@@ -11,6 +11,7 @@
  * @subpackage Pv_Machine_Inspector_Signup/admin/partials
  */
 
+// Includes.
 require_once '../../../../wp-load.php';
 require_once 'class-pv-machine-inspector-signup-admin.php';
 
