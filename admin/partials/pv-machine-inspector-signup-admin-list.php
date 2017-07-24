@@ -105,12 +105,13 @@ $paginator->setup( $this->plugin_name, $this->models->signups->get_pagination() 
 				<td colspan="9">
 					<?php echo esc_html( $paginator->get_list_footer() ); ?>
 					<span class="row-actions visible">
-						<span><a target="_blank" href="<?php echo WP_PLUGIN_URL . '/' . $this->plugin_name . '/admin/export.php'; ?>" >export all</a></span>
+						<span><a target="_blank" href="<?php echo wp_nonce_url( WP_PLUGIN_URL . '/' . $this->plugin_name . '/admin/export.php', 'pvmi_admin_export' ); ?>" >export all</a></span>
 						<span>|</span>
-						<span class="trash"><a href="<?php echo esc_attr( admin_url( 'admin-post.php?action=pvmi_admin_delete_all' ) ); ?>" >delete all</a></span>
+						<span class="trash"><a href="<?php echo esc_attr( wp_nonce_url( admin_url( 'admin-post.php?action=pvmi_admin_delete_all' ), 'pvmi_admin_delete_all' ) ); ?>" >delete all</a></span>
 					</span>
 				</td>
 			</tr>
 		</tfoot>
 	</table>
 </div>
+wp_nonce_url(admin_url('options.php?page=my_plugin_settings'), 'doing_something', 'my_nonce')
