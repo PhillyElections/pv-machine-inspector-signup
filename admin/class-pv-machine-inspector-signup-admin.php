@@ -287,7 +287,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 
 			if ( check_admin_referer( 'pvmi_admin_update_' . $item, 'pvmi_admin_update_nonce' ) ) {
 
-				unset( $data['item'], $data['action'], $data['submit'], $data[ 'pvmi_admin_update_' . $item ], $data['pvmi_admin_update_nonce'], $data['_wp_http_referer'] );
+				unset( $data['item'], $data['action'], $data['submit'], $data['pvmi_admin_update_nonce'], $data['_wp_http_referer'] );
 
 				$validator = $this->get_validator( $data );
 
