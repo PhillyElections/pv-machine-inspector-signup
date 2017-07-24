@@ -26,18 +26,18 @@ $output = fopen( 'php://output', 'w' );
 
 fputcsv( $output,
 	array(
-		esc_html_e( 'Id', $this->plugin_name ),
-		esc_html_e( 'Division', $this->plugin_name ),
-		esc_html_e( 'FName', $this->plugin_name ),
-		esc_html_e( 'MName', $this->plugin_name ),
-		esc_html_e( 'LName', $this->plugin_name ),
-		esc_html_e( 'Street Address', $this->plugin_name ),
-		esc_html_e( 'City', $this->plugin_name ),
-		esc_html_e( 'State', $this->plugin_name ),
-		esc_html_e( 'Zip', $this->plugin_name ),
-		esc_html_e( 'Phone', $this->plugin_name ),
-		esc_html_e( 'Email', $this->plugin_name ),
-		esc_html_e( 'Date', $this->plugin_name ),
+		'Id',
+		'Division',
+		'FName',
+		'MName',
+		'LName',
+		'Street Address',
+		'City',
+		'State',
+		'Zip',
+		'Phone',
+		'Email',
+		'Date',
 	)
 );
 
