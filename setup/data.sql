@@ -9,15 +9,15 @@ SET @db = DATABASE();
 INSERT INTO `[[db_prefix]]pv_machine_inspector_signups`
 (`division`, `first_name`, `middle_name`, `last_name`, `address1`, `address2`, `city`, `region`, `postcode`, `email`, `phone`, `published`, `created`)
 VALUES
-('0101', 'some', '', 'guy', '3365 Vaux St', '', 'Philadelphia', 'PA', '19129', 'some@guy.com', '2342342345', 1, NOW()),
-('0102', 'some', '', 'guy', '3365 Vaux St', '', 'Philadelphia', 'PA', '19129', 'some@guy.com', '2342342345', 1, NOW()),
-('0103', 'some', '', 'guy', '3365 Vaux St', '', 'Philadelphia', 'PA', '19129', 'some@guy.com', '2342342345', 1, NOW()),
-('0104', 'some', '', 'guy', '3365 Vaux St', '', 'Philadelphia', 'PA', '19129', 'some@guy.com', '2342342345', 1, NOW()),
-('0134', 'some', '', 'guy', '3365 Vaux St', '', 'Philadelphia', 'PA', '19129', 'some@guy.com', '2342342345', 1, NOW()),
-('0135', 'some', '', 'guy', '3365 Vaux St', '', 'Philadelphia', 'PA', '19129', 'some@guy.com', '2342342345', 1, NOW()),
-('0136', 'some', '', 'guy', '3365 Vaux St', '', 'Philadelphia', 'PA', '19129', 'some@guy.com', '2342342345', 1, NOW()),
-('0137', 'some', '', 'guy', '3365 Vaux St', '', 'Philadelphia', 'PA', '19129', 'some@guy.com', '2342342345', 1, NOW()),
-('0138', 'some', '', 'guy', '3365 Vaux St', '', 'Philadelphia', 'PA', '19129', 'some@guy.com', '2342342345', 1, NOW());
+('0101', 'one',   '', 'guy', '3365 Vaux St',      '', 'Philadelphia', 'PA', '', 'some@guy.com', '2342342345', 1, NOW()),
+('0102', 'two',   '', 'guy', '1900 Market St',    '', 'Philadelphia', 'PA', '', 'some@guy.com', '2342342345', 1, NOW()),
+('0103', 'three', '', 'guy', '400 Walnut St',     '', 'Philadelphia', 'PA', '', 'some@guy.com', '2342342345', 1, NOW()),
+('0104', 'four',  '', 'guy', '1540 N 56th St',    '', 'Philadelphia', 'PA', '', 'some@guy.com', '2342342345', 1, NOW()),
+('0134', 'five',  '', 'guy', '1823 N Mascher St', '', 'Philadelphia', 'PA', '', 'some@guy.com', '2342342345', 1, NOW()),
+('0135', 'six',   '', 'guy', '2440 E Hazzard St', '', 'Philadelphia', 'PA', '', 'some@guy.com', '2342342345', 1, NOW()),
+('0136', 'seven', '', 'guy', '2311 N Camac St',   '', 'Philadelphia', 'PA', '', 'some@guy.com', '2342342345', 1, NOW()),
+('0137', 'eight', '', 'guy', '803 S Darien St',   '', 'Philadelphia', 'PA', '', 'some@guy.com', '2342342345', 1, NOW()),
+('0138', 'nine',  '', 'guy', '2010 Federal St',   '', 'Philadelphia', 'PA', '', 'some@guy.com', '2342342345', 1, NOW());
 
 /*
 ('0101', 'some', '', 'guy', '3365 Vaux St', '', 'Philadelphia', 'PA', '19129', 'some@guy.com', '2342342345', 1, NOW()),
