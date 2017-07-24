@@ -32,8 +32,6 @@ header( 'Content-Transfer-Encoding: none' );
 header( 'Content-Type: application/csv' ); // joomla will overwrite this...
 header( 'Content-Disposition: attachment; filename="' . $export_filename . '"' );
 
-ob_end_flush();
-
 $output = fopen( 'php://output', 'w' );
 
 fputcsv( $output,
