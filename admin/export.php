@@ -13,7 +13,9 @@
 
 // Includes.
 require_once '../../../../wp-load.php';
-require_once 'class-pv-machine-inspector-signup-admin.php';
+require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-pv-machine-inspector-signup-model-signups.php';
+
+$model = new Pv_Machine_Inspector_Signup_Model_Signups();
 
 $export_filename = date( 'Y-m-d' ) . '_appliants_export.csv';
 
@@ -39,7 +41,7 @@ fputcsv( $output,
 	)
 );
 
-$rows = $this->list();
+$rows = $model->get_all();
 $n = count( $rows );
 $i = 0;
 
