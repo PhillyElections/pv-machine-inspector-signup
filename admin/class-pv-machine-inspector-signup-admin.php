@@ -311,8 +311,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 	 * Delete a record
 	 */
 	public function delete() {
-		$status = 'error';
-		$message = 'No item specified for deletion.';
+
 		$nonce = wp_verify_nonce( sanitize_text_field( wp_unslash( $_REQUEST['_wpnonce'] ) ), 'pvmi_admin_delete' );
 
 		if ( $nonce ) {
@@ -324,6 +323,9 @@ class Pv_Machine_Inspector_Signup_Admin {
 					$status = 'success';
 					$message = 'Deleted.';
 				}
+			} else {
+				$status = 'error';
+				$message = 'No item specified for deletion.';
 			}
 		} else {
 			$status = 'error';
