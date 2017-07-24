@@ -313,15 +313,21 @@ class Pv_Machine_Inspector_Signup_Admin {
 	public function delete() {
 		$status = 'error';
 		$message = 'No item specified for deletion.';
+		$nonce = wp_verify_nonce( sanitize_text_field( wp_unslash( $_REQUEST['_wpnonce'] ) ), 'pvmi_admin_delete' );
 
-		if ( isset( $_REQUEST['item'] ) && $item = ( int ) $_REQUEST['item'] ) {
-			if ( ! $this->models->signups->delete( $item ) ) {
-				$status = 'error';
-				$message = 'Something went wrong.';
-			} else {
-				$status = 'success';
-				$message = 'Deleted.';
+		if ( $nonce ) {
+			if ( isset( $_REQUEST['item'] ) && $item = ( int ) $_REQUEST['item'] ) {
+				if ( ! $this->models->signups->delete( $item ) ) {
+					$status = 'error';
+					$message = 'Something went wrong.';
+				} else {
+					$status = 'success';
+					$message = 'Deleted.';
+				}
 			}
+		} else {
+			$status = 'error';
+			$message = 'bad request.';
 		}
 
 		wp_redirect( admin_url( 'admin.php?page=' . $this->plugin_name . '&pvstatus=' . urlencode( $status ) . '&pvmessage=' . urlencode( $message ) ) );
@@ -332,12 +338,19 @@ class Pv_Machine_Inspector_Signup_Admin {
 	 */
 	public function delete_all() {
 
-		if ( ! $this->models->signups->delete_all() ) {
-			$status = 'error';
-			$message = 'Something went wrong.';
+		$nonce = wp_verify_nonce( sanitize_text_field( wp_unslash( $_REQUEST['_wpnonce'] ) ), 'pvmi_admin_delete_all' );
+
+		if ( $nonce ) {
+			if ( ! $this->models->signups->delete_all() ) {
+				$status = 'error';
+				$message = 'Something went wrong.';
+			} else {
+				$status = 'success';
+				$message = 'Deleted.';
+			}
 		} else {
-			$status = 'success';
-			$message = 'Deleted.';
+			$status = 'error';
+			$message = 'bad request.';
 		}
 
 		wp_redirect( admin_url( 'admin.php?page=' . $this->plugin_name . '&pvstatus=' . urlencode( $status ) . '&pvmessage=' . urlencode( $message ) ) );
