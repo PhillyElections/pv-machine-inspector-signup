@@ -11,6 +11,9 @@
  * @subpackage Pv_Machine_Inspector_Signup/admin/partials
  */
 
+require_once '../../../../wp-load.php';
+require_once '../class-pv-machine-inspector-signup-admin.php';
+
 $export_filename = date( 'Y-m-d' ) . '_appliants_export.csv';
 
 header( 'Content-Type:application/csv' ); // joomla will overwrite this...
