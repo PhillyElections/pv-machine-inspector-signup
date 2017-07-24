@@ -248,7 +248,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 				$message = 'Something went wrong.';
 			} else {
 				$status = 'success';
-				$message = 'Changes saved.';
+				$message = 'Signup added.';
 			}
 		} else {
 			$status = 'error';
