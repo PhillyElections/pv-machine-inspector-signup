@@ -25,12 +25,6 @@ if ( class_exists( 'Pv_Core_Validation' ) && ! class_exists( 'Pv_Machine_Inspect
 		 * @var        array
 		 */
 		protected $processing = array(
-			'division' => array(
-				'label' => 'Division',
-				'required' => false,
-				'sanitize' => array( 'sanitize_text_field' ),
-				'validate' => array( 'is_numeric' ),
-			),
 			'first_name' => array(
 				'label' => 'First name',
 				'required' => true,
