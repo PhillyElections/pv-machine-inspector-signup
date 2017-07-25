@@ -25,7 +25,6 @@ if ( class_exists( 'Pv_Core_Validation' ) && ! class_exists( 'Pv_Machine_Inspect
 		 * @var        array
 		 */
 		protected $processing = array(
-			'id' => '',
 			'division' => array(
 				'label' => 'Division',
 				'required' => false,
@@ -92,7 +91,6 @@ if ( class_exists( 'Pv_Core_Validation' ) && ! class_exists( 'Pv_Machine_Inspect
 				'sanitize' => array( 'sanitize_text_field', 'sanitize_phone' ),
 				'validate' => array( 'is_phone' ),
 			),
-			'published' => '',
 		);
 
 		/**
