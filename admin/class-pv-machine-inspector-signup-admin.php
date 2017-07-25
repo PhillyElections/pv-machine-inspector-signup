@@ -286,13 +286,11 @@ class Pv_Machine_Inspector_Signup_Admin {
 
 			if ( check_admin_referer( 'pvmi_admin_update_' . $item, 'pvmi_admin_update_nonce' ) ) {
 
-//				unset( $data['item'], $data['action'], $data['submit'], $data['pvmi_admin_update_nonce'], $data['_wp_http_referer'] );
-
 				$this->get_validator( $data );
 
 				$validator = &$this->validator['signups'];
 
-				dd($validator->run(), $validator);
+				dd($validator->run(), $validator, $validator->get_messages());
 
 				if ( ! $this->models->signups->update( $data, array( 'id' => $item ) ) ) {
 					$status = 'error';
