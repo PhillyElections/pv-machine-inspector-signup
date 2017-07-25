@@ -292,7 +292,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 
 				$validator = &$this->validator['signups'];
 
-				dd($validator);
+				dd($validator->run(), $validator);
 
 				if ( ! $this->models->signups->update( $data, array( 'id' => $item ) ) ) {
 					$status = 'error';
