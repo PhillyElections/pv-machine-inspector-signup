@@ -11,7 +11,6 @@ CREATE TABLE IF NOT EXISTS `[[db_prefix]]pv_machine_inspector_signups` (
   `postcode`    varchar(10) NOT NULL DEFAULT '',
   `email`       varchar(100) NOT NULL DEFAULT '',
   `phone`       varchar(10) NOT NULL DEFAULT '',
-  `published`   tinyint(1) unsigned NOT NULL DEFAULT 0,
   `created`     datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated`     datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id`)
