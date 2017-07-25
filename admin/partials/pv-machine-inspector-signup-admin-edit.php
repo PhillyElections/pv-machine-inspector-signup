@@ -13,7 +13,7 @@
 
 $row = $this->read();
 $select = &$this->helpers->select;
-dd($row);
+
 $select->setup( 'region', $row->region );
 $select->get_combo_data( 'state' );
 ?>
