@@ -223,10 +223,9 @@ class Pv_Machine_Inspector_Signup_Admin {
 
 			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-pv-machine-inspector-signup-validation-signups.php';
 
-			$this->validator = new Pv_Machine_Inspector_Signup_Validation_Signups( $data );
+			$this->validator['signups'] = new Pv_Machine_Inspector_Signup_Validation_Signups( $data );
 		}
 
-		return $this->validator;
 	}
 
 	// processing actions.
@@ -283,13 +282,17 @@ class Pv_Machine_Inspector_Signup_Admin {
 		if ( isset( $_REQUEST['item'] ) ) {
 
 			$data = $_REQUEST;
-			$item = wp_unslash( ( int ) $_REQUEST['item'] );
+			$item = wp_unslash( ( int ) $data['item'] );
 
 			if ( check_admin_referer( 'pvmi_admin_update_' . $item, 'pvmi_admin_update_nonce' ) ) {
 
 				unset( $data['item'], $data['action'], $data['submit'], $data['pvmi_admin_update_nonce'], $data['_wp_http_referer'] );
 
-				$validator = $this->get_validator( $data );
+				$this->get_validator( $data );
+
+				$validator = &$this->validator['signups'];
+
+				dd($validator);
 
 				if ( ! $this->models->signups->update( $data, array( 'id' => $item ) ) ) {
 					$status = 'error';
