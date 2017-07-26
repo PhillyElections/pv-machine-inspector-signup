@@ -66,7 +66,7 @@ $paginator->setup( $this->plugin_name, $this->models->signups->get_pagination() 
 		?>
 			<tr>
 				<td>
-					<?php echo esc_html( $row->id );?>
+					<?php echo esc_html( str_pad( $row->id, 4 ) );?>
 				</td>
 				<td>
 					<?php echo esc_html( $row->division );?>
