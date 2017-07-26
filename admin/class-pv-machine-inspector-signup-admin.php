@@ -243,6 +243,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 			$this->get_validators();
 			$validator = &$this->validator['signups'];
 			$validator->setup( $data );
+			$validator->run();
 
 			// Overwrite alert.
 			$data = $validator->get_data();
@@ -296,6 +297,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 				$this->get_validators();
 				$validator = &$this->validator['signups'];
 				$validator->setup( $data );
+				$validator->run();
 
 				// Overwrite alert.
 				$data = $validator->get_data();
