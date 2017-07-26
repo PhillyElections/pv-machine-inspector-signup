@@ -217,13 +217,13 @@ class Pv_Machine_Inspector_Signup_Admin {
 	 *
 	 * @param mixed $data form data.
 	 */
-	private function get_validator( &$data ) {
+	private function get_validators() {
 
 		if ( ! $this->validator ) {
 
 			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-pv-machine-inspector-signup-validation-signups.php';
 
-			$this->validator['signups'] = new Pv_Machine_Inspector_Signup_Validation_Signups( $data );
+			$this->validator['signups'] = new Pv_Machine_Inspector_Signup_Validation_Signups();
 		}
 
 	}
@@ -238,11 +238,11 @@ class Pv_Machine_Inspector_Signup_Admin {
 
 		if ( check_admin_referer( 'pvmi_admin_create', 'pvmi_admin_create_nonce' ) ) {
 
-			unset( $data['action'], $data['submit'], $data['pvmi_admin_create_nonce'], $data['_wp_http_referer'] );
+			$this->get_validators( );
 
-			$validator = $this->get_validator( $data );
+			$validator = &$this->validator['signups']->setup( $data );
 
-			if ( ! $this->models->signups->insert( $data ) ) {
+			if ( ! $this->models->signups->update( $validator->get_data() ) ) {
 				$status = 'error';
 				$message = 'Something went wrong.';
 			} else {
@@ -286,13 +286,11 @@ class Pv_Machine_Inspector_Signup_Admin {
 
 			if ( check_admin_referer( 'pvmi_admin_update_' . $item, 'pvmi_admin_update_nonce' ) ) {
 
-				$this->get_validator( $data );
+				$this->get_validators();
 
-				$validator = &$this->validator['signups'];
+				$validator = &$this->validator['signups']->setup( $data );
 
-				dd($validator->run(), $validator, $validator->get_messages()[0], $validator->get_data());
-
-				if ( ! $this->models->signups->update( $data, array( 'id' => $item ) ) ) {
+				if ( ! $this->models->signups->update( $validator->get_data(), array( 'id' => $item ) ) ) {
 					$status = 'error';
 					$message = 'Save failure.';
 				} else {
