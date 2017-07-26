@@ -297,7 +297,10 @@ class Pv_Machine_Inspector_Signup_Admin {
 				$validator = &$this->validator['signups'];
 				$validator->setup( $data );
 
-				if ( ! $this->models->signups->update( $validator->get_data(), array( 'id' => $item ) ) ) {
+				// Overwrite alert.
+				$data = $validator->get_data();
+
+				if ( ! $this->models->signups->update( $data, array( 'id' => $item ) ) ) {
 					$status = 'error';
 					$message = 'Save failure.';
 				} else {
