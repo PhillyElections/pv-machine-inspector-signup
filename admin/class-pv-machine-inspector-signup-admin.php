@@ -91,6 +91,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 		$this->get_helpers();
 		$this->get_messaging();
 		$this->get_models();
+
 	}
 
 	/**
@@ -133,6 +134,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 			add_menu_page( __( 'Machine Inspectors', $this->plugin_name ),'Phillyvotes','manage_options','phillyvotes', array( $this, 'display_plugin_manage_display_page' ) );
 			add_submenu_page( 'phillyvotes', __( 'Machine Inspector Signup', $this->plugin_name ), 'Machine Inspectors', 'manage_options', $this->plugin_name, array( $this, 'display_plugin_manage_display_page' ) );
 		}
+
 	}
 
 	/**
@@ -152,6 +154,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 				include_once( 'partials/pv-machine-inspector-signup-admin-display.php' );
 			break;
 		}
+
 	}
 
 
@@ -190,6 +193,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 
 			$this->messaging = new Pv_Machine_Inspector_Signup_Messaging();
 		}
+
 	}
 
 	/**
@@ -269,9 +273,11 @@ class Pv_Machine_Inspector_Signup_Admin {
 	 * Read a record
 	 */
 	public function read() {
+
 		if ( isset( $_REQUEST['item'] ) && $item = ( int ) $_REQUEST['item'] ) {
 			return $this->models->signups->get_row( $item );
 		}
+
 	}
 
 	/**
