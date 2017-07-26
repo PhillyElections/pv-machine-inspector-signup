@@ -243,8 +243,11 @@ class Pv_Machine_Inspector_Signup_Admin {
 			$this->get_validators();
 			$validator = &$this->validator['signups'];
 			$validator->setup( $data );
-dd($validator->get_data());
-			if ( ! $this->models->signups->update( $validator->get_data() ) ) {
+
+			// Overwrite alert.
+			$data = $validator->get_data();
+
+			if ( ! $this->models->signups->update( $data ) ) {
 				$status = 'error';
 				$message = 'Something went wrong.';
 			} else {
