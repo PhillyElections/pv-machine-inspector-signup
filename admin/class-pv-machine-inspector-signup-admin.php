@@ -300,6 +300,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 				// Overwrite alert.
 				$data = $validator->get_data();
 
+				dd($data, $_REQUEST);
 				if ( ! $this->models->signups->update( $data, array( 'id' => $item ) ) ) {
 					$status = 'error';
 					$message = 'Save failure.';
