@@ -244,8 +244,6 @@ class Pv_Machine_Inspector_Signup_Admin {
 			$validator = &$this->validator['signups'];
 			$validator->setup( $data );
 
-			$validator = &$this->validator['signups']->setup( $data );
-
 			if ( ! $this->models->signups->update( $validator->get_data() ) ) {
 				$status = 'error';
 				$message = 'Something went wrong.';
