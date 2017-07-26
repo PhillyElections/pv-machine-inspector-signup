@@ -214,8 +214,6 @@ class Pv_Machine_Inspector_Signup_Admin {
 
 	/**
 	 * Load up a validator
-	 *
-	 * @param mixed $data form data.
 	 */
 	private function get_validators() {
 
@@ -238,7 +236,9 @@ class Pv_Machine_Inspector_Signup_Admin {
 
 		if ( check_admin_referer( 'pvmi_admin_create', 'pvmi_admin_create_nonce' ) ) {
 
-			$this->get_validators( );
+			$this->get_validators();
+			$validator = &$this->validator['signups'];
+			$validator->setup( $data );
 
 			$validator = &$this->validator['signups']->setup( $data );
 
@@ -287,8 +287,8 @@ class Pv_Machine_Inspector_Signup_Admin {
 			if ( check_admin_referer( 'pvmi_admin_update_' . $item, 'pvmi_admin_update_nonce' ) ) {
 
 				$this->get_validators();
-
-				$validator = &$this->validator['signups']->setup( $data );
+				$validator = &$this->validator['signups'];
+				$validator->setup( $data );
 
 				if ( ! $this->models->signups->update( $validator->get_data(), array( 'id' => $item ) ) ) {
 					$status = 'error';
