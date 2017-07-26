@@ -247,7 +247,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 			// Overwrite alert.
 			$data = $validator->get_data();
 
-			if ( ! $this->models->signups->update( $data ) ) {
+			if ( ! $this->models->signups->insert( $data ) ) {
 				$status = 'error';
 				$message = 'Something went wrong.';
 			} else {
