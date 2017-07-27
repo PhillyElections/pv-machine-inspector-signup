@@ -251,7 +251,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 			if ( ! $valid ) {
 				$status = 'error';
 				// i only give a crap about the first error.
-				$message = $validator->get_messages[0];
+				$message = $validator->get_messages()[0];
 			} else if ( ! $this->models->signups->insert( $data ) ) {
 				$status = 'error';
 				$message = 'Something went wrong.';
@@ -309,7 +309,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 				if ( ! $valid ) {
 					$status = 'error';
 					// i only give a crap about the first error.
-					$message = $validator->get_messages[0];
+					$message = $validator->get_messages()[0];
 				} else if ( ! $this->models->signups->update( $data, array( 'id' => $item ) ) ) {
 					$status = 'error';
 					$message = 'Save failure.';
