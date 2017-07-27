@@ -243,12 +243,16 @@ class Pv_Machine_Inspector_Signup_Admin {
 			$this->get_validators();
 			$validator = &$this->validator['signups'];
 			$validator->setup( $data );
-			$validator->run();
+			$valid = $validator->run();
 
 			// Overwrite alert.
 			$data = $validator->get_data();
 
-			if ( ! $this->models->signups->insert( $data ) ) {
+			if ( ! $valid ) {
+				$status = 'error';
+				// i only give a crap about the first error.
+				$message = $validator->get_messages[0];
+			} else if ( ! $this->models->signups->insert( $data ) ) {
 				$status = 'error';
 				$message = 'Something went wrong.';
 			} else {
@@ -297,13 +301,16 @@ class Pv_Machine_Inspector_Signup_Admin {
 				$this->get_validators();
 				$validator = &$this->validator['signups'];
 				$validator->setup( $data );
-				$validator->run();
+				$valid = $validator->run();
 
 				// Overwrite alert.
 				$data = $validator->get_data();
 
-				dd($data, $_REQUEST);
-				if ( ! $this->models->signups->update( $data, array( 'id' => $item ) ) ) {
+				if ( ! $valid ) {
+					$status = 'error';
+					// i only give a crap about the first error.
+					$message = $validator->get_messages[0];
+				} else if ( ! $this->models->signups->update( $data, array( 'id' => $item ) ) ) {
 					$status = 'error';
 					$message = 'Save failure.';
 				} else {
