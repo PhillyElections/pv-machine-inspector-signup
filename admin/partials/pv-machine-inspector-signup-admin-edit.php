@@ -56,7 +56,7 @@ $select->get_combo_data( 'state' );
 				</tr>
 				<tr class="form-field">
 					<th scope="row"><label for="email"><?php esc_html_e( 'Email', $this->plugin_name ); ?> <span class="description"></span></label></th>
-					<td><input id="email" name="email" type="text" value="<?php echo esc_html( $row->email ); ?>"></td>
+					<td><input id="email" name="email" type="email" value="<?php echo esc_html( $row->email ); ?>"></td>
 				</tr>
 				<tr class="form-field form-required">
 					<th scope="row"><label for="phone"><?php esc_html_e( 'Phone', $this->plugin_name ); ?><span class="description"> (required)</span></label></th>
