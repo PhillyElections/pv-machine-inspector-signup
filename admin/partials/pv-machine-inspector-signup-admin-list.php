@@ -69,7 +69,7 @@ $paginator->setup( $this->plugin_name, $this->models->signups->get_pagination() 
 					<?php echo esc_html( $row->id );?>
 				</td>
 				<td>
-					<?php echo str_pad( $row->division, 4 );?>
+					<?php echo sprintf( '%024', $row->division );?>
 				</td>
 				<td>
 					<a href="<?php echo esc_attr( $edit_link );?>"><?php echo esc_html( $fullname );?></a>
