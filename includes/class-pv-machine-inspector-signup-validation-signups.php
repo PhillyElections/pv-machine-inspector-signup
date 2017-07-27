@@ -69,7 +69,7 @@ if ( class_exists( 'Pv_Core_Validation' ) && ! class_exists( 'Pv_Machine_Inspect
 			),
 			'postcode' => array(
 				'label' => 'Zip',
-				'required' => true,
+				'required' => false,
 				'sanitize' => array( 'sanitize_text_field' ),
 				'validate' => array( 'is_us_zip_code' ),
 			),
