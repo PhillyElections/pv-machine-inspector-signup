@@ -66,10 +66,10 @@ $paginator->setup( $this->plugin_name, $this->models->signups->get_pagination() 
 		?>
 			<tr>
 				<td>
-					<?php echo esc_html( str_pad( $row->id, 4 ) );?>
+					<?php echo esc_html( $row->id );?>
 				</td>
 				<td>
-					<?php echo esc_html( $row->division );?>
+					<?php echo esc_html( str_pad( $row->division, 4 ) );?>
 				</td>
 				<td>
 					<a href="<?php echo esc_attr( $edit_link );?>"><?php echo esc_html( $fullname );?></a>
