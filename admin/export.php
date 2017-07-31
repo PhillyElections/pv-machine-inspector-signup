@@ -13,6 +13,13 @@
 
 // Includes.
 require_once '../../../../wp-load.php';
+
+$nonce = wp_verify_nonce( sanitize_text_field( wp_unslash( $_REQUEST['_wpnonce'] ) ), 'pvmi_admin_delete_all' );
+
+if ( ! $nonce ) {
+	die( 'Invalid request.' );
+}
+
 require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-pv-machine-inspector-signup-model-signups.php';
 
 $model = new Pv_Machine_Inspector_Signup_Model_Signups();
@@ -42,8 +49,8 @@ fputcsv( $output,
 );
 
 $rows = $model->get_all();
-$n = count( $rows );
-$i = 0;
+$n    = count( $rows );
+$i    = 0;
 
 foreach ( $rows as $row ) {
 	$matches     = '';
@@ -66,3 +73,4 @@ foreach ( $rows as $row ) {
 		)
 	);
 }
+
