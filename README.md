@@ -21,4 +21,4 @@ Allow for Machine Inspector signup by the public and manage those in the admin s
 
 == Requires ==
 
-https://github.com/mattyhead/pv-elections-core.git
+https://github.com/mattyhead/pv-core.git
