@@ -17,7 +17,7 @@ VALUES
 ('0135', 'six',   '', 'guy', '2440 E Hazzard St', '', 'Philadelphia', 'PA', '', 'some@guy.com', '2342342345', NOW()),
 ('0136', 'seven', '', 'guy', '2311 N Camac St',   '', 'Philadelphia', 'PA', '', 'some@guy.com', '2342342345', NOW()),
 ('0137', 'eight', '', 'guy', '803 S Darien St',   '', 'Philadelphia', 'PA', '', 'some@guy.com', '2342342345', NOW()),
-('0138', 'nine',  '', 'guy', '2010 Federal St',   '', 'Philadelphia', 'PA', '', 'some@guy.com', '2342342345', NOW())
+('0138', 'nine',  '', 'guy', '2010 Federal St',   '', 'Philadelphia', 'PA', '', 'some@guy.com', '2342342345', NOW()),
 ('0101', 'some', '', 'guy', '3365 Vaux St', '', 'Philadelphia', 'PA', '19129', 'some@guy.com', '2342342345', NOW()),
 ('0102', 'some', '', 'guy', '3365 Vaux St', '', 'Philadelphia', 'PA', '19129', 'some@guy.com', '2342342345', NOW()),
 ('0103', 'some', '', 'guy', '3365 Vaux St', '', 'Philadelphia', 'PA', '19129', 'some@guy.com', '2342342345', NOW()),
