@@ -14,7 +14,7 @@
 // load paginator.
 $paginator = &$this->helpers->paginator;
 $paginator->setup( $this->plugin_name, $this->models->signups->get_pagination() );
-
+d( $this->models->signups->get_pagination() );
 ?>
 <div id="pv-list" class="wrap metabox-holder columns-9 pv-metaboxes <?php echo ( 'edit' === $action ) ? 'hidden' : ''; ?>">
 	<table class="wp-list-table widefat fixed striped pages">
