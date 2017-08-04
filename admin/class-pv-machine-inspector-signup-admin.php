@@ -256,7 +256,6 @@ class Pv_Machine_Inspector_Signup_Admin {
 	}
 
 	// processing actions.
-	// processing actions.
 	/**
 	 * Config plugin
 	 */
@@ -454,7 +453,10 @@ class Pv_Machine_Inspector_Signup_Admin {
 	 * Write Configuration
 	 */
 	public function get_config() {
-
+		return (object) array(
+			'api_key' => 'something',
+			'page_limit' => 15,
+		);
 	}
 
 	/**
