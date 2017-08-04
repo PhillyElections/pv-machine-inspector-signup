@@ -24,7 +24,7 @@ $current_param = '&current=' . $pagination->current;
 	<table class="wp-list-table widefat fixed striped pages">
 		<thead>
 			<tr>
-				<th class="column-rating">
+				<th class="column-id">
 		<?php esc_html_e( 'Id', $this->plugin_name ); ?>
 				</th>
 				<th class="column-rating">
