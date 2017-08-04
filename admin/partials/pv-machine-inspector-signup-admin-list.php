@@ -26,10 +26,10 @@ $paginator->setup( $this->plugin_name, $this->models->signups->get_pagination() 
 				<th class="column-comments">
 		<?php esc_html_e( 'Id', $this->plugin_name ); ?>
 				</th>
-				<th class="column-title">
+				<th class="column-rating">
 		<?php esc_html_e( 'Division', $this->plugin_name ); ?>
 				</th>
-				<th class="column-rating">
+				<th class="column-title">
 		<?php esc_html_e( 'Name', $this->plugin_name ); ?>
 				</th>
 				<th class="column-rating">
