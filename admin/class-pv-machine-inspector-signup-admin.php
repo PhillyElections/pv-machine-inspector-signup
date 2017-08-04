@@ -393,7 +393,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 	 */
 	public function get_current( $model = 'signups' ) {
 		$this->get_models();
-		$pagination = $this->models[ $model ]->get_pagination();
+		$pagination = $this->models->$model->get_pagination();
 
 		return $pagination->current;
 	}
