@@ -106,7 +106,7 @@ $paginator->setup( $this->plugin_name, $this->models->signups->get_pagination() 
 			<tr>
 				<td colspan="9">
 		<?php echo esc_html( $paginator->get_list_footer() ); ?>
-					<span class="row-actions visible">
+					<span class="col-right row-actions visible">
 						<span><a target="_blank" href="<?php echo esc_attr( WP_PLUGIN_URL . '/' . $this->plugin_name . '/admin/export.php?_wpnonce=' . wp_create_nonce( 'pvmi_admin_export' ) ); ?>" >export all</a></span>
 						<span>|</span>
 						<span class="trash"><a href="<?php echo esc_attr( admin_url( 'admin-post.php?action=pvmi_admin_delete_all&_wpnonce=' . wp_create_nonce( 'pvmi_admin_delete_all' ) ) ); ?>" >delete all</a></span>
