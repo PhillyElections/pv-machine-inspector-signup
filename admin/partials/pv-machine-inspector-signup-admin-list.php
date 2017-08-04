@@ -23,31 +23,31 @@ $paginator->setup( $this->plugin_name, $this->models->signups->get_pagination() 
 	<table class="wp-list-table widefat fixed striped pages">
 		<thead>
 			<tr>
-				<th class="check-column">
+				<th class="column-rating">
 		<?php esc_html_e( 'Id', $this->plugin_name ); ?>
 				</th>
-				<th >
+				<th class="column-rating">
 		<?php esc_html_e( 'Division', $this->plugin_name ); ?>
 				</th>
-				<th >
+				<th class="column-rating">
 		<?php esc_html_e( 'Name', $this->plugin_name ); ?>
 				</th>
-				<th >
+				<th class="column-rating">
 		<?php esc_html_e( 'Phone', $this->plugin_name ); ?>
 				</th>
-				<th >
+				<th class="column-rating">
 		<?php esc_html_e( 'Email', $this->plugin_name ); ?>
 				</th>
-				<th >
+				<th class="column-rating">
 		<?php esc_html_e( 'Street Address', $this->plugin_name ); ?>
 				</th>
-				<th >
+				<th class="column-rating">
 		<?php esc_html_e( 'Zip', $this->plugin_name ); ?>
 				</th>
-				<th >
+				<th class="column-date">
 		<?php esc_html_e( 'Date', $this->plugin_name ); ?>
 				</th>
-				<th >
+				<th class="column-rating">
 		<?php esc_html_e( 'Action', $this->plugin_name ); ?>
 				</th>
 			</tr>
