@@ -266,7 +266,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 			$message = 'Nonce failure.';
 		}
 
-		wp_redirect( admin_url( 'admin.php?page=' . $this->plugin_name . '&pvstatus=' . urlencode( $status ) . '&pvmessage=' . urlencode( $message ) ) );
+		wp_redirect( admin_url( 'admin.php?page=' . $this->plugin_name . '&current=' . urlencode( $this->get_current() ) . '&pvstatus=' . urlencode( $status ) . '&pvmessage=' . urlencode( $message ) ) );
 
 	}
 
@@ -330,7 +330,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 			}
 		}
 
-		wp_redirect( admin_url( 'admin.php?page=' . $this->plugin_name . '&pvstatus=' . urlencode( $status ) . '&pvmessage=' . urlencode( $message ) ) );
+		wp_redirect( admin_url( 'admin.php?page=' . $this->plugin_name . '&current=' . urlencode( $this->get_current() ) . '&pvstatus=' . urlencode( $status ) . '&pvmessage=' . urlencode( $message ) ) );
 	}
 
 	/**
@@ -360,7 +360,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 
 		}
 
-		wp_redirect( admin_url( 'admin.php?page=' . $this->plugin_name . '&pvstatus=' . urlencode( $status ) . '&pvmessage=' . urlencode( $message ) ) );
+		wp_redirect( admin_url( 'admin.php?page=' . $this->plugin_name . '&current=' . urlencode( $this->get_current() ) . '&pvstatus=' . urlencode( $status ) . '&pvmessage=' . urlencode( $message ) ) );
 	}
 
 	/**
@@ -381,7 +381,21 @@ class Pv_Machine_Inspector_Signup_Admin {
 			$message = 'bad request.';
 		}
 
-		wp_redirect( admin_url( 'admin.php?page=' . $this->plugin_name . '&pvstatus=' . urlencode( $status ) . '&pvmessage=' . urlencode( $message ) ) );
+		wp_redirect( admin_url( 'admin.php?page=' . $this->plugin_name . '&current=' . urlencode( $this->get_current() ) . '&pvstatus=' . urlencode( $status ) . '&pvmessage=' . urlencode( $message ) ) );
+	}
+
+	/**
+	 * Gets the current page.
+	 *
+	 * @param      string $model  The model name.
+	 *
+	 * @return     int The current page.
+	 */
+	public function get_current( $model = 'signups' ) {
+		$this->get_models();
+		$pagination = $this->models[ $model ]->get_pagination();
+
+		return $pagination->current;
 	}
 
 	/**
