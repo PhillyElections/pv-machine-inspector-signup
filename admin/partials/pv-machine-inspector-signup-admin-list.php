@@ -23,10 +23,10 @@ $paginator->setup( $this->plugin_name, $this->models->signups->get_pagination() 
 	<table class="wp-list-table widefat fixed striped pages">
 		<thead>
 			<tr>
-				<th class="column-rating">
+				<th class="column-comments">
 		<?php esc_html_e( 'Id', $this->plugin_name ); ?>
 				</th>
-				<th class="column-rating">
+				<th class="column-title">
 		<?php esc_html_e( 'Division', $this->plugin_name ); ?>
 				</th>
 				<th class="column-rating">
@@ -38,7 +38,7 @@ $paginator->setup( $this->plugin_name, $this->models->signups->get_pagination() 
 				<th class="column-rating">
 		<?php esc_html_e( 'Email', $this->plugin_name ); ?>
 				</th>
-				<th class="column-rating">
+				<th class="column-title">
 		<?php esc_html_e( 'Street Address', $this->plugin_name ); ?>
 				</th>
 				<th class="column-rating">
