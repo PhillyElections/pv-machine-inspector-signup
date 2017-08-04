@@ -27,7 +27,7 @@ $current_param = '&current=' . $pagination->current;
 				<th class="column-id">
 		<?php esc_html_e( 'Id', $this->plugin_name ); ?>
 				</th>
-				<th class="column-rating">
+				<th class="column-id">
 		<?php esc_html_e( 'Division', $this->plugin_name ); ?>
 				</th>
 				<th class="column-title">
