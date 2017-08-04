@@ -248,7 +248,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 			$valid = $validator->run();
 
 			// Overwrite alert.
-			$data = $validator->__get( 'data' );
+			$data = $validator->get_data();
 
 			if ( ! $valid ) {
 				$status = 'error';
