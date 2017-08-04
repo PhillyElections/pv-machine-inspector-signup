@@ -65,6 +65,7 @@ $select->get_combo_data( 'state' );
 		</table>
 		<p class="submit">
 			<input name="action" value="pvmi_admin_create" type="hidden">
+			<input name="current" value="<?php echo esc_attr( $pagination->current ); ?>" type="hidden">
 	<?php wp_nonce_field( 'pvmi_admin_create', 'pvmi_admin_create_nonce' ); ?>
 	<?php submit_button( __( 'Add', $this->plugin_name ), 'primary', 'submit', true ); ?>
 		</p>

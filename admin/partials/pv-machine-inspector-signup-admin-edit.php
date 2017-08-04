@@ -11,6 +11,8 @@
  * @subpackage Pv_Machine_Inspector_Signup/admin/partials
  */
 
+$pagination = $this->models->signups->get_pagination();
+
 $row = $this->read();
 $select = &$this->helpers->select;
 
@@ -68,6 +70,7 @@ $select->get_combo_data( 'state' );
 			<tr>
 				<td>
 					<input name="item" value="<?php echo esc_attr( $row->id ); ?>" type="hidden">
+					<input name="current" value="<?php echo esc_attr( $pagination->current ); ?>" type="hidden">
 					<input name="action" value="pvmi_admin_update" type="hidden">
 		<?php wp_nonce_field( 'pvmi_admin_update_' . $row->id, 'pvmi_admin_update_nonce' ); ?>
 		<?php submit_button( __( 'Save', $this->plugin_name ), 'primary', 'submit', true ); ?>

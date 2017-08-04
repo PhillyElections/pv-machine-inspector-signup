@@ -16,8 +16,9 @@ $rows = $this->list();
 
 // load paginator.
 $paginator = &$this->helpers->paginator;
-$paginator->setup( $this->plugin_name, $this->models->signups->get_pagination() );
-
+$pagination = $this->models->signups->get_pagination();
+$paginator->setup( $this->plugin_name, $pagination );
+$current_param = '&current=' . $pagination->current;
 ?>
 <div id="pv-list" class="wrap metabox-holder columns-9 pv-metaboxes <?php echo ( 'edit' === $action ) ? 'hidden' : ''; ?>">
 	<table class="wp-list-table widefat fixed striped pages">
@@ -59,9 +60,8 @@ $paginator->setup( $this->plugin_name, $this->models->signups->get_pagination() 
 
 	foreach ( $rows as $row ) :
 		$i++;
-		$delete_link = admin_url( 'admin-post.php?action=pvmi_admin_delete&item=' . $row->id . '&_wpnonce=' . wp_create_nonce( 'pvmi_admin_delete' ) );
-		$edit_link   = admin_url( 'admin.php?page=' . $this->plugin_name . '&action=edit&item=' . $row->id . '&_wpnonce=' . wp_create_nonce( 'pvmi_admin_edit' ) );
-		$base_post   = admin_url( 'admin_post.php' );
+		$delete_link = admin_url( 'admin-post.php?action=pvmi_admin_delete&item=' . $row->id . $current_param . '&_wpnonce=' . wp_create_nonce( 'pvmi_admin_delete' ) );
+		$edit_link   = admin_url( 'admin.php?page=' . $this->plugin_name . '&action=edit&item=' . $row->id . $current_param . '&_wpnonce=' . wp_create_nonce( 'pvmi_admin_edit' ) );
 		$fullname    = $row->first_name . ' ' . ( $row->middle_name ? $row->middle_name . ' ' : '' ) . $row->last_name;
 		$matches     = '';
 		preg_match( '/^(\d{3})(\d{3})(\d{4})$/', $row->phone, $matches );
@@ -109,9 +109,9 @@ $paginator->setup( $this->plugin_name, $this->models->signups->get_pagination() 
 		<?php echo esc_html( $paginator->get_list_footer() ); ?>
 					</span>
 					<span class="alignright row-actions visible">
-						<span><a target="_blank" href="<?php echo esc_attr( WP_PLUGIN_URL . '/' . $this->plugin_name . '/admin/export.php?_wpnonce=' . wp_create_nonce( 'pvmi_admin_export' ) ); ?>" >export all</a></span>
+						<span><a target="_blank" href="<?php echo esc_attr( WP_PLUGIN_URL . '/' . $this->plugin_name . '/admin/export.php?' . $current_param . '_wpnonce=' . wp_create_nonce( 'pvmi_admin_export' ) ); ?>" >export all</a></span>
 						<span>|</span>
-						<span class="trash"><a href="<?php echo esc_attr( admin_url( 'admin-post.php?action=pvmi_admin_delete_all&_wpnonce=' . wp_create_nonce( 'pvmi_admin_delete_all' ) ) ); ?>" >delete all</a></span>
+						<span class="trash"><a href="<?php echo esc_attr( admin_url( 'admin-post.php?action=pvmi_admin_delete_all' . $current_param . '&_wpnonce=' . wp_create_nonce( 'pvmi_admin_delete_all' ) ) ); ?>" >delete all</a></span>
 					</span>
 				</td>
 			</tr>
