@@ -23,7 +23,7 @@ $paginator->setup( $this->plugin_name, $this->models->signups->get_pagination() 
 	<table class="wp-list-table widefat fixed striped pages">
 		<thead>
 			<tr>
-				<th >
+				<th class="check-column">
 		<?php esc_html_e( 'Id', $this->plugin_name ); ?>
 				</th>
 				<th >
