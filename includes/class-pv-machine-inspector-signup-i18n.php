@@ -5,8 +5,8 @@
  * Loads and defines the internationalization files for this plugin
  * so that it is ready for translation.
  *
- * @link       philadelphiavotes.com
- * @since      1.0.0
+ * @link  philadelphiavotes.com
+ * @since 1.0.0
  *
  * @package    Pv_Machine_Inspector_Signup
  * @subpackage Pv_Machine_Inspector_Signup/includes
@@ -27,10 +27,11 @@ if ( ! class_exists( 'Pv_Machine_Inspector_Signup_i18n' ) ) {
 	class Pv_Machine_Inspector_Signup_i18n {
 
 
+
 		/**
 		 * Load the plugin text domain for translation.
 		 *
-		 * @since    1.0.0
+		 * @since 1.0.0
 		 */
 		public function load_plugin_textdomain() {
 

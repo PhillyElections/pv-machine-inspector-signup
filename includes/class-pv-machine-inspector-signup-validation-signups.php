@@ -2,8 +2,8 @@
 /**
  * Shared validator class
  *
- * @link       philadelphiavotes.com
- * @since      1.0.0
+ * @link  philadelphiavotes.com
+ * @since 1.0.0
  *
  * @package    Pv_Elections_Core
  * @subpackage Pv_Elections_Core/db
@@ -19,10 +19,11 @@ if ( class_exists( 'Pv_Core_Validation' ) && ! class_exists( 'Pv_Machine_Inspect
 	 */
 	class Pv_Machine_Inspector_Signup_Validation_Signups extends Pv_Core_Validation {
 
+
 		/**
 		 * Processing rules for this field set
 		 *
-		 * @var        array
+		 * @var array
 		 */
 		protected $processing = array(
 			'first_name' => array(
@@ -90,7 +91,7 @@ if ( class_exists( 'Pv_Core_Validation' ) && ! class_exists( 'Pv_Machine_Inspect
 		/**
 		 * Is this table's data scrubbable?
 		 *
-		 * @var        boolean
+		 * @var boolean
 		 */
 		protected $scrubbable = true;
 

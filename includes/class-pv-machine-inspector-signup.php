@@ -5,8 +5,8 @@
  * A class definition that includes attributes and functions used across both the
  * public-facing side of the site and the admin area.
  *
- * @link       philadelphiavotes.com
- * @since      1.0.0
+ * @link  philadelphiavotes.com
+ * @since 1.0.0
  *
  * @package    Pv_Machine_Inspector_Signup
  * @subpackage Pv_Machine_Inspector_Signup/includes
@@ -28,6 +28,7 @@ if ( ! class_exists( 'Pv_Machine_Inspector_Signup' ) ) {
 	 * @author     matthew murphy <matthew.e.murphy@phila.gov>
 	 */
 	class Pv_Machine_Inspector_Signup {
+
 
 		/**
 		 * Loader
@@ -57,7 +58,7 @@ if ( ! class_exists( 'Pv_Machine_Inspector_Signup' ) ) {
 		 * Load the dependencies, define the locale, and set the hooks for the admin area and
 		 * the public-facing side of the site.
 		 *
-		 * @since    1.0.0
+		 * @since 1.0.0
 		 */
 		public function __construct() {
 
@@ -83,8 +84,8 @@ if ( ! class_exists( 'Pv_Machine_Inspector_Signup' ) ) {
 		 * Create an instance of the loader which will be used to register the hooks
 		 * with WordPress.
 		 *
-		 * @since    1.0.0
-		 * @access   private
+		 * @since  1.0.0
+		 * @access private
 		 */
 		private function load_dependencies() {
 
@@ -92,24 +93,24 @@ if ( ! class_exists( 'Pv_Machine_Inspector_Signup' ) ) {
 			 * The class responsible for orchestrating the actions and filters of the
 			 * core plugin.
 			 */
-			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-pv-machine-inspector-signup-loader.php';
+			include_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-pv-machine-inspector-signup-loader.php';
 
 			/**
 			 * The class responsible for defining internationalization functionality
 			 * of the plugin.
 			 */
-			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-pv-machine-inspector-signup-i18n.php';
+			include_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-pv-machine-inspector-signup-i18n.php';
 
 			/**
 			 * The class responsible for defining all actions that occur in the admin area.
 			 */
-			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-pv-machine-inspector-signup-admin.php';
+			include_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-pv-machine-inspector-signup-admin.php';
 
 			/**
 			 * The class responsible for defining all actions that occur in the public-facing
 			 * side of the site.
 			 */
-			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-pv-machine-inspector-signup-public.php';
+			include_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-pv-machine-inspector-signup-public.php';
 
 			$this->loader = new Pv_Machine_Inspector_Signup_Loader();
 
@@ -121,8 +122,8 @@ if ( ! class_exists( 'Pv_Machine_Inspector_Signup' ) ) {
 		 * Uses the Pv_Machine_Inspector_Signup_i18n class in order to set the domain and to register the hook
 		 * with WordPress.
 		 *
-		 * @since    1.0.0
-		 * @access   private
+		 * @since  1.0.0
+		 * @access private
 		 */
 		private function set_locale() {
 
@@ -136,8 +137,8 @@ if ( ! class_exists( 'Pv_Machine_Inspector_Signup' ) ) {
 		 * Register all of the hooks related to the admin area functionality
 		 * of the plugin.
 		 *
-		 * @since    1.0.0
-		 * @access   private
+		 * @since  1.0.0
+		 * @access private
 		 */
 		private function define_admin_hooks() {
 
@@ -163,8 +164,8 @@ if ( ! class_exists( 'Pv_Machine_Inspector_Signup' ) ) {
 		 * Register all of the hooks related to the public-facing functionality
 		 * of the plugin.
 		 *
-		 * @since    1.0.0
-		 * @access   private
+		 * @since  1.0.0
+		 * @access private
 		 */
 		private function define_public_hooks() {
 
@@ -182,7 +183,7 @@ if ( ! class_exists( 'Pv_Machine_Inspector_Signup' ) ) {
 		/**
 		 * Run the loader to execute all of the hooks with WordPress.
 		 *
-		 * @since    1.0.0
+		 * @since 1.0.0
 		 */
 		public function run() {
 			$this->loader->run();
@@ -192,8 +193,8 @@ if ( ! class_exists( 'Pv_Machine_Inspector_Signup' ) ) {
 		 * The name of the plugin used to uniquely identify it within the context of
 		 * WordPress and to define internationalization functionality.
 		 *
-		 * @since     1.0.0
-		 * @return    string    The name of the plugin.
+		 * @since  1.0.0
+		 * @return string    The name of the plugin.
 		 */
 		public function get_plugin_name() {
 			return $this->plugin_name;
@@ -202,8 +203,8 @@ if ( ! class_exists( 'Pv_Machine_Inspector_Signup' ) ) {
 		/**
 		 * The reference to the class that orchestrates the hooks with the plugin.
 		 *
-		 * @since     1.0.0
-		 * @return    Pv_Machine_Inspector_Signup_Loader    Orchestrates the hooks of the plugin.
+		 * @since  1.0.0
+		 * @return Pv_Machine_Inspector_Signup_Loader    Orchestrates the hooks of the plugin.
 		 */
 		public function get_loader() {
 			return $this->loader;
@@ -212,8 +213,8 @@ if ( ! class_exists( 'Pv_Machine_Inspector_Signup' ) ) {
 		/**
 		 * Retrieve the version number of the plugin.
 		 *
-		 * @since     1.0.0
-		 * @return    string    The version number of the plugin.
+		 * @since  1.0.0
+		 * @return string    The version number of the plugin.
 		 */
 		public function get_version() {
 			return $this->version;

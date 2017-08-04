@@ -2,8 +2,8 @@
 /**
  * Specific DB model
  *
- * @link       philadelphiavotes.com
- * @since      1.0.0
+ * @link  philadelphiavotes.com
+ * @since 1.0.0
  *
  * @package    Pv_Machine_Inspector_Signup
  * @subpackage Pv_Machine_Inspector_Signup/Db
@@ -18,6 +18,7 @@ if ( class_exists( 'Pv_Core_Model' ) && ! class_exists( 'Pv_Machine_Inspector_Si
 	 * Local Signup model
 	 */
 	class Pv_Machine_Inspector_Signup_Model_Signups extends Pv_Core_Model {
+
 
 		/**
 		 * Address lookup object
@@ -37,7 +38,7 @@ if ( class_exists( 'Pv_Core_Model' ) && ! class_exists( 'Pv_Machine_Inspector_Si
 		/**
 		 * Insert a row
 		 *
-		 * @param      mixed $data   The data.
+		 * @param mixed $data The data.
 		 */
 		public function insert( &$data ) {
 
@@ -54,10 +55,10 @@ if ( class_exists( 'Pv_Core_Model' ) && ! class_exists( 'Pv_Machine_Inspector_Si
 		/**
 		 * Update a row
 		 *
-		 * @param      mixed $data   The data.
-		 * @param      array $where  The where.
+		 * @param mixed $data  The data.
+		 * @param array $where The where.
 		 *
-		 * @return     bool  result of the update query.
+		 * @return bool  result of the update query.
 		 */
 		public function update( &$data, $where = null ) {
 
@@ -74,13 +75,13 @@ if ( class_exists( 'Pv_Core_Model' ) && ! class_exists( 'Pv_Machine_Inspector_Si
 		/**
 		 * Gets address lookup.
 		 *
-		 * @return     mixed  Address Lookup.
+		 * @return mixed  Address Lookup.
 		 */
 		private function get_address_lookup() {
 
 			if ( ! $this->address_lookup ) {
 				// include division-lookup.
-				require_once WP_PLUGIN_DIR . '/pv-core/classes/class-pv-core-address-lookup.php';
+				include_once WP_PLUGIN_DIR . '/pv-core/classes/class-pv-core-address-lookup.php';
 				$this->address_lookup = new Pv_Core_Address_Lookup();
 			}
 		}

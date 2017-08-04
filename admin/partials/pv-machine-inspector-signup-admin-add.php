@@ -4,10 +4,10 @@
  *
  * This file is used to markup the admin-facing aspects of the plugin.
  *
- * @link	   philadelphiavotes.com
- * @since	   1.0.0
+ * @link  philadelphiavotes.com
+ * @since 1.0.0
  *
- * @package	   Pv_Machine_Inspector_Signup
+ * @package    Pv_Machine_Inspector_Signup
  * @subpackage Pv_Machine_Inspector_Signup/admin/partials
  */
 
@@ -65,8 +65,8 @@ $select->get_combo_data( 'state' );
 		</table>
 		<p class="submit">
 			<input name="action" value="pvmi_admin_create" type="hidden">
-			<?php wp_nonce_field( 'pvmi_admin_create', 'pvmi_admin_create_nonce' ); ?>
-			<?php submit_button( __( 'Add', $this->plugin_name ), 'primary', 'submit', true ); ?>
+	<?php wp_nonce_field( 'pvmi_admin_create', 'pvmi_admin_create_nonce' ); ?>
+	<?php submit_button( __( 'Add', $this->plugin_name ), 'primary', 'submit', true ); ?>
 		</p>
 	</form>
 </div>

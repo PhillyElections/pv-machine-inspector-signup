@@ -19,10 +19,10 @@
  * For more information, see the following discussion:
  * https://github.com/tommcfarlin/WordPress-Plugin-Boilerplate/pull/123#issuecomment-28541913
  *
- * @link       philadelphiavotes.com
- * @since      1.0.0
+ * @link  philadelphiavotes.com
+ * @since 1.0.0
  *
- * @package    Pv_Machine_Inspector_Signup
+ * @package Pv_Machine_Inspector_Signup
  */
 
 // If uninstall not called from WordPress, then exit.

@@ -4,10 +4,10 @@
  *
  * This file is used to markup the admin-facing aspects of the plugin.
  *
- * @link	   philadelphiavotes.com
- * @since	   1.0.0
+ * @link  philadelphiavotes.com
+ * @since 1.0.0
  *
- * @package	   Pv_Machine_Inspector_Signup
+ * @package    Pv_Machine_Inspector_Signup
  * @subpackage Pv_Machine_Inspector_Signup/admin/partials
  */
 
@@ -69,11 +69,11 @@ $select->get_combo_data( 'state' );
 				<td>
 					<input name="item" value="<?php echo esc_attr( $row->id ); ?>" type="hidden">
 					<input name="action" value="pvmi_admin_update" type="hidden">
-					<?php wp_nonce_field( 'pvmi_admin_update_' . $row->id, 'pvmi_admin_update_nonce' ); ?>
-					<?php submit_button( __( 'Save', $this->plugin_name ), 'primary', 'submit', true ); ?>
+		<?php wp_nonce_field( 'pvmi_admin_update_' . $row->id, 'pvmi_admin_update_nonce' ); ?>
+		<?php submit_button( __( 'Save', $this->plugin_name ), 'primary', 'submit', true ); ?>
 				</td>
 				<td>
-					<?php submit_button( __( 'Cancel', $this->plugin_name ), 'primary', 'cancel', true ); ?>
+		<?php submit_button( __( 'Cancel', $this->plugin_name ), 'primary', 'cancel', true ); ?>
 				</td>
 			</tr>
 		</p>

@@ -4,8 +4,8 @@
  *
  * This file is used to markup the admin-facing aspects of the plugin.
  *
- * @link       philadelphiavotes.com
- * @since      1.0.0
+ * @link  philadelphiavotes.com
+ * @since 1.0.0
  *
  * @package    Pv_Machine_Inspector_Signup
  * @subpackage Pv_Machine_Inspector_Signup/admin/partials
@@ -31,7 +31,8 @@ header( 'Content-Disposition:attachment;filename=' . $export_filename );
 
 $output = fopen( 'php://output', 'w' );
 
-fputcsv( $output,
+fputcsv(
+	$output,
 	array(
 		'Id',
 		'Division',
@@ -56,7 +57,8 @@ foreach ( $rows as $row ) {
 	$matches     = '';
 	preg_match( '/^(\d{3})(\d{3})(\d{4})$/', $row->phone, $matches );
 
-	fputcsv( $output,
+	fputcsv(
+		$output,
 		array(
 			esc_html( $row->id ),
 			esc_html( $row->division ),

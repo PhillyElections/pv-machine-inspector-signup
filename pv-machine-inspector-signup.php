@@ -8,9 +8,9 @@
  * registers the activation and deactivation functions, and defines a function
  * that starts the plugin.
  *
- * @link              philadelphiavotes.com
- * @since             1.0.0
- * @package           Pv_Machine_Inspector_Signup
+ * @link    philadelphiavotes.com
+ * @since   1.0.0
+ * @package Pv_Machine_Inspector_Signup
  *
  * @wordpress-plugin
  * Plugin Name:       machine inspector signup
@@ -35,7 +35,7 @@ if ( ! defined( 'WPINC' ) ) {
  * This action is documented in includes/class-pv-machine-inspector-signup-activator.php
  */
 function activate_pv_machine_inspector_signup() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-pv-machine-inspector-signup-activator.php';
+	include_once plugin_dir_path( __FILE__ ) . 'includes/class-pv-machine-inspector-signup-activator.php';
 
 	$activator = new Pv_Machine_Inspector_Signup_Activator();
 	$activator->activate();
@@ -46,9 +46,9 @@ function activate_pv_machine_inspector_signup() {
  * This action is documented in includes/class-pv-machine-inspector-signup-deactivator.php
  */
 function deactivate_pv_machine_inspector_signup() {
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-pv-machine-inspector-signup-deactivator.php';
-	
-	$deactivator = new Pv_Machine_Inspector_Signup_Deactivator();
+	include_once plugin_dir_path( __FILE__ ) . 'includes/class-pv-machine-inspector-signup-deactivator.php';
+
+		$deactivator = new Pv_Machine_Inspector_Signup_Deactivator();
 	$deactivator->deactivate();
 }
 
@@ -68,7 +68,7 @@ require_once plugin_dir_path( __FILE__ ) . 'includes/class-pv-machine-inspector-
  * then kicking off the plugin from this point in the file does
  * not affect the page life cycle.
  *
- * @since    1.0.0
+ * @since 1.0.0
  */
 function run_pv_machine_inspector_signup() {
 

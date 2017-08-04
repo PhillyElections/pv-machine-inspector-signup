@@ -2,14 +2,14 @@
 /**
  * Fired during plugin activation
  *
- * @link       philadelphiavotes.com
- * @since      1.0.0
+ * @link  philadelphiavotes.com
+ * @since 1.0.0
  *
  * @package    Pv_Machine_Inspector_Signup
  * @subpackage Pv_Machine_Inspector_Signup/includes
  */
 
-if ( ! class_exists('Pv_Machine_Inspector_Signup_Activator') ) {
+if ( ! class_exists( 'Pv_Machine_Inspector_Signup_Activator' ) ) {
 	/**
 	 * Fired during plugin activation.
 	 *
@@ -22,16 +22,17 @@ if ( ! class_exists('Pv_Machine_Inspector_Signup_Activator') ) {
 	 */
 	class Pv_Machine_Inspector_Signup_Activator {
 
+
 		/**
 		 * Short Description. (use period)
 		 *
 		 * Long Description.
 		 *
-		 * @since    1.0.0
+		 * @since 1.0.0
 		 */
 		public static function activate() {
 
-			require_once plugin_dir_path( dirname( __FILE__ ) ) . 'setup/setup.php';
+			include_once plugin_dir_path( dirname( __FILE__ ) ) . 'setup/setup.php';
 
 			$setup = new Pv_Machine_Inspector_Signup_Db();
 			$setup->create();

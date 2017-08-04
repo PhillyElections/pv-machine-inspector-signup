@@ -2,8 +2,8 @@
 /**
  * Specific DB model
  *
- * @link       philadelphiavotes.com
- * @since      1.0.0
+ * @link  philadelphiavotes.com
+ * @since 1.0.0
  *
  * @package    Pv_Machine_Inspector_Signup
  * @subpackage Pv_Machine_Inspector_Signup/Db
@@ -18,6 +18,7 @@ if ( class_exists( 'Pv_Core_Messaging' ) && ! class_exists( 'Pv_Machine_Inspecto
 	 * Local messaging instance
 	 */
 	class Pv_Machine_Inspector_Signup_Messaging extends Pv_Core_Messaging {
+
 
 	}
 }

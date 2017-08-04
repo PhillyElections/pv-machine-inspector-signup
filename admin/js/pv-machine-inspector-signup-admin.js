@@ -1,8 +1,9 @@
-(function($, w) {
-    'use strict';
+(function ($, w) {
+	'use strict';
 
-    $(function() {
+	$(function () {
 
-    });
+		}
+	);
 
 })(jQuery, window);
