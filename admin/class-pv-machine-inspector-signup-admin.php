@@ -21,6 +21,14 @@
  **/
 class Pv_Machine_Inspector_Signup_Admin {
 
+	/**
+	 * The configurator object.
+	 *
+	 * @since  1.0.0
+	 * @access private
+	 * @var    mixed
+	 */
+	private $configurator;
 
 	/**
 	 * The helpers object.
@@ -159,6 +167,21 @@ class Pv_Machine_Inspector_Signup_Admin {
 
 	}
 
+	/**
+	 * Load up configurator
+	 *
+	 * @return void
+	 */
+	private function get_configurator() {
+
+		if ( ! $this->configurator ) {
+
+			include_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-pv-machine-inspector-signup-configurator.php';
+
+			$this->configurator = new Pv_Machine_Inspector_Signup_Configuration( $this->plugin_name );
+		}
+
+	}
 
 	/**
 	 * Load up a model
@@ -233,6 +256,35 @@ class Pv_Machine_Inspector_Signup_Admin {
 	}
 
 	// processing actions.
+	// processing actions.
+	/**
+	 * Config plugin
+	 */
+	public function config() {
+
+		$data = $_REQUEST;
+
+		if ( check_admin_referer( 'pvmi_admin_config', 'pvmi_admin_config_nonce' ) ) {
+
+			$this->get_configurator();
+			$configurator = $this->configurator;
+
+			if ( ! $this->configurator->update( $data ) ) {
+				$status = 'error';
+				$message = 'Something went wrong.';
+			} else {
+				$status = 'success';
+				$message = 'Signups configured successfully.';
+			}
+		} else {
+			$status = 'error';
+			$message = 'Nonce failure.';
+		}
+
+		wp_redirect( admin_url( 'admin.php?page=' . $this->plugin_name . '&current=' . urlencode( $this->get_current() ) . '&pvstatus=' . urlencode( $status ) . '&pvmessage=' . urlencode( $message ) ) );
+
+	}
+
 	/**
 	 * Create a record
 	 */
