@@ -28,7 +28,7 @@ $current_param = '&current=' . $pagination->current;
 		<?php esc_html_e( 'Id', $this->plugin_name ); ?>
 				</th>
 				<th class="column-id">
-		<?php esc_html_e( 'Division', $this->plugin_name ); ?>
+		<?php esc_html_e( 'Precint', $this->plugin_name ); ?>
 				</th>
 				<th class="column-title">
 		<?php esc_html_e( 'Name', $this->plugin_name ); ?>
