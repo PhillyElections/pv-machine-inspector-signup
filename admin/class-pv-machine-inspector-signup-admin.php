@@ -171,8 +171,8 @@ class Pv_Machine_Inspector_Signup_Admin {
 
 			$helpers = array();
 
-			include_once WP_PLUGIN_DIR . '/pv-core/helpers/pv-core-helper-select.php' ;
-			include_once WP_PLUGIN_DIR . '/pv-core/helpers/pv-core-helper-paginator.php' ;
+			include_once WP_PLUGIN_DIR . '/pv-core/helpers/class-pv-core-helper-select.php' ;
+			include_once WP_PLUGIN_DIR . '/pv-core/helpers/class-pv-core-helper-paginator.php' ;
 
 			$helpers['select'] = new Pv_Core_Helper_Select();
 			$helpers['paginator'] = new Pv_Core_Helper_Paginator();

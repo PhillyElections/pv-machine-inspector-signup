@@ -11,7 +11,7 @@
  */
 
 // include messaging.
-require_once WP_PLUGIN_DIR . '/pv-core/classes/class-pv-core-messaging.php';
+require_once WP_PLUGIN_DIR . '/pv-core/includes/class-pv-core-messaging.php';
 
 if ( class_exists( 'Pv_Core_Messaging' ) && ! class_exists( 'Pv_Machine_Inspector_Signup_Messaging' ) ) {
 	/**

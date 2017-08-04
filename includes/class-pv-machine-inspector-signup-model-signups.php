@@ -11,7 +11,7 @@
  */
 
 // include model.
-require_once WP_PLUGIN_DIR . '/pv-core/classes/class-pv-core-model.php' ;
+require_once WP_PLUGIN_DIR . '/pv-core/includes/class-pv-core-model.php' ;
 
 if ( class_exists( 'Pv_Core_Model' ) && ! class_exists( 'Pv_Machine_Inspector_Signup_Model_Signups' ) ) {
 	/**
@@ -81,7 +81,7 @@ if ( class_exists( 'Pv_Core_Model' ) && ! class_exists( 'Pv_Machine_Inspector_Si
 
 			if ( ! $this->address_lookup ) {
 				// include division-lookup.
-				include_once WP_PLUGIN_DIR . '/pv-core/classes/class-pv-core-address-lookup.php';
+				include_once WP_PLUGIN_DIR . '/pv-core/includes/class-pv-core-address-lookup.php';
 				$this->address_lookup = new Pv_Core_Address_Lookup();
 			}
 		}
