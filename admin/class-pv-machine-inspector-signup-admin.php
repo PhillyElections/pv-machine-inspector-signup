@@ -248,7 +248,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 			$valid = $validator->run();
 
 			// Overwrite alert.
-			$data = $validator->get_data();
+			$data = $validator->__get( 'data' );
 
 			if ( ! $valid ) {
 				$status = 'error';
@@ -282,7 +282,8 @@ class Pv_Machine_Inspector_Signup_Admin {
 	 */
 	public function read() {
 
-		if ( isset( $_REQUEST['item'] ) && $item = (int) $_REQUEST['item'] ) {
+		if ( isset( $_REQUEST['item'] ) &&
+			$item = (int) $_REQUEST['item'] ) {
 			return $this->models->signups->get_row( $item );
 		}
 
@@ -337,10 +338,10 @@ class Pv_Machine_Inspector_Signup_Admin {
 	 */
 	public function delete() {
 
-		$nonce = wp_verify_nonce( sanitize_text_field( wp_unslash( $_REQUEST['_wpnonce'] ) ), 'pvmi_admin_delete' );
+		if ( isset( $_REQUEST['_wpnonce'] ) && wp_verify_nonce( sanitize_key( $_REQUEST['_wpnonce'] ), 'pvmi_admin_delete' ) ) {
 
-		if ( $nonce ) {
-			if ( isset( $_REQUEST['item'] ) && $item = (int) $_REQUEST['item'] ) {
+			if ( isset( $_REQUEST['item'] ) &&
+				$item = (int) sanitize_key( $_REQUEST['item'] ) ) {
 				if ( ! $this->models->signups->delete( $item ) ) {
 					$status = 'error';
 					$message = 'Something went wrong.';
@@ -353,8 +354,10 @@ class Pv_Machine_Inspector_Signup_Admin {
 				$message = 'No item specified for deletion.';
 			}
 		} else {
+
 			$status = 'error';
 			$message = 'bad request.';
+
 		}
 
 		wp_redirect( admin_url( 'admin.php?page=' . $this->plugin_name . '&pvstatus=' . urlencode( $status ) . '&pvmessage=' . urlencode( $message ) ) );
@@ -365,9 +368,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 	 */
 	public function delete_all() {
 
-		$nonce = wp_verify_nonce( sanitize_text_field( wp_unslash( $_REQUEST['_wpnonce'] ) ), 'pvmi_admin_delete_all' );
-
-		if ( $nonce ) {
+		if ( isset( $_REQUEST['_wpnonce'] ) && wp_verify_nonce( sanitize_key( $_REQUEST['_wpnonce'] ), 'pvmi_admin_delete_all' ) ) {
 			if ( ! $this->models->signups->delete_all() ) {
 				$status = 'error';
 				$message = 'Something went wrong.';

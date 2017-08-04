@@ -11,7 +11,7 @@
  * @subpackage Pv_Machine_Inspector_Signup/admin/partials
  */
 
-// load rows (gotta load rows before loading paginator)
+// load rows (gotta load rows before loading paginator).
 $rows = $this->list();
 
 // load paginator.
