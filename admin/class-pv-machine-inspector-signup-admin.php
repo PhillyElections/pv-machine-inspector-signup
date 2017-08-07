@@ -249,12 +249,10 @@ class Pv_Machine_Inspector_Signup_Admin {
 		if ( ! $this->validator ) {
 
 			include_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-pv-machine-inspector-signup-validation-signups.php';
-
-			$this->validator['signups'] = new Pv_Machine_Inspector_Signup_Validation_Signups();
-
 			include_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-pv-machine-inspector-signup-validation-config.php';
 
-			$this->validator['config'] = new Pv_Machine_Inspector_Signup_Validation_Signups();
+			$this->validator['signups'] = new Pv_Machine_Inspector_Signup_Validation_Signups();
+			$this->validator['config'] = new Pv_Machine_Inspector_Signup_Validation_Config();
 
 		}
 
@@ -270,7 +268,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 
 		if ( check_admin_referer( $this->plugin_name . '_admin_config', $this->plugin_name . '_admin_config_nonce' ) ) {
 
-dd($data);
+d('nonce passed', $data);
 
 			$this->get_configurator();
 			$configurator = $this->configurator;
