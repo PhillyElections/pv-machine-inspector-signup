@@ -267,7 +267,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 	public function config() {
 
 		$data = $_REQUEST;
-
+dd($data);
 		if ( check_admin_referer( $this->plugin_name . '_admin_config', $this->plugin_name . '_admin_config_nonce' ) ) {
 
 			$this->get_configurator();
