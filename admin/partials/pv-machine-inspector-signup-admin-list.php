@@ -17,7 +17,7 @@ $rows = $this->list();
 // load paginator.
 $paginator = &$this->helpers->paginator;
 $pagination = $this->models->signups->get_pagination();
-$paginator->setup( $this->plugin_name, $pagination );
+$paginator->setup( $this->plugin_name, $pagination, true, true ); // exportable and deletable.
 $current_param = '&current=' . $pagination->current;
 ?>
 <div id="pv-list" class="wrap metabox-holder columns-9 pv-metaboxes <?php echo ( 'edit' === $action ) ? 'hidden' : ''; ?>">
