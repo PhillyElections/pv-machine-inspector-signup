@@ -66,7 +66,7 @@ $current_param = '&current=' . $pagination->current;
 		$matches     = '';
 		preg_match( '/^(\d{3})(\d{3})(\d{4})$/', $row->phone, $matches );
 	?>
-	 <tr>
+	 		<tr>
 				<td>
 		<?php echo esc_html( $row->id ); ?>
 				</td>
@@ -97,7 +97,7 @@ $current_param = '&current=' . $pagination->current;
 						<span class="edit"><a href="<?php echo esc_attr( $edit_link ); ?>" aria-label="Edit">Edit</a></span>
 					</div>
 				</td>
-	 </tr>
+	 		</tr>
 	<?php
 	endforeach;
 	?>
