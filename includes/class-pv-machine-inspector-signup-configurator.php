@@ -1,6 +1,6 @@
 <?php
 /**
- * Fired during plugin activation
+ * Local instance
  *
  * @link  philadelphiavotes.com
  * @since 1.0.0
@@ -9,21 +9,14 @@
  * @subpackage Pv_Machine_Inspector_Signup/includes
  */
 
-if ( ! class_exists( 'Pv_Machine_Inspector_Signup_Configurator' ) ) {
+// include configurator.
+require_once WP_PLUGIN_DIR . '/pv-core/includes/class-pv-core-configurator.php' ;
+
+if ( class_exists( 'Pv_Core_Configurator' ) && ! class_exists( 'Pv_Machine_Inspector_Signup_Configurator' ) ) {
 	/**
-	 * Fired during plugin activation.
-	 *
-	 * This class defines all code necessary to run during the plugin's activation.
-	 *
-	 * @since      1.0.0
-	 * @package    Pv_Machine_Inspector_Signup
-	 * @subpackage Pv_Machine_Inspector_Signup/includes
-	 * @author     matthew murphy <matthew.e.murphy@phila.gov>
+	 * Signup configurator.
 	 */
-	class Pv_Machine_Inspector_Signup_Configurator {
+	class Pv_Machine_Inspector_Signup_Configurator extends Pv_Core_Configurator {
 
-		static public function get_configuration() {
-
-		}
 	}
 }
