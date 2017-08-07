@@ -234,7 +234,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 
 			include_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-pv-machine-inspector-signup-model-signups.php';
 
-			$models['signups'] = new Pv_Machine_Inspector_Signup_Model_Signups();
+			$models['signups'] = new Pv_Machine_Inspector_Signup_Model_Signups( $this->get_config() );
 
 			$this->models = (object) $models;
 		}
@@ -251,6 +251,11 @@ class Pv_Machine_Inspector_Signup_Admin {
 			include_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-pv-machine-inspector-signup-validation-signups.php';
 
 			$this->validator['signups'] = new Pv_Machine_Inspector_Signup_Validation_Signups();
+
+			include_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-pv-machine-inspector-signup-validation-config.php';
+
+			$this->validator['config'] = new Pv_Machine_Inspector_Signup_Validation_Signups();
+
 		}
 
 	}
@@ -454,7 +459,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 	 */
 	public function get_config() {
 		return (object) array(
-			'api_key' => 'something',
+			'api_key' => 'f2e3e82987f8a1ef78ca9d9d3cfc7f1d',
 			'page_limit' => 15,
 		);
 	}
