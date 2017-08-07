@@ -263,7 +263,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 
 		$data = $_REQUEST;
 
-		if ( check_admin_referer( 'pvmi_admin_config', 'pvmi_admin_config_nonce' ) ) {
+		if ( check_admin_referer( $this->plugin_name . '_admin_config', $this->plugin_name . '_admin_config_nonce' ) ) {
 
 			$this->get_configurator();
 			$configurator = $this->configurator;
@@ -291,7 +291,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 
 		$data = $_REQUEST;
 
-		if ( check_admin_referer( 'pvmi_admin_create', 'pvmi_admin_create_nonce' ) ) {
+		if ( check_admin_referer( $this->plugin_name . '_admin_create', $this->plugin_name . '_admin_create_nonce' ) ) {
 
 			$this->get_validators();
 			$validator = &$this->validator['signups'];
@@ -350,7 +350,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 			$data = $_REQUEST;
 			$item = wp_unslash( (int) $data['item'] );
 
-			if ( check_admin_referer( 'pvmi_admin_update_' . $item, 'pvmi_admin_update_nonce' ) ) {
+			if ( check_admin_referer( $this->plugin_name . '_admin_update_' . $item, $this->plugin_name . '_admin_update_nonce' ) ) {
 
 				$this->get_validators();
 				$validator = &$this->validator['signups'];
@@ -389,7 +389,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 	 */
 	public function delete() {
 
-		if ( isset( $_REQUEST['_wpnonce'] ) && wp_verify_nonce( sanitize_key( $_REQUEST['_wpnonce'] ), 'pvmi_admin_delete' ) ) {
+		if ( isset( $_REQUEST['_wpnonce'] ) && wp_verify_nonce( sanitize_key( $_REQUEST['_wpnonce'] ), $this->plugin_name . '_admin_delete' ) ) {
 
 			if ( isset( $_REQUEST['item'] ) &&
 				$item = (int) sanitize_key( $_REQUEST['item'] ) ) {
@@ -419,7 +419,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 	 */
 	public function delete_all() {
 
-		if ( isset( $_REQUEST['_wpnonce'] ) && wp_verify_nonce( sanitize_key( $_REQUEST['_wpnonce'] ), 'pvmi_admin_delete_all' ) ) {
+		if ( isset( $_REQUEST['_wpnonce'] ) && wp_verify_nonce( sanitize_key( $_REQUEST['_wpnonce'] ), $this->plugin_name . '_admin_delete_all' ) ) {
 			if ( ! $this->models->signups->delete_all() ) {
 				$status = 'error';
 				$message = 'Something went wrong.';
