@@ -85,5 +85,7 @@ if ( class_exists( 'Pv_Core_Model' ) && ! class_exists( 'Pv_Machine_Inspector_Si
 				$this->address_lookup = new Pv_Core_Address_Lookup( $this->config );
 			}
 		}
+
 	}
+
 }
