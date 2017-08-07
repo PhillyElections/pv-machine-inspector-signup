@@ -29,7 +29,7 @@ if ( class_exists( 'Pv_Core_Validation' ) && ! class_exists( 'Pv_Machine_Inspect
 			'api_key' => array(
 				'label' => 'API Key',
 				'required' => true,
-				'sanitize' => array( 'sanitize_text_field' ),
+				'sanitize' => array( 'sanitize_key' ),
 				'validate' => '',
 			),
 			'page_limit' => array(
