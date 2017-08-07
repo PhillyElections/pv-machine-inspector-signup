@@ -14,7 +14,7 @@
 // Includes.
 require_once '../../../../wp-load.php';
 
-$nonce = wp_verify_nonce( sanitize_text_field( wp_unslash( $_REQUEST['_wpnonce'] ) ), 'pvmi_admin_export' );
+$nonce = wp_verify_nonce( sanitize_text_field( wp_unslash( $_REQUEST['_wpnonce'] ) ), 'pv_admin_export' );
 
 if ( ! $nonce ) {
 	die( 'Invalid request.' );
