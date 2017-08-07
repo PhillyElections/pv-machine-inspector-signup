@@ -30,8 +30,8 @@ if ( class_exists( 'Pv_Core_Model' ) && ! class_exists( 'Pv_Machine_Inspector_Si
 		/**
 		 * Constructor override
 		 */
-		public function __construct() {
-			parent::__construct();
+		public function __construct( $config ) {
+			parent::__construct( $config );
 			$this->tablename = 'pv_machine_inspector_signups';
 		}
 
