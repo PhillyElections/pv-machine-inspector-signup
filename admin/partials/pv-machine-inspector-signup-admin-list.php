@@ -105,14 +105,7 @@ $current_param = '&current=' . $pagination->current;
 		<tfoot>
 			<tr>
 				<td colspan="9" class="wrap">
-					<span class="alignleft row-actions visible">
-		<?php echo esc_html( $paginator->get_list_footer() ); ?>
-					</span>
-					<span class="alignright row-actions visible">
-						<span><a target="_blank" href="<?php echo esc_attr( WP_PLUGIN_URL . '/' . $this->plugin_name . '/admin/export.php?' . $current_param . '_wpnonce=' . wp_create_nonce( 'pvmi_admin_export' ) ); ?>" >export all</a></span>
-						<span>|</span>
-						<span class="trash"><a href="<?php echo esc_attr( admin_url( 'admin-post.php?action=pvmi_admin_delete_all' . $current_param . '&_wpnonce=' . wp_create_nonce( 'pvmi_admin_delete_all' ) ) ); ?>" >delete all</a></span>
-					</span>
+		<?php echo esc_html( $paginator->get_footer() ); ?>
 				</td>
 			</tr>
 		</tfoot>
