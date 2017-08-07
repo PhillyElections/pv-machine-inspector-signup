@@ -19,7 +19,6 @@ if ( class_exists( 'Pv_Core_Model' ) && ! class_exists( 'Pv_Machine_Inspector_Si
 	 */
 	class Pv_Machine_Inspector_Signup_Model_Signups extends Pv_Core_Model {
 
-
 		/**
 		 * Address lookup object
 		 *
