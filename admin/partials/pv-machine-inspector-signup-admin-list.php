@@ -60,8 +60,8 @@ $current_param = '&current=' . $pagination->current;
 
 	foreach ( $rows as $row ) :
 		$i++;
-		$delete_link = admin_url( 'admin-post.php?action=pvmi_admin_delete&item=' . $row->id . $current_param . '&_wpnonce=' . wp_create_nonce( 'pvmi_admin_delete' ) );
-		$edit_link   = admin_url( 'admin.php?page=' . $this->plugin_name . '&action=edit&item=' . $row->id . $current_param . '&_wpnonce=' . wp_create_nonce( 'pvmi_admin_edit' ) );
+		$delete_link = admin_url( 'admin-post.php?action=pvmi_admin_delete&item=' . $row->id . $current_param . '&_wpnonce=' . wp_create_nonce( $this->plugin_name . '_admin_delete' ) );
+		$edit_link   = admin_url( 'admin.php?page=' . $this->plugin_name . '&action=edit&item=' . $row->id . $current_param . '&_wpnonce=' . wp_create_nonce( $this->plugin_name . '_admin_edit' ) );
 		$fullname    = $row->first_name . ' ' . ( $row->middle_name ? $row->middle_name . ' ' : '' ) . $row->last_name;
 		$matches     = '';
 		preg_match( '/^(\d{3})(\d{3})(\d{4})$/', $row->phone, $matches );

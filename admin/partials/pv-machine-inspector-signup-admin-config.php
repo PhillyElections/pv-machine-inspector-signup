@@ -31,7 +31,7 @@ $config = $this->get_config();
 		</table>
 		<p class="submit">
 			<input name="action" value="pvmi_admin_config" type="hidden">
-	<?php wp_nonce_field( 'pvmi_admin_config', 'pvmi_admin_config_nonce' ); ?>
+	<?php wp_nonce_field( $this->plugin_name . '_admin_config', $this->plugin_name . '_admin_config_nonce' ); ?>
 	<?php submit_button( __( 'Save Config', $this->plugin_name ), 'primary', 'submit', true ); ?>
 		</p>
 	</form>
