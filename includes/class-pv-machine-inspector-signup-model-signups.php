@@ -29,6 +29,8 @@ if ( class_exists( 'Pv_Core_Model' ) && ! class_exists( 'Pv_Machine_Inspector_Si
 
 		/**
 		 * Constructor override
+		 *
+		 * @param mixed $config plugin configuration.
 		 */
 		public function __construct( $config ) {
 			parent::__construct( $config );
