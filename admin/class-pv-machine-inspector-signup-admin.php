@@ -251,9 +251,10 @@ class Pv_Machine_Inspector_Signup_Admin {
 			include_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-pv-machine-inspector-signup-validation-signups.php';
 			include_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-pv-machine-inspector-signup-validation-config.php';
 
-			$this->validator['signups'] = new Pv_Machine_Inspector_Signup_Validation_Signups();
-			$this->validator['config'] = new Pv_Machine_Inspector_Signup_Validation_Config();
+			$validators['signups'] = new Pv_Machine_Inspector_Signup_Validation_Signups();
+			$validators['config'] = new Pv_Machine_Inspector_Signup_Validation_Config();
 
+			$this->validators = (object) $validators;
 		}
 
 	}
@@ -270,15 +271,28 @@ class Pv_Machine_Inspector_Signup_Admin {
 
 d('nonce passed', $data);
 
+			$this->get_validators();
+			$validator = &$this->validator->config;
+dd($validator);
+			$validator->setup( $data );
+			$valid = $validator->run();
+
 			$this->get_configurator();
 			$configurator = $this->configurator;
 
-			if ( ! $this->configurator->update( $data ) ) {
+			// Overwrite alert.
+			$data = $validator->get_data();
+
+			if ( ! $valid ) {
+				$status = 'error';
+				// i only give a crap about the first error.
+				$message = $validator->get_messages()[0];
+			} elseif ( ! $this->models->signups->insert( $data ) ) {
 				$status = 'error';
 				$message = 'Something went wrong.';
 			} else {
 				$status = 'success';
-				$message = 'Signups configured successfully.';
+				$message = 'Signup added.';
 			}
 		} else {
 			$status = 'error';
@@ -286,7 +300,6 @@ d('nonce passed', $data);
 		}
 
 		wp_redirect( admin_url( 'admin.php?page=' . $this->plugin_name . '&current=' . urlencode( $this->get_current() ) . '&pvstatus=' . urlencode( $status ) . '&pvmessage=' . urlencode( $message ) ) );
-
 	}
 
 	/**
@@ -299,7 +312,7 @@ d('nonce passed', $data);
 		if ( check_admin_referer( $this->plugin_name . '_admin_create', $this->plugin_name . '_admin_create_nonce' ) ) {
 
 			$this->get_validators();
-			$validator = &$this->validator['signups'];
+			$validator = &$this->validator->signups;
 			$validator->setup( $data );
 			$valid = $validator->run();
 
