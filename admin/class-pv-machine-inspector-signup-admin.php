@@ -269,11 +269,11 @@ class Pv_Machine_Inspector_Signup_Admin {
 
 		if ( check_admin_referer( $this->plugin_name . '_admin_config', $this->plugin_name . '_admin_config_nonce' ) ) {
 
-d('nonce passed', $data);
+			d( 'nonce passed', $data );
 
 			$this->get_validators();
 			$validator = &$this->validator->config;
-dd($validator);
+			dd( $validator );
 			$validator->setup( $data );
 			$valid = $validator->run();
 
@@ -471,6 +471,8 @@ dd($validator);
 	 * Write Configuration
 	 */
 	public function get_config() {
+		$options = get_option( $this->plugin_name );
+		d( $options );
 		return (object) array(
 			'api_key' => 'f2e3e82987f8a1ef78ca9d9d3cfc7f1d',
 			'page_limit' => 15,
