@@ -16,7 +16,7 @@ d( $config );
 ?>
 <div id="pv-config" class="wrap metabox-holder columns-2 pv-metaboxes hidden">
 	<h2><?php esc_attr_e( 'Configure', $this->plugin_name ); ?></h2>
-	<form method="post" name="machine_inspector_config" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>">
+	<form method="post" name="machine_inspector_config" action="<?php echo esc_url( admin_url( 'options.php' ) ); ?>">
 		<table class="form-table">
 			<tbody>
 				<tr class="form-field form-required">

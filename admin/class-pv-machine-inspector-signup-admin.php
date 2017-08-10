@@ -28,7 +28,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 	 * @access private
 	 * @var    mixed
 	 */
-	private $configurator;
+	private $config;
 
 	/**
 	 * The helpers object.
@@ -73,7 +73,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 	 * @access private
 	 * @var    mixed
 	 */
-	private $validator;
+	private $validators;
 
 	/**
 	 * The version of this plugin.
@@ -95,6 +95,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
+		$this->config = get_option( $this->plugin_name );
 
 		// needed admin classes.
 		$this->get_helpers();
@@ -246,7 +247,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 	 */
 	private function get_validators() {
 
-		if ( ! $this->validator ) {
+		if ( ! $this->validators ) {
 
 			include_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-pv-machine-inspector-signup-validation-signups.php';
 			include_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-pv-machine-inspector-signup-validation-config.php';
@@ -263,7 +264,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 	/**
 	 * Config plugin
 	 */
-	public function config() {
+	public function validate_config() {
 
 		$data = $_REQUEST;
 
@@ -273,33 +274,11 @@ class Pv_Machine_Inspector_Signup_Admin {
 
 			$this->get_validators();
 			$validator = &$this->validator->config;
-			dd( $validator );
+
 			$validator->setup( $data );
-			$valid = $validator->run();
-
-			$this->get_configurator();
-			$configurator = $this->configurator;
-
-			// Overwrite alert.
-			$data = $validator->get_data();
-
-			if ( ! $valid ) {
-				$status = 'error';
-				// i only give a crap about the first error.
-				$message = $validator->get_messages()[0];
-			} elseif ( ! $this->models->signups->insert( $data ) ) {
-				$status = 'error';
-				$message = 'Something went wrong.';
-			} else {
-				$status = 'success';
-				$message = 'Signup added.';
-			}
-		} else {
-			$status = 'error';
-			$message = 'Nonce failure.';
+			return $validator->run();
 		}
-
-		wp_redirect( admin_url( 'admin.php?page=' . $this->plugin_name . '&current=' . urlencode( $this->get_current() ) . '&pvstatus=' . urlencode( $status ) . '&pvmessage=' . urlencode( $message ) ) );
+		return false;
 	}
 
 	/**
@@ -471,19 +450,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 	 * Write Configuration
 	 */
 	public function get_config() {
-		$options = get_option( $this->plugin_name );
-
-		return (object) array(
-			'api_key' => 'f2e3e82987f8a1ef78ca9d9d3cfc7f1d',
-			'page_limit' => 15,
-			'options' => $options,
-		);
+		return $this->config;
 	}
 
-	/**
-	 * Write Configuration
-	 */
-	public function set_config() {
-
-	}
 }
