@@ -12,7 +12,7 @@
  */
 
 $config = $this->get_config();
-
+d( $config );
 ?>
 <div id="pv-config" class="wrap metabox-holder columns-2 pv-metaboxes hidden">
 	<h2><?php esc_attr_e( 'Configure', $this->plugin_name ); ?></h2>
