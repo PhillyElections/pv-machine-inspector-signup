@@ -472,7 +472,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 	 */
 	public function get_config() {
 		$options = get_option( $this->plugin_name );
-		d( $options );
+		// d( $options );
 		return (object) array(
 			'api_key' => 'f2e3e82987f8a1ef78ca9d9d3cfc7f1d',
 			'page_limit' => 15,
