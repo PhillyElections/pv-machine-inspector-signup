@@ -459,4 +459,28 @@ class Pv_Machine_Inspector_Signup_Admin {
 	public function show_config_form() {
 		include_once 'partials/pv-machine-inspector-signup-admin-config.php' ;
 	}
+
+	/**
+	 * Add settings action link to the plugins page.
+	 *
+	 * @since    1.0.0
+	 */
+	public function add_action_links( $links ) {
+		return array_merge(
+			array(
+				'settings' => '<a href="' . admin_url( 'options-general.php?page=' . $this->plugin_name ) . '">' . __( 'Settings', $this->plugin_name ) . '</a>',
+			),
+			$links
+		);
+	}
+
+	/**
+	 *  Save the plugin options
+	 *
+	 * @since    1.0.0
+	 */
+	public function options_update() {
+		register_setting( $this->plugin_name, $this->plugin_name, array( $this, 'validate' ) );
+	}
+
 }
