@@ -13,6 +13,14 @@
 
 $config = $this->get_config();
 d( $config );
+
+/*
+* Set up hidden fields
+*
+*/
+settings_fields( $this->plugin_name );
+do_settings_sections( $this->plugin_name );
+
 ?>
 <div id="pv-config" class="wrap metabox-holder columns-2 pv-metaboxes hidden">
 	<h2><?php esc_attr_e( 'Configure', $this->plugin_name ); ?></h2>

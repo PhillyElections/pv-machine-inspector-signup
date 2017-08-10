@@ -14,16 +14,6 @@
 // Grab option values if already set.
 $options = get_option( $this->plugin_name );
 
-// options.
-$o_lock_deactivate = $options['lock_deactivate'];
-$o_admin_footer_text  = $options['admin_footer_text'];
-
-/*
-* Set up hidden fields
-*
-*/
-settings_fields( $this->plugin_name );
-do_settings_sections( $this->plugin_name );
 
 ?>
 <div class="wrap">
