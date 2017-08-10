@@ -453,4 +453,10 @@ class Pv_Machine_Inspector_Signup_Admin {
 		return $this->config;
 	}
 
+	/**
+	 * Show config form
+	 */
+	public function show_config_form() {
+		include_once 'partials/pv-machine-inspector-signup-admin-config.php' ;
+	}
 }

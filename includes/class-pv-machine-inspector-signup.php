@@ -143,9 +143,14 @@ if ( ! class_exists( 'Pv_Machine_Inspector_Signup' ) ) {
 		private function define_admin_hooks() {
 
 			$plugin_admin = new Pv_Machine_Inspector_Signup_Admin( $this->get_plugin_name(), $this->get_version() );
+			$plugin_basename = plugin_basename( plugin_dir_path( __DIR__ ) . $this->plugin_name . '.php' );
 
 			// bind in our parent menu item.
 			$this->loader->add_action( 'admin_menu', $plugin_admin, 'add_plugin_admin_child_menu' );
+
+			// options processing.
+			$this->loader->add_action( 'admin_init', $plugin_admin, 'options_update' );
+			$this->loader->add_filter( 'plugin_action_links_' . $plugin_basename, $plugin_admin, 'add_action_links' );
 
 			// script and style loads.
 			$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
