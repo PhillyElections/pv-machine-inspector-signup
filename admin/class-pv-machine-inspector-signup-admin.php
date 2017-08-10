@@ -463,7 +463,9 @@ class Pv_Machine_Inspector_Signup_Admin {
 	/**
 	 * Add settings action link to the plugins page.
 	 *
-	 * @since    1.0.0
+	 * @param mixed $links supposedly, links.
+	 *
+	 * @return  mixed merged links.
 	 */
 	public function add_action_links( $links ) {
 		return array_merge(
@@ -480,7 +482,7 @@ class Pv_Machine_Inspector_Signup_Admin {
 	 * @since    1.0.0
 	 */
 	public function options_update() {
-		register_setting( $this->plugin_name, $this->plugin_name, array( $this, 'validate' ) );
+		register_setting( $this->plugin_name, $this->plugin_name, array( $this, 'validate_config' ) );
 	}
 
 }
