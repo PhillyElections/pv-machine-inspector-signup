@@ -152,7 +152,7 @@ if ( ! class_exists( 'Pv_Machine_Inspector_Signup' ) ) {
 			$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
 
 			// form processing.
-			$this->loader->add_action( 'admin_post_pvmi_admin_config', $plugin_admin, 'config' );
+			register_setting( $this->plugin_name, $this->plugin_name, array( $plugin_admin, 'validate_config' ) );
 			$this->loader->add_action( 'admin_post_pvmi_admin_create', $plugin_admin, 'create' );
 			$this->loader->add_action( 'admin_post_pvmi_admin_delete', $plugin_admin, 'delete' );
 			$this->loader->add_action( 'admin_post_pvmi_admin_delete_all', $plugin_admin, 'delete_all' );
