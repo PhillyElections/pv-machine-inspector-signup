@@ -43,7 +43,6 @@ do_settings_sections( $this->plugin_name );
 	<h2 class="nav-tab-wrapper">
 		<a href="#pv-list" class="nav-tab nav-tab-active"><?php esc_html_e( 'List', $this->plugin_name ); ?></a>
 		<a href="#pv-add" class="nav-tab"><?php esc_html_e( 'Add', $this->plugin_name ); ?></a>
-		<a href="#pv-config" class="nav-tab"><?php esc_html_e( 'Config', $this->plugin_name ); ?></a>
 	</h2>
 	<?php
 		include_once 'pv-machine-inspector-signup-admin-list.php' ;
